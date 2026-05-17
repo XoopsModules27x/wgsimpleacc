@@ -1,0 +1,221 @@
+<div id="help-template" class="outer">
+    <h1 class="head">Hilfe:
+        <a class="ui-corner-all tooltip" href="<{$xoops_url}>/modules/wgsimpleacc/admin/index.php"
+           title="Back to the administration of wgSimpleAcc"> wgSimpleAcc <img src="<{xoAdminIcons 'home.png'}>"
+                                                                       alt="Back to the Administration of wgSimpleAcc">
+        </a></h1>
+    <!-- -----Help Content ---------- -->
+    <h1>wgSimpleAcc – Benutzerhandbuch & Anleitung</h1>
+
+    <p>
+        wgSimpleAcc ist ein einfaches Buchhaltungsmodul für das XOOPS CMS, das entwickelt wurde, um Einnahmen, Ausgaben, Konten und Finanzberichte strukturiert und benutzerfreundlich zu verwalten.
+        Diese Anleitung erklärt Installation, Konfiguration und tägliche Nutzung.
+    </p>
+
+    <hr>
+
+    <h2>1. Installation</h2>
+
+    <h3>Schritt 1: Modul hochladen</h3>
+    <ul>
+        <li>Laden Sie das Modul aus dem GitHub-Repository herunter.</li>
+        <li>Entpacken Sie das Archiv.</li>
+        <li>Laden Sie den Ordner <strong>wgsimpleacc</strong> in Ihr XOOPS-Verzeichnis <code>/modules/</code> hoch.</li>
+    </ul>
+
+    <h3>Schritt 2: Installation im XOOPS-Adminbereich</h3>
+    <ul>
+        <li>Melden Sie sich im XOOPS Adminbereich an.</li>
+        <li>Gehen Sie zu <strong>System → Module</strong>.</li>
+        <li>Suchen Sie <strong>wgSimpleAcc</strong> und klicken Sie auf <strong>Installieren</strong>.</li>
+        <li>Bestätigen Sie die Installation und warten Sie den Abschluss ab.</li>
+    </ul>
+
+    <hr>
+
+    <h2>2. Erste Konfiguration</h2>
+
+    <p>Nach der Installation sollte das Modul vor der Nutzung konfiguriert werden.</p>
+
+    <ul>
+        <li>Gehen Sie zu <strong>wgSimpleAcc → Einstellungen</strong></li>
+        <li>Standardwährung festlegen</li>
+        <li>Steuereinstellungen konfigurieren (falls erforderlich)</li>
+        <li>Funktionen wie Abteilungen, Kunden oder Vermögenswerte aktivieren oder deaktivieren</li>
+    </ul>
+
+    <hr>
+
+    <h2>3. Benutzerrollen & Berechtigungen</h2>
+
+    <p>
+        wgSimpleAcc verfügt über ein flexibles Berechtigungssystem zur Steuerung des Zugriffs auf Finanzdaten.
+    </p>
+
+    <h3>Berechtigungsarten</h3>
+    <ul>
+        <li><strong>Ansichtsberechtigung</strong> – Ermöglicht das Anzeigen von Finanzdaten</li>
+        <li><strong>Erfassungsberechtigung</strong> – Ermöglicht das Erstellen von Einnahmen- und Ausgabenbuchungen</li>
+        <li><strong>Freigabeberechtigung</strong> – Ermöglicht das Genehmigen oder Ablehnen von Buchungen</li>
+    </ul>
+
+    <h3>Berechtigungen einstellen</h3>
+    <ul>
+        <li>Gehen Sie zu <strong>System → Gruppen</strong></li>
+        <li>Bearbeiten Sie eine Gruppe (z. B. Registrierte Benutzer, Administratoren)</li>
+        <li>Weisen Sie die Modulrechte für wgSimpleAcc zu</li>
+    </ul>
+
+    <hr>
+
+    <h2>4. Grundbegriffe</h2>
+
+    <h3>Konten</h3>
+    <p>
+        Konten sind finanzielle Behälter wie Bankkonten, Kassen oder Geldbörsen.
+        Alle Transaktionen sind einem Konto zugeordnet.
+    </p>
+
+    <h3>Einnahmen & Ausgaben</h3>
+    <ul>
+        <li><strong>Einnahmen</strong> – Geldzuflüsse (Spenden, Verkäufe, Beiträge)</li>
+        <li><strong>Ausgaben</strong> – Geldabflüsse (Rechnungen, Einkäufe, Dienstleistungen)</li>
+    </ul>
+
+    <h3>Abteilungen / Zuordnungen</h3>
+    <p>
+        Dienen zur Kategorisierung von Buchungen nach internen Strukturen wie Abteilungen, Projekten oder Aktivitäten.
+    </p>
+
+    <h3>Kunden</h3>
+    <p>
+        Optionale Funktion zur Zuordnung von Transaktionen zu Personen oder Organisationen.
+    </p>
+
+    <h3>Steuern</h3>
+    <p>
+        Definition von Steuersätzen zur automatischen Berechnung in Buchungen.
+    </p>
+
+    <h3>Währungen</h3>
+    <p>
+        Unterstützung für mehrere Währungen je nach Konfiguration.
+    </p>
+
+    <hr>
+
+    <h2>5. Finanzbuchungen hinzufügen</h2>
+
+    <h3>Einnahme hinzufügen</h3>
+    <ol>
+        <li>Gehen Sie zu <strong>Einnahmen → Neu hinzufügen</strong></li>
+        <li>Konto auswählen</li>
+        <li>Betrag eingeben</li>
+        <li>Kategorie/Abteilung auswählen</li>
+        <li>Optional Kunden und Steuer hinzufügen</li>
+        <li>Eintrag speichern</li>
+    </ol>
+
+    <h3>Ausgabe hinzufügen</h3>
+    <ol>
+        <li>Gehen Sie zu <strong>Ausgaben → Neu hinzufügen</strong></li>
+        <li>Konto auswählen</li>
+        <li>Betrag und Beschreibung eingeben</li>
+        <li>Kategorie/Abteilung auswählen</li>
+        <li>Dokumente anhängen (optional)</li>
+        <li>Eintrag speichern</li>
+    </ol>
+
+    <hr>
+
+    <h2>6. Freigabe-Workflow</h2>
+
+    <p>
+        Wenn die Freigabe aktiviert ist, müssen Einträge überprüft werden.
+    </p>
+
+    <ul>
+        <li>Benutzer erstellen Buchungen (Status: „ausstehend“)</li>
+        <li>Prüfer kontrollieren die Daten</li>
+        <li>Buchungen werden genehmigt oder abgelehnt</li>
+        <li>Nur genehmigte Einträge erscheinen in offiziellen Berichten</li>
+    </ul>
+
+    <hr>
+
+    <h2>7. Berichte & Dashboard</h2>
+
+    <p>
+        wgSimpleAcc bietet Finanzübersichten und Berichte.
+    </p>
+
+    <ul>
+        <li>Kontoübersicht</li>
+        <li>Diagramme für Einnahmen und Ausgaben (Chart.js)</li>
+        <li>Abteilungsbasierte Auswertungen</li>
+        <li>Zeitbasierte Finanzberichte</li>
+    </ul>
+
+    <hr>
+
+    <h2>8. Dateianhänge</h2>
+
+    <p>
+        Sie können Dokumente wie Rechnungen oder Belege zu Buchungen hinzufügen.
+    </p>
+
+    <ul>
+        <li>Unterstützte Dateitypen hängen von den XOOPS-Einstellungen ab</li>
+        <li>Dateien werden sicher im Modulverzeichnis gespeichert</li>
+    </ul>
+
+    <hr>
+
+    <h2>9. Eigene Templates</h2>
+
+    <p>
+        Das Modul unterstützt individuelle Template-Anpassungen für Entwickler.
+    </p>
+
+    <ul>
+        <li>Smarty-Templates im Modul bearbeiten</li>
+        <li>Eigene Layouts für Berichte und Dashboards erstellen</li>
+        <li>Integration in das XOOPS-Theme möglich</li>
+    </ul>
+
+    <hr>
+
+    <h2>10. Best Practices</h2>
+
+    <ul>
+        <li>Konten vor der Buchung anlegen</li>
+        <li>Abteilungen für bessere Auswertungen nutzen</li>
+        <li>Freigabeprozess aktivieren für mehr Kontrolle</li>
+        <li>Regelmäßige Backups durchführen</li>
+        <li>Berechtigungen sorgfältig vergeben</li>
+    </ul>
+
+    <hr>
+
+    <h2>11. Fehlerbehebung</h2>
+
+    <ul>
+        <li><strong>Modul nicht sichtbar:</strong> Prüfen, ob es installiert und aktiviert ist</li>
+        <li><strong>Keine Berechtigungen:</strong> Gruppenrechte im System prüfen</li>
+        <li><strong>Diagramme fehlen:</strong> Chart.js im Theme überprüfen</li>
+        <li><strong>Upload-Probleme:</strong> Schreibrechte im XOOPS-Upload-Verzeichnis prüfen</li>
+    </ul>
+
+    <hr>
+
+    <h2>12. Support</h2>
+
+    <p>
+        Für Updates und Dokumentation besuchen Sie das offizielle Repository:
+        <br>
+        <a href="https://github.com/XoopsModules25x/wgsimpleacc" target="_blank">
+            https://github.com/XoopsModules25x/wgsimpleacc
+        </a>
+    </p>
+    <!-- -----Help Content ---------- -->
+</div>

@@ -1,0 +1,221 @@
+<div id="help-template" class="outer">
+    <h1 class="head">Help:
+        <a class="ui-corner-all tooltip" href="<{$xoops_url}>/modules/wgsimpleacc/admin/index.php"
+           title="Back to the administration of wgSimpleAcc"> wgSimpleAcc <img src="<{xoAdminIcons 'home.png'}>"
+                                                                       alt="Back to the Administration of wgSimpleAcc">
+        </a></h1>
+    <!-- -----Help Content ---------- -->
+    <h1>wgSimpleAcc – User Guide & Tutorial</h1>
+
+    <p>
+        wgSimpleAcc is a simple accounting module for XOOPS CMS designed to manage incomes, expenses, accounts, and financial reporting in a structured and user-friendly way.
+        This guide explains installation, configuration, and daily usage.
+    </p>
+
+    <hr>
+
+    <h2>1. Installation</h2>
+
+    <h3>Step 1: Upload the Module</h3>
+    <ul>
+        <li>Download the module from the GitHub repository.</li>
+        <li>Extract the archive.</li>
+        <li>Upload the folder <strong>wgsimpleacc</strong> to your XOOPS <code>/modules/</code> directory.</li>
+    </ul>
+
+    <h3>Step 2: Install via XOOPS Admin</h3>
+    <ul>
+        <li>Log in to XOOPS Admin Panel.</li>
+        <li>Go to <strong>System → Modules</strong>.</li>
+        <li>Find <strong>wgSimpleAcc</strong> and click <strong>Install</strong>.</li>
+        <li>Confirm installation and wait for the process to complete.</li>
+    </ul>
+
+    <hr>
+
+    <h2>2. Initial Configuration</h2>
+
+    <p>After installation, configure the module before adding financial data.</p>
+
+    <ul>
+        <li>Go to <strong>wgSimpleAcc → Preferences</strong></li>
+        <li>Set default currency</li>
+        <li>Configure tax settings (if needed)</li>
+        <li>Enable or disable features such as departments, clients, or assets depending on your needs</li>
+    </ul>
+
+    <hr>
+
+    <h2>3. User Roles & Permissions</h2>
+
+    <p>
+        wgSimpleAcc includes a flexible permission system to control access to financial operations.
+    </p>
+
+    <h3>Permission Types</h3>
+    <ul>
+        <li><strong>View Permission</strong> – Allows users to view financial records</li>
+        <li><strong>Submit Permission</strong> – Allows users to create income/expense entries</li>
+        <li><strong>Approval Permission</strong> – Allows users to approve or reject entries</li>
+    </ul>
+
+    <h3>Setting Permissions</h3>
+    <ul>
+        <li>Go to <strong>System → Groups</strong></li>
+        <li>Edit a group (e.g., Registered Users, Admins)</li>
+        <li>Assign module permissions under wgSimpleAcc</li>
+    </ul>
+
+    <hr>
+
+    <h2>4. Core Concepts</h2>
+
+    <h3>Accounts</h3>
+    <p>
+        Accounts represent financial containers such as bank accounts, cash registers, or wallets.
+        All transactions are linked to an account.
+    </p>
+
+    <h3>Income & Expenses</h3>
+    <ul>
+        <li><strong>Income</strong> – Money received (donations, sales, fees)</li>
+        <li><strong>Expenses</strong> – Money spent (bills, purchases, services)</li>
+    </ul>
+
+    <h3>Departments / Assignments</h3>
+    <p>
+        Used to categorize transactions by internal structure such as departments, projects, or activities.
+    </p>
+
+    <h3>Clients</h3>
+    <p>
+        Optional feature to link transactions to individuals or organizations.
+    </p>
+
+    <h3>Taxes</h3>
+    <p>
+        Define tax rates for automatic calculation in financial entries.
+    </p>
+
+    <h3>Currencies</h3>
+    <p>
+        Supports multi-currency setup depending on configuration.
+    </p>
+
+    <hr>
+
+    <h2>5. Adding Financial Records</h2>
+
+    <h3>Adding Income</h3>
+    <ol>
+        <li>Go to <strong>Income → Add New</strong></li>
+        <li>Select account</li>
+        <li>Enter amount</li>
+        <li>Select category/department</li>
+        <li>Add optional client and tax information</li>
+        <li>Save entry</li>
+    </ol>
+
+    <h3>Adding Expense</h3>
+    <ol>
+        <li>Go to <strong>Expenses → Add New</strong></li>
+        <li>Select account</li>
+        <li>Enter amount and description</li>
+        <li>Select category/department</li>
+        <li>Attach documents if needed</li>
+        <li>Save entry</li>
+    </ol>
+
+    <hr>
+
+    <h2>6. Approval Workflow</h2>
+
+    <p>
+        If approval is enabled, submitted entries must be reviewed.
+    </p>
+
+    <ul>
+        <li>Users submit entries (pending status)</li>
+        <li>Approvers review details</li>
+        <li>Approve or reject transactions</li>
+        <li>Only approved entries appear in official reports</li>
+    </ul>
+
+    <hr>
+
+    <h2>7. Reports & Dashboard</h2>
+
+    <p>
+        wgSimpleAcc provides financial insights through dashboards and reports.
+    </p>
+
+    <ul>
+        <li>Account balance overview</li>
+        <li>Income vs expense charts (Chart.js)</li>
+        <li>Department-based summaries</li>
+        <li>Time-based financial reports</li>
+    </ul>
+
+    <hr>
+
+    <h2>8. File Attachments</h2>
+
+    <p>
+        You can attach documents such as invoices, receipts, or images to transactions.
+    </p>
+
+    <ul>
+        <li>Supported file types depend on XOOPS settings</li>
+        <li>Files are stored securely within module directories</li>
+    </ul>
+
+    <hr>
+
+    <h2>9. Custom Templates</h2>
+
+    <p>
+        The module supports template overrides for developers.
+    </p>
+
+    <ul>
+        <li>Modify Smarty templates inside the module</li>
+        <li>Create custom layouts for reports and dashboards</li>
+        <li>Integrate with your XOOPS theme design</li>
+    </ul>
+
+    <hr>
+
+    <h2>10. Best Practices</h2>
+
+    <ul>
+        <li>Always define accounts before entering transactions</li>
+        <li>Use departments for clearer reporting</li>
+        <li>Enable approval workflow for financial control</li>
+        <li>Regularly export or backup financial data</li>
+        <li>Restrict permissions based on user roles</li>
+    </ul>
+
+    <hr>
+
+    <h2>11. Troubleshooting</h2>
+
+    <ul>
+        <li><strong>Module not visible:</strong> Ensure it is installed and active in XOOPS modules</li>
+        <li><strong>No permission access:</strong> Check group permissions in System → Groups</li>
+        <li><strong>Missing charts:</strong> Ensure Chart.js is loaded in your theme</li>
+        <li><strong>Upload issues:</strong> Verify XOOPS upload directory permissions</li>
+    </ul>
+
+    <hr>
+
+    <h2>12. Support</h2>
+
+    <p>
+        For updates and documentation, visit the official repository:
+        <br>
+        <a href="https://github.com/XoopsModules25x/wgsimpleacc" target="_blank">
+            https://github.com/XoopsModules25x/wgsimpleacc
+        </a>
+    </p>
+    <!-- -----Help Content ---------- -->
+</div>

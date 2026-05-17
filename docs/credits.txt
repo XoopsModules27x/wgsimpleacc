@@ -1,0 +1,14 @@
+Read Me First
+=============
+
+Originally created by Goffy with XOOPS modulebuilder.
+
+Contributors: Goffy (German Xoops), Mamba (https://xoops.org)
+
+Charts: Chart.js (https://www.chartjs.org/)
+
+Calculator: https://github.com/lvcc-wad/Simple-JS-Calculator
+
+Left side menu:
+- based on Startmin
+- Startmin is an open source, admin dashboard template for [Bootstrap](http://getbootstrap.com/) originally created by [Start Bootstrap](http://startbootstrap.com/).

@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+/* pagination */
+#xo-pagenav {
+    margin: 20px 0;
+}
+
+.xo-pagact, 
+.xo-counterpage,
+.xo-pagarrow {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    display: inline-block;
+    padding: 3px 6px;
+}

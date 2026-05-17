@@ -1,0 +1,208 @@
+==============================================================
+1.3.4 RC1 [2025/09/25]
+==============================================================
+ - added perms for admin allocation/accounts/assets/balances (goffy)
+ - added possibility to change balance type on admin side (goffy)
+
+==============================================================
+1.3.3 Stable [2025/06/07]
+==============================================================
+ - moved to next stable (goffy)
+ - fixed problem with missing data for specific period in balances (goffy)
+ - fixed problems with data in statistics (goffy)
+ - added alert for file names with multiple dots (goffy)
+ - added add button to allocation/accounts list (goffy)
+
+==============================================================
+1.3.3 RC1 [2025/01/25]
+==============================================================
+ - added feature for next processing steps (goffy)
+ - updated test data (goffy)
+ - added option to use/not use assets in balances (goffy)
+
+==============================================================
+1.3.2 RC3 [2024/01/21]
+==============================================================
+ - fixed error with function.eval.php (goffy)
+ - updates for XOOPS 2.5.11 Stable (goffy)
+ - fixed error with deleted transactions in balances (goffy)
+ - fixed bug in displaying historical data (goffy)
+ - templates for xswatch4 (goffy)
+ - removed startmin (goffy)
+ - updated test data (goffy)
+ - updates for PHP 8.1 (goffy)
+ - code inspection (goffy)
+ - updates for compatibility with startmin (goffy)
+ - new permissions (goffy)
+ - fixed bugs with bt5 navtabs (goffy)
+ - made additional file system optional (goffy)
+
+==============================================================
+1.3.2 RC1 [2023/03/12]
+==============================================================
+ - adapted filter date (goffy)
+ - added autoadjust for pdf footer (goffy)
+ - updates smarty 3 (goffy)
+ - adaptions for XOOPS 2.5.11 RC2 (goffy)
+ - added storage of files without linkage to transactions (goffy)
+
+==============================================================
+1.3.1 Stable [2023/03/11]
+==============================================================
+ - fixed bug in numbering transactions (goffy)
+
+==============================================================
+1.3.0 Stable [2023/02/28]
+==============================================================
+ - moved to last stable with smarty 2 (goffy)
+ - fixed missing default value smarty (goffy)
+
+==============================================================
+1.3.0 RC2 [2023/01/05]
+==============================================================
+ - fixed missing lang vars for confirm (goffy)
+ - added warnings for balances (goffy)
+ - catch cases when account/allocation isn't valid anymore (goffy)
+ - added file printing (goffy)
+ - added missing params (goffy)
+ - added 'collapse all' in allocation/account tpl (goffy)
+ - added limit to filter (goffy)
+ - added allocation name to charts (goffy)
+ - fixed bug for datecreate and non-admins (goffy)
+ - fixed bugs with deleted accounts/allocations (goffy)
+ - added cascading accounts (goffy)
+ - fixed problem with tratemplates and cascading accounts (goffy)
+ - added sums to transaction list (goffy)
+ - display combinations accounts/allocations (goffy)
+ - new permission "admin clients" (goffy)
+ - rebuilt filter transactions (goffy)
+
+==============================================================
+1.3.0 RC1 [2022/02/23]
+==============================================================
+ - new filters for transactions (goffy)
+ - transaction sorting (goffy)
+ - added auto adding of pdf output to transaction (goffy)
+ - code cleaning with PS Inspect code (goffy)
+ - fixed bug in pdf output (goffy)
+ - fixed bug in permissions (goffy)
+ - implemented new calculator (goffy)
+ - adapted update due to new semantic versioning (goffy)
+ - check for valid file (goffy)
+ - fixed bug in MigrateHelper (goffy)
+ - added clone feature for output templates (goffy)
+ - fixed bug in creation of balances (goffy)
+
+==============================================================
+1.3.0 Alpha [2021/11/20]
+==============================================================
+ - semantic versioning (mamba/goffy)
+ - added simple calculator (goffy)
+ - replaced Common/XoopsConfirm by Common/Confirm (mamba/goffy)
+ - uninstall with bak-file creation (mamba/goffy)
+ 
+==============================================================
+1.22 final [2021/10/24]
+==============================================================
+ - moved to final (goffy)
+ 
+==============================================================
+1.22 RC4 [2021/07/09]
+==============================================================
+ - added possibility for temporary balances (goffy)
+ - added nested checkbox list for output balances (goffy)
+ - added function for cleaning html text for dropdowns (goffy)
+ - changed datecreated and submitter to last datetime/submitter (goffy)
+ - deactivated datecreated and submitter in form clients (goffy)
+ - round for assets statistics (goffy)
+ - changed field types (goffy)
+ - fixed bug taking over client name from template (goffy)
+ - fixed bug taking over client id for template (goffy)
+ - added start/limit params on admin area (goffy)
+ - added levels for statistics accounts (goffy)
+ - added images for type of accounts (goffy)
+ - fixed bug taking over description of transaction template (goffy)
+ - updated Simplexlsxgen to latest version (goffy)
+ - clean html output for xlsx (goffy)
+ - added possibility to include sub allocations in output (goffy)
+ - added strip_tags to notifications output (goffy)
+ - added sorting to clients list (goffy)
+ - replaced tab by 4 spaces in tpl (goffy)
+ - cleaned notifications output (goffy)
+ - added new chart account distribution (goffy)
+ - added pdf modal preview (goffy)
+
+==============================================================
+1.22 RC3 [2021/05/01]
+==============================================================
+ - added filter clients (goffy)
+ - various updates/code cleaning (mamba)
+ - fixed bug undefined constant (mamba/goffy)
+ - added second filter clients  (goffy)
+ - added use transaction as template (goffy)
+ - fixed bugs in template for transaction details (goffy)
+
+==============================================================
+1.22 [2021/02/28]
+==============================================================
+ - added files histories (goffy)
+ - added possibility to delete temp uploaded files (goffy)
+ - improved template based output (goffy)
+ - added clone feature for output template (goffy)
+ - added account to output template (goffy)
+ - prepared for template changer (goffy)
+ - changed handling of no perm (goffy)
+ - added theme for wgsimpleacc startmin (goffy)
+ - replaced index.html by index.php (goffy)
+ - added autocomplete for select clients (goffy)
+
+==============================================================
+1.21 [2021/02/03]
+==============================================================
+ - added usage of clients (goffy)
+ - updated balances (goffy)
+ - fixed several problems in templates (goffy)
+ - fixed several problems with file up/download (goffy)
+ - splitted horizontal bar into submitted/approved (goffy)
+ - added summary to transaction hbar (goffy)
+ - added possibility to exclude assets from calc in index.php (goffy)
+ - added utf8 convertion for output csv (goffy)
+
+ ==============================================================
+1.20 [2020/12/31]
+==============================================================
+ - changes in status (goffy)
+ - cleaned missing smarty defaults (goffy)
+ - updated breadcrumbs (goffy)
+ - added class to transaction templates (goffy)
+ - fixed problems in permissions (goffy)
+
+==============================================================
+1.1 [2020/12/31]
+==============================================================
+ - added show file (goffy)
+ - added history of transactions (goffy)
+ - changes statistics to include current allocation (goffy)
+ - fixed bug in listing files (goffy)
+ - cosmetics (goffy)
+ - changed color selection into radio (goffy)
+
+==============================================================
+1.0 [2020/09/18]
+==============================================================
+ - Original release wgsimpleacc (Goffy - Wedega.com)
+ - rebuilt tpl (Goffy)
+ - added new colors (Goffy)
+ - changes in file handlings (Goffy)
+ - implemented Mambas changes (mamba/goffy)
+ - graphical improvements (mamba/goffy)
+ - removed unneccessary pchart folder from assets (goffy)
+ - fixed bug with l\trim (alain/goffy)
+ - removed old files (goffy)
+ - implemented output of balances (goffy)
+ - fixed bug in permisson handler for guests (goffy)
+ - implemented next output of balances (goffy)
+ - implemented pdf output of balances (goffy)
+ - added field remarks to transactions (goffy)
+ - added modal for remarks to transactions (goffy)
+ - added modal and download for attachments of transactions (goffy)
