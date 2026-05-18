@@ -28,7 +28,7 @@ include \XOOPS_ROOT_PATH . '/modules/' . $moduleDirName . '/preloads/autoloader.
 $modversion = [
     'name'                => \_MI_WGSIMPLEACC_NAME,
     'version'             => '1.3.4',
-    'module_status'       => 'RC5',
+    'module_status'       => 'Final',
     'description'         => \_MI_WGSIMPLEACC_DESC,
     'author'              => 'Goffy - XOOPS Development Team',
     'author_mail'         => 'webmaster@wedega.com',
