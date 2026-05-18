@@ -259,7 +259,7 @@ class Files extends \XoopsObject
             }
         }
         $imageSelect->setExtra("onchange='showBtnDel();showImgSelected(\"imglabel_fil_temp\", \"fil_temp\", \"" . $imageDirectory . '", "", "' . \XOOPS_URL . "\")'");
-        $imageTray->addElement($imageSelect, false);
+        $imageTray->addElement($imageSelect);
         $imageTray->addElement(new \XoopsFormLabel('', "<br><img src='" . \XOOPS_URL . $imageDirectory . '/' . $filTemp . "' id='imglabel_fil_temp' alt='' style='max-width:100px'>"));
         $form->addElement($imageTray);
 

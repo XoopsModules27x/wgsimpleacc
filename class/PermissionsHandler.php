@@ -728,7 +728,7 @@ class PermissionsHandler extends \XoopsPersistableObjectHandler
     /**
      * @public function getPermFileDirSubmit
      * returns right for submit files to file dir
-     * @param null
+     *
      * @return bool
      */
     public function getPermFileDirSubmit()

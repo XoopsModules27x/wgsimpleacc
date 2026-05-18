@@ -106,16 +106,16 @@ function execute_output ($template, $outParams)
 
     $pdfData = [];
     // Read data from table and create pdfData
-    $pdfData['date'] = $outParams['date'];
+    //$pdfData['date'] = $outParams['date'];
     $pdfData['author'] = $outParams['submitter'];
-    $pdfData['title'] = \strip_tags($myts->undoHtmlSpecialChars($title));
+    //$pdfData['title'] = \strip_tags($myts->undoHtmlSpecialChars($title));
     $pdfData['content'] = $myts->undoHtmlSpecialChars($template['body']);
     $pdfData['fontname'] = PDF_FONT_NAME_MAIN;
     $pdfData['fontsize'] = PDF_FONT_SIZE_MAIN;
 
     // Get Config
     $pdfData['creator'] = $GLOBALS['xoopsConfig']['sitename'];
-    $pdfData['subject'] = $GLOBALS['xoopsConfig']['slogan'];
+    //$pdfData['subject'] = $GLOBALS['xoopsConfig']['slogan'];
     $pdfData['keywords'] = $helper->getConfig('keywords');
 
     // Defines

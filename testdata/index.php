@@ -156,21 +156,20 @@ function exportSchema()
 
 }
 
-/**
+ /**
  * loadTableFromArrayWithReplace
- *
- * @param string $table  value with should be used insead of original value of $search
- *
- * @param array  $data   array of rows to insert
- *                       Each element of the outer array represents a single table row.
- *                       Each row is an associative array in 'column' => 'value' format.
- * @param string $search name of column for which the value should be replaced
- * @param        $replace
+ * @param string $table   name of the table to load data into
+ * @param array  $data    array of rows to insert
+ *                         Each element of the outer array represents a single table row.
+ *                         Each row is an associative array in 'column' => 'value' format.
+ * @param string $search  name of column for which the value should be replaced
+ * @param mixed  $replace value to use instead of the original value in the $search column
  * @return int number of rows inserted
+ * @throws Exception
  */
 function loadTableFromArrayWithReplace($table, $data, $search, $replace)
 {
-    /** @var \XoopsDatabase */
+    /** @var \XoopsDatabase $db */
     $db = \XoopsDatabaseFactory::getDatabaseConnection();
 
     $prefixedTable = $db->prefix($table);

@@ -141,7 +141,7 @@ class SimpleXLSXGen {
 
 		$this->sheets[$this->curSheet] = ['name' => $name, 'hyperlinks' => []];
 
-		if ( is_array( $rows ) && isset( $rows[0] ) && is_array($rows[0]) ) {
+		if ( isset( $rows[0] ) && is_array($rows[0]) ) {
 			$this->sheets[$this->curSheet]['rows'] = $rows;
 		} else {
 			$this->sheets[$this->curSheet]['rows'] = [];

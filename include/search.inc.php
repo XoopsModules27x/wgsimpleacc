@@ -134,7 +134,6 @@ function wgsimpleacc_search($queryarray, $andor, $limit, $offset, $userid)
         ];
     }
     unset($crKeywords);
-    unset($crKeyword);
     unset($crUser);
     unset($crSearch);
 
@@ -185,7 +184,6 @@ function wgsimpleacc_search($queryarray, $andor, $limit, $offset, $userid)
         ];
     }
     unset($crKeywords);
-    unset($crKeyword);
     unset($crUser);
     unset($crSearch);
 
@@ -235,7 +233,6 @@ function wgsimpleacc_search($queryarray, $andor, $limit, $offset, $userid)
         ];
     }
     unset($crKeywords);
-    unset($crKeyword);
     unset($crUser);
     unset($crSearch);
 

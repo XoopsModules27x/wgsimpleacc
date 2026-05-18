@@ -92,13 +92,11 @@ function wgsimpleacc_RewriteUrl($module, $array, $type = 'content')
     $lenght_id = $helper->getConfig('lenght_id');
     $rewrite_url = $helper->getConfig('rewrite_url');
 
+    $id = $array['content_id'];
     if (0 != $lenght_id) {
-        $id = $array['content_id'];
         while (\strlen($id) < $lenght_id) {
             $id = '0' . $id;
         }
-    } else {
-        $id = $array['content_id'];
     }
 
     if (isset($array['topic_alias']) && $array['topic_alias']) {

@@ -118,7 +118,7 @@ class FormSelectCascading extends \XoopsFormSelect
             $ret .= ' secondList" ';
         }
         $ret .= ' size="' . $this->getSize() . '"' . $this->getExtra();
-        if ($this->isMultiple() != false) {
+        if ($this->isMultiple()) {
             $ret .= ' name="' . $ele_name . '[]" id="' . $ele_name . '" title="' . $ele_title
                 . ' multiple="multiple">';
         } else {

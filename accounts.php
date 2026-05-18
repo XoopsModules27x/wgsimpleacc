@@ -143,6 +143,9 @@ switch ($op) {
         }
         if ($accId > 0) {
             $accountsObj = $accountsHandler->get($accId);
+            if (!\is_object($accountsObj)) {
+                \redirect_header('accounts.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
         } else {
             $accountsObj = $accountsHandler->create();
         }
@@ -160,6 +163,9 @@ switch ($op) {
         $accWeight = Request::getInt('acc_weight');
         if ($accPid > 0) {
             $accParentObj = $accountsHandler->get($accPid);
+            if (!\is_object($accParentObj)) {
+                \redirect_header('accounts.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             $level = $accParentObj->getVar('acc_level') + 1;
             if (9999 === $accWeight) {
                 $accWeight = $accParentObj->getVar('acc_weight');
@@ -201,8 +207,11 @@ switch ($op) {
         if (0 == $accId) {
             \redirect_header('accounts.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Check permissions
         $accountsObj = $accountsHandler->get($accId);
+        if (!\is_object($accountsObj)) {
+            \redirect_header('accounts.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
+        // Check permissions
         if (!$permissionsHandler->getPermAccountsEdit($accountsObj->getVar('acc_submitter'))) {
             \redirect_header('accounts.php?op=list', 3, \_NOPERM);
         }
@@ -219,8 +228,11 @@ switch ($op) {
         if (0 == $accId) {
             \redirect_header('accounts.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Check permissions
         $accountsObj = $accountsHandler->get($accId);
+        if (!\is_object($accountsObj)) {
+            \redirect_header('accounts.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
+        // Check permissions
         if (!$permissionsHandler->getPermAccountsEdit($accountsObj->getVar('acc_submitter'))) {
             \redirect_header('accounts.php?op=list', 3, \_NOPERM);
         }
@@ -239,7 +251,7 @@ switch ($op) {
         if ($accountsCount > 0) {
             \redirect_header('accounts.php?op=list', 3, \_MA_WGSIMPLEACC_ACCOUNT_ERR_DELETE2);
         }
-        $accountsObj = $accountsHandler->get($accId);
+
         $accKey = $accountsObj->getVar('acc_key');
         if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {

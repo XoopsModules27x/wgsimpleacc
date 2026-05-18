@@ -54,7 +54,7 @@ $dateTo = Request::getInt('dateTo', \time());
 if (Request::hasVar('filterTo')) {
     $dateTo = \DateTime::createFromFormat(\_SHORTDATESTRING, Request::getString('filterTo'))->getTimestamp();
 }
-$showOffline = Request::getInt('showoffline', 0);
+$showOffline = Request::getInt('showoffline');
 $GLOBALS['xoopsTpl']->assign('showoffline', $showOffline);
 
 $keywords = [];
@@ -97,6 +97,9 @@ switch ($op) {
                 if ($allPid > 0) {
                     //read current allocations
                     $allocCurrObj = $allocationsHandler->get($allPid);
+                    if (!\is_object($allocCurrObj)) {
+                        \redirect_header('statistics.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                    }
                     $allName = $allocCurrObj->getVar('all_name');
                     $sumAmountin = 0;
                     $sumAmountout = 0;
@@ -307,6 +310,9 @@ switch ($op) {
         while (list($balAsid) = $xoopsDB->fetchRow($result)) {
             $balAmounts = '';
             $assetsObj = $assetsHandler->get($balAsid);
+            if (!\is_object($assetsObj)) {
+                \redirect_header('statistics.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             $asName    = $assetsObj->getVar('as_name');
             $asOnline  = (int)$assetsObj->getVar('as_online');
             if (1 === $asOnline || 1 === $showOffline) {
@@ -496,6 +502,9 @@ switch ($op) {
                 if ($accPid > 0) {
                     //read current accounts
                     $accountCurrObj = $accountsHandler->get($accPid);
+                    if (!\is_object($accountCurrObj)) {
+                        \redirect_header('statistics.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                    }
                     $accName = $accountCurrObj->getVar('acc_name');
                     $sumAmountin = 0;
                     $sumAmountout = 0;

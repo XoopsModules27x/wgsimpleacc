@@ -6,8 +6,6 @@
         .list-group.list-group-root .list-group {
             margin-bottom: 0;
         }
-        .list-group.list-group-root .list-group-item {}
-        .list-group.list-group-root > .list-group-item:first-child {}
         .list-group.list-group-root .list-group {
             padding-left:30px;
         }

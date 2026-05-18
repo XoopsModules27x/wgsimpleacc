@@ -320,6 +320,9 @@ switch ($op) {
         $traNb   = Request::getInt('tra_nb');
         if ($traId > 0) {
             $transactionsObj = $transactionsHandler->get($traId);
+            if (!\is_object($transactionsObj)) {
+                \redirect_header('transactions.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             if ($helper->getConfig('use_trahistories')) {
                 $traHist = $transactionsHandler->saveHistoryTransactions($traId);
             }
@@ -507,6 +510,9 @@ switch ($op) {
         }
 
         $transactionsObj = $transactionsHandler->get($traId);
+        if (!\is_object($transactionsObj)) {
+            \redirect_header('transactions.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
         $traSubmitter = $transactionsObj->getVar('tra_submitter');
         $traStatus = $transactionsObj->getVar('tra_status');
         if (!$permissionsHandler->getPermTransactionsEdit($traSubmitter, $traStatus, $transactionsObj->getVar('tra_balid'))) {
@@ -531,6 +537,9 @@ switch ($op) {
             \redirect_header('transactions.php?op=list', 3, \_NOPERM);
         }
         $transactionsObj = $transactionsHandler->get($traId);
+        if (!\is_object($transactionsObj)) {
+            \redirect_header('transactions.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
         $traSubmitter = $transactionsObj->getVar('tra_submitter');
         $traStatus = $transactionsObj->getVar('tra_status');
         if (!$permissionsHandler->getPermTransactionsEdit($traSubmitter, $traStatus, $transactionsObj->getVar('tra_balid'))) {

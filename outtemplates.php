@@ -96,6 +96,9 @@ switch ($op) {
         }
         if ($otplId > 0) {
             $outtemplatesObj = $outtemplatesHandler->get($otplId);
+            if (!\is_object($outtemplatesObj)) {
+                \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             // Check permissions
             if (!$permissionsHandler->getPermOuttemplatesSubmit()) {
                 \redirect_header('outtemplates.php?op=list', 3, \_NOPERM);
@@ -151,6 +154,9 @@ switch ($op) {
         if ('clone' === $op) {
             $otplId = Request::getInt('otpl_id_clone');
             $outtemplatesObjOld = $outtemplatesHandler->get($otplId);
+            if (!\is_object($outtemplatesObjOld)) {
+                \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             foreach ($outtemplatesObjOld->vars as $k => $v) {
                 if ('otpl_id' !== $k) {
                     $outtemplatesObj->setVar($k, $v['value']);
@@ -170,8 +176,11 @@ switch ($op) {
         if (0 == $otplId) {
             \redirect_header('outtemplates.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Get Form
+        // Get object
         $outtemplatesObj = $outtemplatesHandler->get($otplId);
+        if (!\is_object($outtemplatesObj)) {
+            \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
         // Check permissions
         if (!$permApprove && !$permissionsHandler->getPermOuttemplatesSubmit()) {
             \redirect_header('outtemplates.php?op=list', 3, \_NOPERM);
@@ -193,6 +202,9 @@ switch ($op) {
             \redirect_header('outtemplates.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
         $outtemplatesObj = $outtemplatesHandler->get($otplId);
+        if (!\is_object($outtemplatesObj)) {
+            \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
         $otplName = $outtemplatesObj->getVar('otpl_name');
         if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {

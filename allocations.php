@@ -155,6 +155,9 @@ switch ($op) {
         }
         if ($allId > 0) {
             $allocationsObj = $allocationsHandler->get($allId);
+            if (!\is_object($allocationsObj)) {
+                \redirect_header('allocations.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
         } else {
             $allocationsObj = $allocationsHandler->create();
         }
@@ -167,6 +170,9 @@ switch ($op) {
         $level = 1;
         if ($allPid > 0) {
             $allParentObj = $allocationsHandler->get($allPid);
+            if (!\is_object($allParentObj)) {
+                \redirect_header('allocations.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             $level = $allParentObj->getVar('all_level') + 1;
         }
         unset($allParentObj);
@@ -206,8 +212,11 @@ switch ($op) {
         if (0 == $allId) {
             \redirect_header('allocations.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Check permissions
         $allocationsObj = $allocationsHandler->get($allId);
+        if (!\is_object($allocationsObj)) {
+            \redirect_header('allocations.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
+        // Check permissions
         if (!$permissionsHandler->getPermAllocationsEdit($allocationsObj->getVar('all_submitter'))) {
             \redirect_header('allocations.php?op=list', 3, \_NOPERM);
         }
@@ -224,8 +233,11 @@ switch ($op) {
         if (0 == $allId) {
             \redirect_header('allocations.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Check permissions
         $allocationsObj = $allocationsHandler->get($allId);
+        if (!\is_object($allocationsObj)) {
+            \redirect_header('allocations.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
+        // Check permissions
         if (!$permissionsHandler->getPermAllocationsEdit($allocationsObj->getVar('all_submitter'))) {
             \redirect_header('allocations.php?op=list', 3, \_NOPERM);
         }
@@ -245,7 +257,6 @@ switch ($op) {
             \redirect_header('allocations.php?op=list', 3, \_MA_WGSIMPLEACC_ALLOCATION_ERR_DELETE2);
         }
         unset($crAllocations);
-        $allocationsObj = $allocationsHandler->get($allId);
         $allName = $allocationsObj->getVar('all_name');
         if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {

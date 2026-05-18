@@ -114,6 +114,9 @@ switch ($op) {
         }
         if ($asId > 0) {
             $assetsObj = $assetsHandler->get($asId);
+            if (!\is_object($assetsObj)) {
+                \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
         } else {
             $assetsObj = $assetsHandler->create();
         }
@@ -160,13 +163,15 @@ switch ($op) {
         if (0 == $asId) {
             \redirect_header('assets.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Check permissions
         $assetsObj = $assetsHandler->get($asId);
+        if (!\is_object($assetsObj)) {
+            \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
+        // Check permissions
         if (!$permissionsHandler->getPermAssetsEdit($assetsObj->getVar('as_submitter'))) {
             \redirect_header('assets.php?op=list', 3, \_NOPERM);
         }
         // Get Form
-        $assetsObj = $assetsHandler->get($asId);
         $form = $assetsObj->getFormAssets();
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
         // Breadcrumbs
@@ -178,9 +183,12 @@ switch ($op) {
         if (0 == $asId) {
             \redirect_header('assets.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Check permissions
         $assetsObj = $assetsHandler->get($asId);
-        if (!$permissionsHandler->getPermAssetsEdit($accountsObj->getVar('as_submitter'))) {
+        if (!\is_object($assetsObj)) {
+            \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
+        // Check permissions
+        if (!$permissionsHandler->getPermAssetsEdit($assetsObj->getVar('as_submitter'))) {
             \redirect_header('assets.php?op=list', 3, \_NOPERM);
         }
         // Check whether asset is primary asset

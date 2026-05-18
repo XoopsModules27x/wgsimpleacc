@@ -100,6 +100,9 @@ switch ($op) {
         }
         if ($tplId > 0) {
             $tratemplatesObj = $tratemplatesHandler->get($tplId);
+            if (!\is_object($tratemplatesObj)) {
+                \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
         } else {
             $tratemplatesObj = $tratemplatesHandler->create();
         }
@@ -138,6 +141,9 @@ switch ($op) {
         $tratemplatesObj = $tratemplatesHandler->create();
         if ($traId > 0) {
             $transactionsObj = $transactionsHandler->get($traId);
+            if (!\is_object($transactionsObj)) {
+                \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             $tratemplatesObj->setVar('ttpl_desc', $transactionsObj->getVar('tra_desc', 'n'));
             $tratemplatesObj->setVar('ttpl_accid', $transactionsObj->getVar('tra_accid'));
             $tratemplatesObj->setVar('ttpl_allid', $transactionsObj->getVar('tra_allid'));
@@ -159,8 +165,11 @@ switch ($op) {
         if (0 == $tplId) {
             \redirect_header('tratemplates.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Get Form
+        // Get object
         $tratemplatesObj = $tratemplatesHandler->get($tplId);
+        if (!\is_object($tratemplatesObj)) {
+            \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
         // Check permissions
         if (!$permApprove && !$permissionsHandler->getPermTratemplatesEdit($tratemplatesObj->getVar('ttpl_submitter'))) {
             \redirect_header('tratemplates.php?op=list', 3, \_NOPERM);
@@ -178,6 +187,9 @@ switch ($op) {
             \redirect_header('tratemplates.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
         $tratemplatesObj = $tratemplatesHandler->get($tplId);
+        if (!\is_object($tratemplatesObj)) {
+            \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
         // Check permissions
         if (!$permApprove && !$permissionsHandler->getPermTratemplatesEdit($tratemplatesObj->getVar('ttpl_submitter'))) {
             \redirect_header('tratemplates.php?op=list', 3, \_NOPERM);
