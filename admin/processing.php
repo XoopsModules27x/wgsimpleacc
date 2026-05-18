@@ -15,7 +15,7 @@ declare(strict_types=1);
 /**
  * wgSimpleAcc module for xoops
  *
- * @copyright      2020 XOOPS Project (https://xooops.org)
+ * @copyright      2026 XOOPS Project (https://xooops.org)
  * @license        GPL 2.0 or later
  * @package        wgsimpleacc
  * @author         XOOPS Development Team - Email:<webmaster@wedega.com> - Website:<https://xoops.wedega.com>

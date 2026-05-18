@@ -62,9 +62,17 @@ switch ($op) {
         }
         $balFrom = Request::getString('bal_from') . ' 00:00';
         $balanceFromObj = \DateTime::createFromFormat(Utility::CustomDateFormat(), $balFrom);
+        if ($balanceFromObj === false) {
+            // invalid date
+            \redirect_header('balances.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MA_WGSIMPLEACC_INVALID_DATE);
+        }
         $balanceFrom = $balanceFromObj->getTimestamp();
         $balTo = Request::getString('bal_to') . ' 23:59';
         $balanceToObj = \DateTime::createFromFormat(Utility::CustomDateFormat(), $balTo);
+        if ($balanceToObj === false) {
+            // invalid date
+            \redirect_header('balances.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MA_WGSIMPLEACC_INVALID_DATE);
+        }
         $balanceTo = $balanceToObj->getTimestamp();
 
         if (Constants::BALANCE_TYPE_FINAL == $balType) {

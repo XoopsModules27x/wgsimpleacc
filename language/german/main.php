@@ -530,3 +530,5 @@ require_once __DIR__ . '/admin.php';
 \define('_MA_WGSIMPLEACC_PROCESSING_ONOFF', 'Wechsle On-/Offline');
 //Errors
 \define('_MA_WGSIMPLEACC_ERROR_SAVE', 'Fehler beim Speichern');
+// 1.3.4
+\define('_MA_WGSIMPLEACC_INVALID_DATE', 'Ungültiges Datum');
