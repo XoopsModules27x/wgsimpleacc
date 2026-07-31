@@ -5,20 +5,20 @@
     <table class='outer'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_PID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_KEY}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_NAME}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_DESC}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_CLASSIFICATION}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_COLOR}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_IECALC}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_ONLINE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_LEVEL}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_WEIGHT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_PID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_KEY}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_NAME}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_DESC}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_CLASSIFICATION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_COLOR}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_IECALC}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_ONLINE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_LEVEL}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_WEIGHT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $accounts_count}>

@@ -83,38 +83,38 @@ class Allocations extends \XoopsObject
             $action = $_SERVER['REQUEST_URI'];
         }
         // Title
-        $title = $this->isNew() ? \_MA_WGSIMPLEACC_ALLOCATION_ADD : \_MA_WGSIMPLEACC_ALLOCATION_EDIT;
+        $title = $this->isNew() ? \_MD_WGSIMPLEACC_ALLOCATION_ADD : \_MD_WGSIMPLEACC_ALLOCATION_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
         // Form Table allocations
         $allocationsHandler = $helper->getHandler('Allocations');
-        $allPidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_ALLOCATION_PID, 'all_pid', $this->getVar('all_pid'));
+        $allPidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_ALLOCATION_PID, 'all_pid', $this->getVar('all_pid'));
         $allPidSelect->addOption(0, ' ');
         $allPidSelect->addOptionArray($allocationsHandler->getList());
         $form->addElement($allPidSelect);
         // Form Text allName
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ALLOCATION_NAME, 'all_name', 50, 255, $this->getVar('all_name')), true);
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ALLOCATION_NAME, 'all_name', 50, 255, $this->getVar('all_name')), true);
         // Form Editor TextArea allDesc
-        $form->addElement(new \XoopsFormTextArea(\_MA_WGSIMPLEACC_ALLOCATION_DESC, 'all_desc', $this->getVar('all_desc', 'e'), 4, 47));
+        $form->addElement(new \XoopsFormTextArea(\_MD_WGSIMPLEACC_ALLOCATION_DESC, 'all_desc', $this->getVar('all_desc', 'e'), 4, 47));
         // Form Radio Yes/No allOnline
         $allOnline = $this->isNew() ?: $this->getVar('all_online');
         if ($admin) {
-            $allOnlineSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_ALLOCATION_ONLINE, 'all_online', $allOnline, 3);
-            $allOnlineSelect->addOption(Constants::ONOFF_OFFLINE, \_MA_WGSIMPLEACC_ONOFF_OFFLINE);
-            $allOnlineSelect->addOption(Constants::ONOFF_ONLINE, \_MA_WGSIMPLEACC_ONOFF_ONLINE);
-            $allOnlineSelect->addOption(Constants::ONOFF_HIDDEN, \_MA_WGSIMPLEACC_ONOFF_HIDDEN);
+            $allOnlineSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_ALLOCATION_ONLINE, 'all_online', $allOnline, 3);
+            $allOnlineSelect->addOption(Constants::ONOFF_OFFLINE, \_MD_WGSIMPLEACC_ONOFF_OFFLINE);
+            $allOnlineSelect->addOption(Constants::ONOFF_ONLINE, \_MD_WGSIMPLEACC_ONOFF_ONLINE);
+            $allOnlineSelect->addOption(Constants::ONOFF_HIDDEN, \_MD_WGSIMPLEACC_ONOFF_HIDDEN);
             $form->addElement($allOnlineSelect);
         } else {
-            $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_ALLOCATION_ONLINE, 'all_online', $allOnline));
+            $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_ALLOCATION_ONLINE, 'all_online', $allOnline));
         }
         if ((bool)$helper->getConfig('use_cascadingacc')) {
             // Form Select allAccounts
             $accountsHandler = $helper->getHandler('Accounts');
             $allAccounts = $this->isNew() ? [] : \unserialize($this->getVar('all_accounts'), ['allowed_classes' => false]);
-            $allAccountsSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_ALLOCATION_ACCOUNTS, 'all_accounts', $allAccounts, 15, true);
-            $allAccountsSelect->setDescription(\_MA_WGSIMPLEACC_ALLOCATION_ACCOUNTS_DESC);
+            $allAccountsSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_ALLOCATION_ACCOUNTS, 'all_accounts', $allAccounts, 15, true);
+            $allAccountsSelect->setDescription(\_MD_WGSIMPLEACC_ALLOCATION_ACCOUNTS_DESC);
             $accounts = $accountsHandler->getSelectTreeOfAccounts(Constants::CLASS_BOTH);
             foreach ($accounts as $account) {
                 $allAccountsSelect->addOption($account['id'], $account['text']);
@@ -125,7 +125,7 @@ class Allocations extends \XoopsObject
         // Form Text allLevel
         $allLevel = $this->isNew() ? 99 : $this->getVar('all_level');
         if ($admin) {
-            $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ALLOCATION_LEVEL, 'all_level', 50, 255, $allLevel));
+            $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ALLOCATION_LEVEL, 'all_level', 50, 255, $allLevel));
         } else {
             $form->addElement(new \XoopsFormHidden('all_level', $allLevel));
         }
@@ -136,9 +136,9 @@ class Allocations extends \XoopsObject
         // Form Select User allSubmitter
         $allSubmitter = $this->isNew() ? $GLOBALS['xoopsUser']->uid() : $this->getVar('all_submitter');
         if ($admin) {
-            $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ALLOCATION_WEIGHT, 'all_weight', 50, 255, $allWeight));
-            $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'all_datecreated', '', $allDatecreated));
-            $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'all_submitter', false, $allSubmitter));
+            $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ALLOCATION_WEIGHT, 'all_weight', 50, 255, $allWeight));
+            $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'all_datecreated', '', $allDatecreated));
+            $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'all_submitter', false, $allSubmitter));
         } else {
             $form->addElement(new \XoopsFormHidden('all_weight', $allWeight));
             $form->addElement(new \XoopsFormHidden('all_datecreated', $allDatecreated));
@@ -182,7 +182,7 @@ class Allocations extends \XoopsObject
                 $ret['online'] = \_YES;
                 break;
             case Constants::ONOFF_HIDDEN:
-                $ret['online'] = \_MA_WGSIMPLEACC_ONOFF_HIDDEN;
+                $ret['online'] = \_MD_WGSIMPLEACC_ONOFF_HIDDEN;
                 break;
         }
         $ret['level']       = $this->getVar('all_level');

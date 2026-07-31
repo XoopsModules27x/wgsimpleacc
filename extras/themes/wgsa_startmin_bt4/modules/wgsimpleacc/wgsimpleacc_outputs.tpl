@@ -7,20 +7,20 @@
 <{/if}>
 <{if $displayBalOutput|default:''}>
     <{if $balancesCount > 0}>
-        <h3><{$smarty.const._MA_WGSIMPLEACC_BALANCES_LIST}></h3>
+        <h3><{$smarty.const._MD_WGSIMPLEACC_BALANCES_LIST}></h3>
         <div class='table-responsive'>
             <table class='table table-<{$table_type}>'>
                 <thead>
                 <tr class='head'>
-                    <th class="left"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_ASID}></th>
-                    <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_FROM}></th>
-                    <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_TO}></th>
-                    <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_CURID}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_AMOUNTSTART}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_AMOUNTEND}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_DIFFERENCE}></th>
-                    <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                    <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
+                    <th class="left"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_ASID}></th>
+                    <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_FROM}></th>
+                    <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_TO}></th>
+                    <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_CURID}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_AMOUNTSTART}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_AMOUNTEND}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_DIFFERENCE}></th>
+                    <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                    <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,7 @@
                         </tr>
                     <{/foreach}>
                     <tr class="wgsa-output-sum">
-                        <td colspan="4" class="col-xs-6 col-sm-4 left"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
+                        <td colspan="4" class="col-xs-6 col-sm-4 left"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
                         <td class="col-xs-6 col-sm-2 right"><{$balancesAmountIn}></td>
                         <td class="col-xs-6 col-sm-2 right"><{$balancesAmountOut}></td>
                         <td class="col-xs-6 col-sm-2 right"><{$balancesTotal}></td>
@@ -49,15 +49,15 @@
         </div>
     <{/if}>
     <{if $accountsCount|default:0 > 0}>
-        <h3><{$smarty.const._MA_WGSIMPLEACC_ACCOUNTS_LIST}></h3>
+        <h3><{$smarty.const._MD_WGSIMPLEACC_ACCOUNTS_LIST}></h3>
         <div class='table-responsive'>
             <table class='table table-<{$table_type}>'>
                 <thead>
                 <tr class='head'>
-                    <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_NAME}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
+                    <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_NAME}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -70,7 +70,7 @@
                     </tr>
                     <{/foreach}>
                     <tr class="wgsa-output-sum">
-                        <td class="col-xs-6 col-sm-4 left"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
+                        <td class="col-xs-6 col-sm-4 left"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
                         <td class="col-xs-6 col-sm-2 right"><{$accountsAmountIn}></td>
                         <td class="col-xs-6 col-sm-2 right"><{$accountsAmountOut}></td>
                         <td class="col-xs-6 col-sm-2 right"><{$accountsTotal}></td>
@@ -80,15 +80,15 @@
         </div>
     <{/if}>
     <{if $allocationsCount|default:0 > 0}>
-        <h3><{$smarty.const._MA_WGSIMPLEACC_ALLOCATIONS_LIST}></h3>
+        <h3><{$smarty.const._MD_WGSIMPLEACC_ALLOCATIONS_LIST}></h3>
         <div class='table-responsive'>
             <table class='table table-<{$table_type}>'>
                 <thead>
                 <tr class='head'>
-                    <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_NAME}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
-                    <th class="right"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
+                    <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_NAME}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
+                    <th class="right"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -101,7 +101,7 @@
                     </tr>
                 <{/foreach}>
                 <tr class="wgsa-output-sum">
-                    <td class="col-xs-6 col-sm-4 left"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
+                    <td class="col-xs-6 col-sm-4 left"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
                     <td class="col-xs-6 col-sm-2 right"><{$allocationsAmountIn}></td>
                     <td class="col-xs-6 col-sm-2 right"><{$allocationsAmountOut}></td>
                     <td class="col-xs-6 col-sm-2 right"><{$allocationsTotal}></td>
@@ -111,7 +111,7 @@
         </div>
     <{/if}>
     <{if $buttonBalPdf|default:0}>
-        <a class='btn btn-primary pull-right' href='balances_pdf.php?balIds=<{$balIds}>&amp;level_alloc=<{$level_alloc}>&amp;level_account=<{$level_account}>' title='<{$smarty.const._MA_WGSIMPLEACC_PDF_BUTTON}>'><{$smarty.const._MA_WGSIMPLEACC_PDF_BUTTON}></a>
+        <a class='btn btn-primary pull-right' href='balances_pdf.php?balIds=<{$balIds}>&amp;level_alloc=<{$level_alloc}>&amp;level_account=<{$level_account}>' title='<{$smarty.const._MD_WGSIMPLEACC_PDF_BUTTON}>'><{$smarty.const._MD_WGSIMPLEACC_PDF_BUTTON}></a>
     <{/if}>
 <{/if}>
                 

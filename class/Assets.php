@@ -81,21 +81,21 @@ class Assets extends \XoopsObject
             $action = $_SERVER['REQUEST_URI'];
         }
         // Title
-        $title = $this->isNew() ? \_MA_WGSIMPLEACC_ASSET_ADD : \_MA_WGSIMPLEACC_ASSET_EDIT;
+        $title = $this->isNew() ? \_MD_WGSIMPLEACC_ASSET_ADD : \_MD_WGSIMPLEACC_ASSET_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
         // Form Text asName
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ASSET_NAME, 'as_name', 50, 255, $this->getVar('as_name')), true);
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ASSET_NAME, 'as_name', 50, 255, $this->getVar('as_name')), true);
         // Form Text asReference
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ASSET_REFERENCE, 'as_reference', 50, 255, $this->getVar('as_reference')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ASSET_REFERENCE, 'as_reference', 50, 255, $this->getVar('as_reference')));
         // Form Editor TextArea asDescr
-        $form->addElement(new \XoopsFormTextArea(\_MA_WGSIMPLEACC_ASSET_DESCR, 'as_descr', $this->getVar('as_descr', 'e'), 4, 47));
+        $form->addElement(new \XoopsFormTextArea(\_MD_WGSIMPLEACC_ASSET_DESCR, 'as_descr', $this->getVar('as_descr', 'e'), 4, 47));
         // Form Select asColor
         $colors = Utility::getColors();
         $asColor = $this->getVar('as_color');
-        $asColorRadio = new \XoopsFormRadio(\_MA_WGSIMPLEACC_ASSET_COLOR, 'as_color', $asColor);
+        $asColorRadio = new \XoopsFormRadio(\_MD_WGSIMPLEACC_ASSET_COLOR, 'as_color', $asColor);
         foreach($colors as $color) {
             $desc = '<span style="background-color:' . $color['code'] . ';';
             if ($color['code'] == $asColor) {
@@ -109,25 +109,25 @@ class Assets extends \XoopsObject
         $form->addElement($asColorRadio);
         // Form Radio Yes/No asPrimary
         $asIecalc = $this->isNew() ?: $this->getVar('as_iecalc');
-        $asIecalcYn = new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_ASSET_IECALC, 'as_iecalc', $asIecalc);
-        $asIecalcYn->setDescription(\_MA_WGSIMPLEACC_ASSET_IECALC_DESC);
+        $asIecalcYn = new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_ASSET_IECALC, 'as_iecalc', $asIecalc);
+        $asIecalcYn->setDescription(\_MD_WGSIMPLEACC_ASSET_IECALC_DESC);
         $form->addElement($asIecalcYn);
         // Form Radio Yes/No asOnline
         $asOnline = $this->isNew() ?: $this->getVar('as_online');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_ASSET_ONLINE, 'as_online', $asOnline));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_ASSET_ONLINE, 'as_online', $asOnline));
         // Form Radio Yes/No asBalance
         $asBalance = $this->isNew() ?: $this->getVar('as_balance');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_ASSET_BALANCE, 'as_balance', $asBalance));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_ASSET_BALANCE, 'as_balance', $asBalance));
         // Form Radio Yes/No asPrimary
         $asPrimary = $this->isNew() ?: $this->getVar('as_primary');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_ASSET_PRIMARY, 'as_primary', $asPrimary));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_ASSET_PRIMARY, 'as_primary', $asPrimary));
         // Form Text Date Select asDatecreated
         $asDatecreated = $this->isNew() ? \time() : $this->getVar('as_datecreated');
         $asSubmitter = $this->isNew() ? $GLOBALS['xoopsUser']->uid() : $this->getVar('as_submitter');
         if ($admin) {
-            $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'as_datecreated', '', $asDatecreated));
+            $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'as_datecreated', '', $asDatecreated));
             // Form Select User asSubmitter
-            $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'as_submitter', false, $asSubmitter));
+            $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'as_submitter', false, $asSubmitter));
         } else {
             $form->addElement(new \XoopsFormHidden('as_datecreated', $asDatecreated));
             $form->addElement(new \XoopsFormHidden('as_submitter', $asSubmitter));

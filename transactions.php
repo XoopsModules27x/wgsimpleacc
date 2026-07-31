@@ -109,9 +109,9 @@ $GLOBALS['xoopsTpl']->assign('showItem', $traId > 0);
 
 if (0 == $displayfilter || $traId > 0) {
     $GLOBALS['xoopsTpl']->assign('displayfilter', 'none');
-    $GLOBALS['xoopsTpl']->assign('btnfilter', \_MA_WGSIMPLEACC_FILTER_SHOW);
+    $GLOBALS['xoopsTpl']->assign('btnfilter', \_MD_WGSIMPLEACC_FILTER_SHOW);
 } else {
-    $GLOBALS['xoopsTpl']->assign('btnfilter', \_MA_WGSIMPLEACC_FILTER_HIDE);
+    $GLOBALS['xoopsTpl']->assign('btnfilter', \_MD_WGSIMPLEACC_FILTER_HIDE);
 }
 $GLOBALS['xoopsTpl']->assign('sepComma', $helper->getConfig('sep_comma'));
 $GLOBALS['xoopsTpl']->assign('sepThousand', $helper->getConfig('sep_thousand'));
@@ -124,7 +124,7 @@ switch ($op) {
     case 'list':
     default:
         $GLOBALS['xoopsTpl']->assign('showList', true);
-        $GLOBALS['xoopsTpl']->assign('listHead', \_MA_WGSIMPLEACC_TRANSACTIONS_LIST);
+        $GLOBALS['xoopsTpl']->assign('listHead', \_MD_WGSIMPLEACC_TRANSACTIONS_LIST);
         $GLOBALS['xoopsTpl']->assign('permDelete', true);
         $GLOBALS['xoTheme']->addScript(\WGSIMPLEACC_URL . '/assets/js/forms.js');
         if (0 == $traId) {
@@ -193,11 +193,11 @@ switch ($op) {
                     $transactions[$i]['tratemplate'] = $permissionsHandler->getPermTratemplatesSubmit();
                 }
                 if ('' !== (string)$transactions[$i]['tra_remarks']) {
-                    $transactions[$i]['modaltitle'] = \str_replace('%s', $transactions[$i]['year_nb'], \_MA_WGSIMPLEACC_MODAL_TRATITLE);
+                    $transactions[$i]['modaltitle'] = \str_replace('%s', $transactions[$i]['year_nb'], \_MD_WGSIMPLEACC_MODAL_TRATITLE);
                 }
                 // get list of possible output templates
                 $outputTpls = [];
-                //$outputTpls[] = ['href' => 'transactions_pdf.php?tra_id=', 'title' => \_MA_WGSIMPLEACC_DOWNLOAD, 'class' => 'fa fa-file-pdf-o fa-fw', 'caption' => \_MA_WGSIMPLEACC_OUTTEMPLATE_DEFAULT];
+                //$outputTpls[] = ['href' => 'transactions_pdf.php?tra_id=', 'title' => \_MD_WGSIMPLEACC_DOWNLOAD, 'class' => 'fa fa-file-pdf-o fa-fw', 'caption' => \_MD_WGSIMPLEACC_OUTTEMPLATE_DEFAULT];
                 $crOuttemplates = new \CriteriaCompo();
                 $crOuttemplates->add(new \Criteria('otpl_online', 1));
                 $outtemplatesAll = $outtemplatesHandler->getAll($crOuttemplates);
@@ -294,15 +294,15 @@ switch ($op) {
 
         } else {
             if ($transactionsCountTotal > 0) {
-                $GLOBALS['xoopsTpl']->assign('noData', \_MA_WGSIMPLEACC_FILTER_NO_TRANSACTIONS);
+                $GLOBALS['xoopsTpl']->assign('noData', \_MD_WGSIMPLEACC_FILTER_NO_TRANSACTIONS);
             } else {
-                $GLOBALS['xoopsTpl']->assign('noData', \_MA_WGSIMPLEACC_THEREARENT_TRANSACTIONS);
+                $GLOBALS['xoopsTpl']->assign('noData', \_MD_WGSIMPLEACC_THEREARENT_TRANSACTIONS);
             }
         }
         $GLOBALS['xoopsTpl']->assign('traOpSorter',$traOpSorter);
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTIONS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTIONS];
 
         break;
     case 'save':
@@ -321,7 +321,7 @@ switch ($op) {
         if ($traId > 0) {
             $transactionsObj = $transactionsHandler->get($traId);
             if (!\is_object($transactionsObj)) {
-                \redirect_header('transactions.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('transactions.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             if ($helper->getConfig('use_trahistories')) {
                 $traHist = $transactionsHandler->saveHistoryTransactions($traId);
@@ -420,7 +420,7 @@ switch ($op) {
                 }
             }
             // redirect after insert
-            \redirect_header('transactions.php?op=list' . $traOp . '#traId_' . $newTraId, 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('transactions.php?op=list' . $traOp . '#traId_' . $newTraId, 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form Error
         $GLOBALS['xoopsTpl']->assign('error', $transactionsObj->getHtmlErrors());
@@ -446,8 +446,8 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTION_ADD];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTION_ADD];
 
         break;
     case 'history':
@@ -485,14 +485,14 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('traOp',$traOp);
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTION_HIST];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTION_HIST];
         break;
     case 'edit':
     case 'approve':
         // Check params
         if (0 === $traId) {
-            \redirect_header('transactions.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('transactions.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $approve = ('approve' === $op);
 
@@ -511,7 +511,7 @@ switch ($op) {
 
         $transactionsObj = $transactionsHandler->get($traId);
         if (!\is_object($transactionsObj)) {
-            \redirect_header('transactions.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('transactions.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $traSubmitter = $transactionsObj->getVar('tra_submitter');
         $traStatus = $transactionsObj->getVar('tra_status');
@@ -524,13 +524,13 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTION_EDIT];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTION_EDIT];
         break;
     case 'delete':
         // Check params
         if (0 === $traId) {
-            \redirect_header('transactions.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('transactions.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permissionsHandler->getPermTransactionsSubmit()) {
@@ -538,7 +538,7 @@ switch ($op) {
         }
         $transactionsObj = $transactionsHandler->get($traId);
         if (!\is_object($transactionsObj)) {
-            \redirect_header('transactions.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('transactions.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $traSubmitter = $transactionsObj->getVar('tra_submitter');
         $traStatus = $transactionsObj->getVar('tra_status');
@@ -562,7 +562,7 @@ switch ($op) {
                 $notificationHandler = \xoops_getHandler('notification');
                 $notificationHandler->triggerEvent('global', 0, 'global_delete', $tags);
                 $notificationHandler->triggerEvent('transactions', $traId, 'transaction_delete', $tags);
-                \redirect_header('transactions.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('transactions.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $transactionsObj->getHtmlErrors());
             }
@@ -574,19 +574,19 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'tra_id' => $traId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $info), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $info), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
             // Breadcrumbs
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTION_EDIT];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTION_EDIT];
         }
         break;
     case 'listhist':
         $GLOBALS['xoopsTpl']->assign('showList', true);
         $GLOBALS['xoopsTpl']->assign('listHist', true);
-        $GLOBALS['xoopsTpl']->assign('listHead', \_MA_WGSIMPLEACC_TRAHISTORY_DELETED);
+        $GLOBALS['xoopsTpl']->assign('listHead', \_MD_WGSIMPLEACC_TRAHISTORY_DELETED);
         $GLOBALS['xoopsTpl']->assign('permDelete', false);
         if (0 === $traId) {
             $formFilter = $transactionsHandler::getFormFilter($dateFrom, $dateTo, $allId, $asId, $accId, $cliId, 'listhist', 0, $traStatus, $traDesc, $filterInvalid, $limit);
@@ -636,7 +636,7 @@ switch ($op) {
                 $transactions[$i] = $transactionsAll[$i]->getValuesTransactions();
                 $transactions[$i]['editable'] = $permissionsHandler->getPermTransactionsEdit($transactions[$i]['tra_submitter'], $transactions[$i]['tra_status'], $transactions[$i]['tra_balid']);
                 if ('' !== (string)$transactions[$i]['tra_remarks']) {
-                    $transactions[$i]['modaltitle'] = \str_replace('%s', $transactions[$i]['year_nb'], \_MA_WGSIMPLEACC_MODAL_TRATITLE);
+                    $transactions[$i]['modaltitle'] = \str_replace('%s', $transactions[$i]['year_nb'], \_MD_WGSIMPLEACC_MODAL_TRATITLE);
                 }
                 $keywords[$i] = $transactionsAll[$i]->getVar('tra_desc');
             }
@@ -654,13 +654,13 @@ switch ($op) {
             $GLOBALS['xoopsTpl']->assign('useFiles', $helper->getConfig('use_files'));
             $GLOBALS['xoopsTpl']->assign('useClients', $helper->getConfig('use_clients'));
         } else {
-            $GLOBALS['xoopsTpl']->assign('noData', \_MA_WGSIMPLEACC_THEREARENT_TRAHISTORIES);
+            $GLOBALS['xoopsTpl']->assign('noData', \_MD_WGSIMPLEACC_THEREARENT_TRAHISTORIES);
         }
         $GLOBALS['xoopsTpl']->assign('traOp',$traOp);
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRAHISTORY_DELETED];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTIONS, 'link' => 'transactions.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRAHISTORY_DELETED];
         break;
 }
 
@@ -669,7 +669,7 @@ wgsimpleaccMetaKeywords($helper->getConfig('keywords') . ', ' . \implode(',', $k
 unset($keywords);
 
 // Description
-wgsimpleaccMetaDescription(\_MA_WGSIMPLEACC_TRANSACTIONS_DESC);
+wgsimpleaccMetaDescription(\_MD_WGSIMPLEACC_TRANSACTIONS_DESC);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL.'/transactions.php');
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 

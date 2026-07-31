@@ -65,22 +65,22 @@ class Utility
         switch ($status) {
             case Constants::TRASTATUS_NONE:
             default:
-                $status_text = \_MA_WGSIMPLEACC_TRASTATUS_NONE;
+                $status_text = \_MD_WGSIMPLEACC_TRASTATUS_NONE;
                 break;
             case Constants::TRASTATUS_DELETED:
-                $status_text = \_MA_WGSIMPLEACC_TRASTATUS_DELETED;
+                $status_text = \_MD_WGSIMPLEACC_TRASTATUS_DELETED;
                 break;
             case Constants::TRASTATUS_CREATED:
-                $status_text = \_MA_WGSIMPLEACC_TRASTATUS_CREATED;
+                $status_text = \_MD_WGSIMPLEACC_TRASTATUS_CREATED;
                 break;
             case Constants::TRASTATUS_SUBMITTED:
-                $status_text = \_MA_WGSIMPLEACC_TRASTATUS_SUBMITTED;
+                $status_text = \_MD_WGSIMPLEACC_TRASTATUS_SUBMITTED;
                 break;
             case Constants::TRASTATUS_APPROVED:
-                $status_text = \_MA_WGSIMPLEACC_TRASTATUS_APPROVED;
+                $status_text = \_MD_WGSIMPLEACC_TRASTATUS_APPROVED;
                 break;
             case Constants::TRASTATUS_LOCKED:
-                $status_text = \_MA_WGSIMPLEACC_TRASTATUS_LOCKED;
+                $status_text = \_MD_WGSIMPLEACC_TRASTATUS_LOCKED;
                 break;
         }
 
@@ -96,13 +96,13 @@ class Utility
         switch ($status) {
             case Constants::BALSTATUS_NONE:
             default:
-                $status_text = \_MA_WGSIMPLEACC_BALSTATUS_NONE;
+                $status_text = \_MD_WGSIMPLEACC_BALSTATUS_NONE;
                 break;
             case Constants::BALSTATUS_APPROVED:
-                $status_text = \_MA_WGSIMPLEACC_BALSTATUS_APPROVED;
+                $status_text = \_MD_WGSIMPLEACC_BALSTATUS_APPROVED;
                 break;
             case Constants::BALSTATUS_TEMPORARY:
-                $status_text = \_MA_WGSIMPLEACC_BALSTATUS_TEMPORARY;
+                $status_text = \_MD_WGSIMPLEACC_BALSTATUS_TEMPORARY;
                 break;
         }
 
@@ -116,28 +116,28 @@ class Utility
     public static function getColors()
     {
         $colors = [];
-        $colors[] = ['name' => 'lightred',    'code' => '#ff9999', 'descr' => \_MA_WGSIMPLEACC_COLOR_LIGHTRED];
-        $colors[] = ['name' => 'red',         'code' => '#ff3333', 'descr' => \_MA_WGSIMPLEACC_COLOR_RED];
-        $colors[] = ['name' => 'darkred',     'code' => '#990000', 'descr' => \_MA_WGSIMPLEACC_COLOR_DARKRED];
-        $colors[] = ['name' => 'lightorange', 'code' => '#ffcc99', 'descr' => \_MA_WGSIMPLEACC_COLOR_LIGHTORANGE];
-        $colors[] = ['name' => 'orange',      'code' => '#ff9933', 'descr' => \_MA_WGSIMPLEACC_COLOR_ORANGE];
-        $colors[] = ['name' => 'darkorange',  'code' => '#993300', 'descr' => \_MA_WGSIMPLEACC_COLOR_DARKORANGE];
-        $colors[] = ['name' => 'lightyellow', 'code' => '#ffffcc', 'descr' => \_MA_WGSIMPLEACC_COLOR_LIGHTYELLOW];
-        $colors[] = ['name' => 'yellow',      'code' => '#ffff66', 'descr' => \_MA_WGSIMPLEACC_COLOR_YELLOW];
-        $colors[] = ['name' => 'darkyellow',  'code' => '#999900', 'descr' => \_MA_WGSIMPLEACC_COLOR_DARKYELLOW];
-        $colors[] = ['name' => 'lightgreen',  'code' => '#ccff99', 'descr' => \_MA_WGSIMPLEACC_COLOR_LIGHTGREEN];
-        $colors[] = ['name' => 'green',       'code' => '#66cc00', 'descr' => \_MA_WGSIMPLEACC_COLOR_GREEN];
-        $colors[] = ['name' => 'darkgreen',   'code' => '#339900', 'descr' => \_MA_WGSIMPLEACC_COLOR_DARKGREEN];
-        $colors[] = ['name' => 'lightblue',   'code' => '#99ccff', 'descr' => \_MA_WGSIMPLEACC_COLOR_LIGHTBLUE];
-        $colors[] = ['name' => 'blue',        'code' => '#3399ff', 'descr' => \_MA_WGSIMPLEACC_COLOR_BLUE];
-        $colors[] = ['name' => 'darkblue',    'code' => '#0066cc', 'descr' => \_MA_WGSIMPLEACC_COLOR_DARKBLUE];
-        $colors[] = ['name' => 'purple',      'code' => '#9966cc', 'descr' => \_MA_WGSIMPLEACC_COLOR_LIGHTPURPLE];
-        $colors[] = ['name' => 'lightpurple', 'code' => '#cc99ff', 'descr' => \_MA_WGSIMPLEACC_COLOR_PURPLE];
-        $colors[] = ['name' => 'darkpurple',  'code' => '#660099', 'descr' => \_MA_WGSIMPLEACC_COLOR_DARKPURPLE];
-        $colors[] = ['name' => 'lightbrown',  'code' => '#996666', 'descr' => \_MA_WGSIMPLEACC_COLOR_LIGHTBROWN];
-        $colors[] = ['name' => 'brown',       'code' => '#663300', 'descr' => \_MA_WGSIMPLEACC_COLOR_BROWN];
-        $colors[] = ['name' => 'darkbrown',   'code' => '#330000', 'descr' => \_MA_WGSIMPLEACC_COLOR_DARKBROWN];
-        $colors[] = ['name' => 'grey',        'code' => '#999999', 'descr' => \_MA_WGSIMPLEACC_COLOR_GREY];
+        $colors[] = ['name' => 'lightred',    'code' => '#ff9999', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTRED];
+        $colors[] = ['name' => 'red',         'code' => '#ff3333', 'descr' => \_MD_WGSIMPLEACC_COLOR_RED];
+        $colors[] = ['name' => 'darkred',     'code' => '#990000', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKRED];
+        $colors[] = ['name' => 'lightorange', 'code' => '#ffcc99', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTORANGE];
+        $colors[] = ['name' => 'orange',      'code' => '#ff9933', 'descr' => \_MD_WGSIMPLEACC_COLOR_ORANGE];
+        $colors[] = ['name' => 'darkorange',  'code' => '#993300', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKORANGE];
+        $colors[] = ['name' => 'lightyellow', 'code' => '#ffffcc', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTYELLOW];
+        $colors[] = ['name' => 'yellow',      'code' => '#ffff66', 'descr' => \_MD_WGSIMPLEACC_COLOR_YELLOW];
+        $colors[] = ['name' => 'darkyellow',  'code' => '#999900', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKYELLOW];
+        $colors[] = ['name' => 'lightgreen',  'code' => '#ccff99', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTGREEN];
+        $colors[] = ['name' => 'green',       'code' => '#66cc00', 'descr' => \_MD_WGSIMPLEACC_COLOR_GREEN];
+        $colors[] = ['name' => 'darkgreen',   'code' => '#339900', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKGREEN];
+        $colors[] = ['name' => 'lightblue',   'code' => '#99ccff', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTBLUE];
+        $colors[] = ['name' => 'blue',        'code' => '#3399ff', 'descr' => \_MD_WGSIMPLEACC_COLOR_BLUE];
+        $colors[] = ['name' => 'darkblue',    'code' => '#0066cc', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKBLUE];
+        $colors[] = ['name' => 'purple',      'code' => '#9966cc', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTPURPLE];
+        $colors[] = ['name' => 'lightpurple', 'code' => '#cc99ff', 'descr' => \_MD_WGSIMPLEACC_COLOR_PURPLE];
+        $colors[] = ['name' => 'darkpurple',  'code' => '#660099', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKPURPLE];
+        $colors[] = ['name' => 'lightbrown',  'code' => '#996666', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTBROWN];
+        $colors[] = ['name' => 'brown',       'code' => '#663300', 'descr' => \_MD_WGSIMPLEACC_COLOR_BROWN];
+        $colors[] = ['name' => 'darkbrown',   'code' => '#330000', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKBROWN];
+        $colors[] = ['name' => 'grey',        'code' => '#999999', 'descr' => \_MD_WGSIMPLEACC_COLOR_GREY];
 
         return $colors;
     }
@@ -177,14 +177,14 @@ class Utility
         //linebreak
         $form->addElement(new \XoopsFormHidden('linebreak', ''));
         //Form  Tray with select date from/to
-        $selectFromToTray = new \XoopsFormElementTray(\_MA_WGSIMPLEACC_FILTERBY_PERIOD . ': ', '&nbsp;');
-        $selectFromToTray->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_FILTER_PERIODFROM, 'filterFrom', '', $filterFrom));
-        $selectFromToTray->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_FILTER_PERIODTO, 'filterTo', '', $filterTo));
+        $selectFromToTray = new \XoopsFormElementTray(\_MD_WGSIMPLEACC_FILTERBY_PERIOD . ': ', '&nbsp;');
+        $selectFromToTray->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_FILTER_PERIODFROM, 'filterFrom', '', $filterFrom));
+        $selectFromToTray->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_FILTER_PERIODTO, 'filterTo', '', $filterTo));
         $form->addElement($selectFromToTray);
         //linebreak
         $form->addElement(new \XoopsFormHidden('linebreak', ''));
         //button
-        $btnApply = new \XoopsFormButton('', 'submit', \_MA_WGSIMPLEACC_FILTER_APPLY, 'submit');
+        $btnApply = new \XoopsFormButton('', 'submit', \_MD_WGSIMPLEACC_FILTER_APPLY, 'submit');
         $form->addElement($btnApply);
         $form->addElement(new \XoopsFormHidden('op', $op));
 

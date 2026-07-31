@@ -84,14 +84,14 @@ class Accounts extends \XoopsObject
             $action = $_SERVER['REQUEST_URI'];
         }
         // Title
-        $title = $this->isNew() ? \_MA_WGSIMPLEACC_ACCOUNT_ADD : \_MA_WGSIMPLEACC_ACCOUNT_EDIT;
+        $title = $this->isNew() ? \_MD_WGSIMPLEACC_ACCOUNT_ADD : \_MD_WGSIMPLEACC_ACCOUNT_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
         // Form Table accounts
         $accountsHandler = $helper->getHandler('Accounts');
-        $accPidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_ACCOUNT_PID, 'acc_pid', $this->getVar('acc_pid'));
+        $accPidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_ACCOUNT_PID, 'acc_pid', $this->getVar('acc_pid'));
         $accPidSelect->addOption(0, ' ');
         $accountsCount = $accountsHandler->getCountAccounts();
         if ($accountsCount > 0) {
@@ -102,22 +102,22 @@ class Accounts extends \XoopsObject
         }
         $form->addElement($accPidSelect);
         // Form Text accKey
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ACCOUNT_KEY, 'acc_key', 50, 255, $this->getVar('acc_key')), true);
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ACCOUNT_KEY, 'acc_key', 50, 255, $this->getVar('acc_key')), true);
         // Form Text accName
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ACCOUNT_NAME, 'acc_name', 50, 255, $this->getVar('acc_name')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ACCOUNT_NAME, 'acc_name', 50, 255, $this->getVar('acc_name')));
         // Form Editor TextArea accDesc
-        $form->addElement(new \XoopsFormTextArea(\_MA_WGSIMPLEACC_ACCOUNT_DESC, 'acc_desc', $this->getVar('acc_desc', 'e'), 4, 47));
+        $form->addElement(new \XoopsFormTextArea(\_MD_WGSIMPLEACC_ACCOUNT_DESC, 'acc_desc', $this->getVar('acc_desc', 'e'), 4, 47));
         // Form Select accClassification
         $accClassification = $this->isNew() ? Constants::CLASS_BOTH : $this->getVar('acc_classification');
-        $accClassificationSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_ACCOUNT_CLASSIFICATION, 'acc_classification', $accClassification, 3);
-        $accClassificationSelect->addOption(Constants::CLASS_EXPENSES, \_MA_WGSIMPLEACC_CLASS_EXPENSES);
-        $accClassificationSelect->addOption(Constants::CLASS_INCOME, \_MA_WGSIMPLEACC_CLASS_INCOME);
-        $accClassificationSelect->addOption(Constants::CLASS_BOTH, \_MA_WGSIMPLEACC_CLASS_BOTH);
+        $accClassificationSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_ACCOUNT_CLASSIFICATION, 'acc_classification', $accClassification, 3);
+        $accClassificationSelect->addOption(Constants::CLASS_EXPENSES, \_MD_WGSIMPLEACC_CLASS_EXPENSES);
+        $accClassificationSelect->addOption(Constants::CLASS_INCOME, \_MD_WGSIMPLEACC_CLASS_INCOME);
+        $accClassificationSelect->addOption(Constants::CLASS_BOTH, \_MD_WGSIMPLEACC_CLASS_BOTH);
         $form->addElement($accClassificationSelect);
         // Form Select accColor
         $colors = Utility::getColors();
         $accColor = $this->getVar('acc_color');
-        $accColorRadio = new \XoopsFormRadio(\_MA_WGSIMPLEACC_ACCOUNT_COLOR, 'acc_color', $accColor);
+        $accColorRadio = new \XoopsFormRadio(\_MD_WGSIMPLEACC_ACCOUNT_COLOR, 'acc_color', $accColor);
         foreach($colors as $color) {
             $desc = '<span style="background-color:' . $color['code'] . ';';
             if ($color['code'] == $accColor) {
@@ -131,22 +131,22 @@ class Accounts extends \XoopsObject
         $form->addElement($accColorRadio);
         // Form Radio Yes/No accIecalc
         $accIecalc = $this->isNew() ? 1 : $this->getVar('acc_iecalc');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_ACCOUNT_IECALC, 'acc_iecalc', $accIecalc));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_ACCOUNT_IECALC, 'acc_iecalc', $accIecalc));
         // Form Radio Yes/No accOnline
         $accOnline = $this->isNew() ?: $this->getVar('acc_online');
         if ($admin) {
-            $accOnlineSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_ACCOUNT_ONLINE, 'acc_online', $accOnline, 3);
-            $accOnlineSelect->addOption(Constants::ONOFF_OFFLINE, \_MA_WGSIMPLEACC_ONOFF_OFFLINE);
-            $accOnlineSelect->addOption(Constants::ONOFF_ONLINE, \_MA_WGSIMPLEACC_ONOFF_ONLINE);
-            $accOnlineSelect->addOption(Constants::ONOFF_HIDDEN, \_MA_WGSIMPLEACC_ONOFF_HIDDEN);
+            $accOnlineSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_ACCOUNT_ONLINE, 'acc_online', $accOnline, 3);
+            $accOnlineSelect->addOption(Constants::ONOFF_OFFLINE, \_MD_WGSIMPLEACC_ONOFF_OFFLINE);
+            $accOnlineSelect->addOption(Constants::ONOFF_ONLINE, \_MD_WGSIMPLEACC_ONOFF_ONLINE);
+            $accOnlineSelect->addOption(Constants::ONOFF_HIDDEN, \_MD_WGSIMPLEACC_ONOFF_HIDDEN);
             $form->addElement($accOnlineSelect);
         } else {
-            $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_ACCOUNT_ONLINE, 'acc_online', $accOnline));
+            $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_ACCOUNT_ONLINE, 'acc_online', $accOnline));
         }
         // Form Text accLevel
         $accLevel = $this->isNew() ? 1 : $this->getVar('acc_level');
         if ($admin) {
-            $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ACCOUNT_LEVEL, 'acc_level', 50, 255, $accLevel));
+            $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ACCOUNT_LEVEL, 'acc_level', 50, 255, $accLevel));
         } else {
             $form->addElement(new \XoopsFormHidden('acc_level', $accLevel));
         }
@@ -157,9 +157,9 @@ class Accounts extends \XoopsObject
         // Form Select User accSubmitter
         $accSubmitter = $this->isNew() ? $GLOBALS['xoopsUser']->uid() : $this->getVar('acc_submitter');
         if ($admin) {
-            $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_ACCOUNT_WEIGHT, 'acc_weight', 50, 255, $accWeight));
-            $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'acc_datecreated', '', $accDatecreated));
-            $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'acc_submitter', false, $accSubmitter));
+            $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_ACCOUNT_WEIGHT, 'acc_weight', 50, 255, $accWeight));
+            $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'acc_datecreated', '', $accDatecreated));
+            $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'acc_submitter', false, $accSubmitter));
         } else {
             $form->addElement(new \XoopsFormHidden('acc_weight', $accWeight));
             $form->addElement(new \XoopsFormHidden('acc_datecreated', $accDatecreated));
@@ -197,13 +197,13 @@ class Accounts extends \XoopsObject
         switch ($classification) {
             case Constants::CLASS_BOTH:
             default:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_BOTH;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_BOTH;
                 break;
             case Constants::CLASS_EXPENSES:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_EXPENSES;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_EXPENSES;
                 break;
             case Constants::CLASS_INCOME:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_INCOME;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_INCOME;
                 break;
         }
         $ret['class_text']  = $class_text;
@@ -218,7 +218,7 @@ class Accounts extends \XoopsObject
                 $ret['online'] = \_YES;
                 break;
             case Constants::ONOFF_HIDDEN:
-                $ret['online'] = \_MA_WGSIMPLEACC_ONOFF_HIDDEN;
+                $ret['online'] = \_MD_WGSIMPLEACC_ONOFF_HIDDEN;
                 break;
         }
         $ret['level']       = $this->getVar('acc_level');

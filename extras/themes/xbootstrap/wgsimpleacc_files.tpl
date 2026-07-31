@@ -6,12 +6,12 @@
         <table class='table table-striped'>
             <thead>
             <tr>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_NAME}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_DESC}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_TYPE}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_PREVIEW}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_NAME}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_DESC}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_TYPE}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_PREVIEW}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -23,7 +23,7 @@
         </table>
     </div>
     <{else}>
-    <{$smarty.const._MA_WGSIMPLEACC_THEREARENT_FILES}>
+    <{$smarty.const._MD_WGSIMPLEACC_THEREARENT_FILES}>
     <{/if}>
     <div class="clear"></div>
     <{/if}>
@@ -37,10 +37,10 @@
 <{if $formFilesUpload|default:''}>
     <div id='filehandler' class='col-xs-12 col-sm-12'>
         <ul class='nav nav-tabs'>
-            <li class='active'><a id='navtab_main' href='#1' data-toggle='tab'><{$smarty.const._MA_WGSIMPLEACC_FILES_CURRENT}></a></li>
-            <li><a id='navtab_upload_file' href='#2' data-toggle='tab'><{$smarty.const._MA_WGSIMPLEACC_FILES_UPLOAD}></a></li>
+            <li class='active'><a id='navtab_main' href='#1' data-toggle='tab'><{$smarty.const._MD_WGSIMPLEACC_FILES_CURRENT}></a></li>
+            <li><a id='navtab_upload_file' href='#2' data-toggle='tab'><{$smarty.const._MD_WGSIMPLEACC_FILES_UPLOAD}></a></li>
             <{if $upload_by_app|default:''}>
-                <li><a id='navtab_upload_temp' href='#3' data-toggle='tab'><{$smarty.const._MA_WGSIMPLEACC_FILES_TEMP}></a></li>
+                <li><a id='navtab_upload_temp' href='#3' data-toggle='tab'><{$smarty.const._MD_WGSIMPLEACC_FILES_TEMP}></a></li>
             <{/if}>
         </ul>
         <div class='tab-content '>
@@ -51,12 +51,12 @@
                         <table class='table table-striped'>
                             <thead>
                                 <tr>
-                                    <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_NAME}></th>
-                                    <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_DESC}></th>
-                                    <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_TYPE}></th>
-                                    <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_PREVIEW}></th>
-                                    <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                                    <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
+                                    <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_NAME}></th>
+                                    <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_DESC}></th>
+                                    <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_TYPE}></th>
+                                    <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_PREVIEW}></th>
+                                    <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                                    <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -68,7 +68,7 @@
                         </table>
                     </div>
                 <{else}>
-                    <div style="padding:20px"><{$smarty.const._MA_WGSIMPLEACC_THEREARENT_FILES}></div>
+                    <div style="padding:20px"><{$smarty.const._MD_WGSIMPLEACC_THEREARENT_FILES}></div>
                 <{/if}>
                 <a class='btn btn-danger right' href='transactions.php?op=list<{$traOp}>' title='<{$smarty.const._BACK}>'><{$smarty.const._BACK}></a>
             </div>

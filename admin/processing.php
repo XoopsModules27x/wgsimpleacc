@@ -62,7 +62,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_PROCESSING);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_PROCESSING);
         }
         break;
     case 'new':
@@ -97,7 +97,7 @@ switch ($op) {
         $processingObj->setVar('pro_submitter', Request::getInt('pro_submitter'));
         // Insert Data
         if ($processingHandler->insert($processingObj)) {
-            \redirect_header('processing.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('processing.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form
         $GLOBALS['xoopsTpl']->assign('error', $processingObj->getHtmlErrors());
@@ -125,7 +125,7 @@ switch ($op) {
                 \redirect_header('processing.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($processingHandler->delete($processingObj)) {
-                \redirect_header('processing.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('processing.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $processingObj->getHtmlErrors());
             }
@@ -133,7 +133,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'pro_id' => $proId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $processingObj->getVar('pro_text')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $processingObj->getVar('pro_text')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }
@@ -149,9 +149,9 @@ switch ($op) {
         }
         // Insert Data
         if ($processingHandler->insert($processingObj)) {
-            \redirect_header('processing.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('processing.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         } else {
-            \redirect_header('processing.php?op=list', 2, \_MA_WGSIMPLEACC_ERROR_SAVE);
+            \redirect_header('processing.php?op=list', 2, \_MD_WGSIMPLEACC_ERROR_SAVE);
         }
         break;
 }

@@ -94,9 +94,9 @@ class Taxes extends \XoopsObject
         $form->addElement(new \XoopsFormRadioYN(\_AM_WGSIMPLEACC_TAX_PRIMARY, 'tax_primary', $taxPrimary));
         // Form Text Date Select taxDatecreated
         $taxDatecreated = $this->isNew() ?: $this->getVar('tax_datecreated');
-        $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'tax_datecreated', '', $taxDatecreated));
+        $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'tax_datecreated', '', $taxDatecreated));
         // Form Select User taxSubmitter
-        $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'tax_submitter', false, $this->getVar('tax_submitter')));
+        $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'tax_submitter', false, $this->getVar('tax_submitter')));
         // To Save
         $form->addElement(new \XoopsFormHidden('op', 'save'));
         $form->addElement(new \XoopsFormButtonTray('', \_SUBMIT, 'submit', '', false));

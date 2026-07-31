@@ -205,7 +205,7 @@ class AllocationsHandler extends \XoopsPersistableObjectHandler
                 $childsAll .= '<li style="display: list-item;" class="mjs-nestedSortable-branch mjs-nestedSortable-collapsed" id="menuItem_' . $itemsAll[$i]->getVar($itemId) . '">';
                 $childsAll .= '<div class="menuDiv">';
                 if ($child) {
-                    $childsAll .= '<span id="disclose_icon_' . $itemsAll[$i]->getVar($itemId) . '" title="' . \_MA_WGSIMPLEACC_LIST_CHILDS . '" class="disclose ui-icon ui-icon-plusthick"><span>-</span></span>';
+                    $childsAll .= '<span id="disclose_icon_' . $itemsAll[$i]->getVar($itemId) . '" title="' . \_MD_WGSIMPLEACC_LIST_CHILDS . '" class="disclose ui-icon ui-icon-plusthick"><span>-</span></span>';
                 }
                 $childsAll .= '<span>';
                 $childsAll .= '<span id="' . $itemsAll[$i]->getVar($itemId) . '" data-id="' . $itemsAll[$i]->getVar($itemId) . '" class="disclose_text itemTitle">' . $itemsAll[$i]->getVar($itemName);
@@ -215,7 +215,7 @@ class AllocationsHandler extends \XoopsPersistableObjectHandler
                 }
                 $childsAll .= '</span>';
                 $childsAll .= '<span class="pull-right">';
-                $onlineText = (1 == (int)$itemsAll[$i]->getVar($itemOnline)) ? \_MA_WGSIMPLEACC_ONLINE : \_MA_WGSIMPLEACC_OFFLINE;
+                $onlineText = (1 == (int)$itemsAll[$i]->getVar($itemOnline)) ? \_MD_WGSIMPLEACC_ONLINE : \_MD_WGSIMPLEACC_OFFLINE;
                 $childsAll .= '<img class="wgsa-img-online" src="' . \WGSIMPLEACC_ICONS_URL . '/32/' . $itemsAll[$i]->getVar($itemOnline) . '.png" title="' . $onlineText . '" alt="' . $onlineText . '">';
                 $crTransactions = new \CriteriaCompo();
                 $crTransactions->add(new \Criteria('tra_allid', $i));
@@ -225,7 +225,7 @@ class AllocationsHandler extends \XoopsPersistableObjectHandler
                 if (0 === $transactionsCount) {
                     $childsAll .= ' disabled';
                 }
-                $childsAll .= '" href="transactions.php?op=list&displayfilter=1&amp;' . $itemId . '=' . $itemsAll[$i]->getVar($itemId) . '" title="' . \_MA_WGSIMPLEACC_TRANSACTIONS . '">(' . $transactionsCount . ') ' . \_MA_WGSIMPLEACC_TRANSACTIONS . '</a>';
+                $childsAll .= '" href="transactions.php?op=list&displayfilter=1&amp;' . $itemId . '=' . $itemsAll[$i]->getVar($itemId) . '" title="' . \_MD_WGSIMPLEACC_TRANSACTIONS . '">(' . $transactionsCount . ') ' . \_MD_WGSIMPLEACC_TRANSACTIONS . '</a>';
                 $childsAll .= '<a class="btn btn btn-primary wgsa-btn-list" href="allocations.php?op=edit&amp;' . $itemId . '=' . $itemsAll[$i]->getVar($itemId) . '" title="' . \_EDIT . '">' . \_EDIT . '</a>';
                 $childsAll .= '<a class="btn btn btn-danger wgsa-btn-list';
                 if ($transactionsCount > 0) {
@@ -333,10 +333,10 @@ class AllocationsHandler extends \XoopsPersistableObjectHandler
                 $arrayAllTree[$i]['name'] = $itemsAll[$i]->getVar('all_name');
                 $arrayAllTree[$i]['tracount'] = $transactionsCount;
                 $arrayAllTree[$i]['online'] = 0;
-                $arrayAllTree[$i]['online_text'] = \_MA_WGSIMPLEACC_OFFLINE;
+                $arrayAllTree[$i]['online_text'] = \_MD_WGSIMPLEACC_OFFLINE;
                 if (Constants::ONOFF_ONLINE == $itemsAll[$i]->getVar('all_online')) {
                     $arrayAllTree[$i]['online'] = 1;
-                    $arrayAllTree[$i]['online_text'] = \_MA_WGSIMPLEACC_ONLINE;
+                    $arrayAllTree[$i]['online_text'] = \_MD_WGSIMPLEACC_ONLINE;
                 }
                 $child     = $this->getArrayTreeOfAllocations($i);
                 if ($child) {

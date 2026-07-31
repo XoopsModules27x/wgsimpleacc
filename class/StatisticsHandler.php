@@ -65,26 +65,26 @@ class StatisticsHandler
 
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
-        $form = new \XoopsThemeForm(\_MA_WGSIMPLEACC_STATISTICS, 'formStatSelect', $action, 'post', true);
+        $form = new \XoopsThemeForm(\_MD_WGSIMPLEACC_STATISTICS, 'formStatSelect', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
 
         $allocationsHandler = $helper->getHandler('Allocations');
         $arrayAllTree = $allocationsHandler->getArrayTreeOfAllocations(0);
         $checkboxListAll = $statisticsHandler->buildList($arrayAllTree, 'allIds');
-        $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_STATISTICS_ALL_SELECT, $checkboxListAll, 'labelAllids'));
+        $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_STATISTICS_ALL_SELECT, $checkboxListAll, 'labelAllids'));
 
         $accountsHandler = $helper->getHandler('Accounts');
         $arrayAccTree = $accountsHandler->getArrayTreeOfAccounts(0);
         $checkboxListAcc = $statisticsHandler->buildList($arrayAccTree, 'accIds');
-        $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_STATISTICS_ACC_SELECT, $checkboxListAcc, 'labelAccids'));
+        $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_STATISTICS_ACC_SELECT, $checkboxListAcc, 'labelAccids'));
 
-        $selectType = new \XoopsFormSelect(\_MA_WGSIMPLEACC_STATISTICS_TYPE, 'type', 1, 2);
-        $selectType->addOption(1, \_MA_WGSIMPLEACC_STATISTICS_TYPE_TIMELINE);
-        $selectType->addOption(2, \_MA_WGSIMPLEACC_STATISTICS_TYPE_DISTR);
+        $selectType = new \XoopsFormSelect(\_MD_WGSIMPLEACC_STATISTICS_TYPE, 'type', 1, 2);
+        $selectType->addOption(1, \_MD_WGSIMPLEACC_STATISTICS_TYPE_TIMELINE);
+        $selectType->addOption(2, \_MD_WGSIMPLEACC_STATISTICS_TYPE_DISTR);
         $form->addElement($selectType);
 
         $form->addElement(new \XoopsFormHidden('op', 'all_acc_output'));
-        $form->addElement(new \XoopsFormButtonTray('', \_MA_WGSIMPLEACC_STATISTICS_SHOW, 'submit', '', false));
+        $form->addElement(new \XoopsFormButtonTray('', \_MD_WGSIMPLEACC_STATISTICS_SHOW, 'submit', '', false));
 
         return $form;
     }

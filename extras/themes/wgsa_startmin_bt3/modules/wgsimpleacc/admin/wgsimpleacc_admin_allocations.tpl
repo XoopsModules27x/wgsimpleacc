@@ -5,17 +5,17 @@
     <table class='table table-bordered'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_PID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_NAME}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_DESC}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_ONLINE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_ACCOUNTS}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_LEVEL}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_WEIGHT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_PID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_NAME}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_DESC}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_ONLINE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_ACCOUNTS}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_LEVEL}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_WEIGHT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $allocations_count}>

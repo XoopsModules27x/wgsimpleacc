@@ -5,16 +5,16 @@
     <table class='outer'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_PROCESSING_TEXT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_PROCESSING_INCOME}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_PROCESSING_EXPENSES}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONLINE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_PROCESSING_DEFAULT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_PROCESSING_WEIGHT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_PROCESSING_TEXT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_PROCESSING_INCOME}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_PROCESSING_EXPENSES}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONLINE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_PROCESSING_DEFAULT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_PROCESSING_WEIGHT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $processing_count|default:''}>
@@ -24,20 +24,20 @@
                 <td class='center'><{$processing.id}></td>
                 <td class='center'><{$processing.text_short}></td>
                 <td class='center'>
-                    <a href="processing.php?op=set_onoff&amp;param_onoff=income&amp;pro_id=<{$processing.id}>" title="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>">
-                        <img class="wgsa-img-online" src="<{$wgsimpleacc_icon_url}>/32/<{$processing.pro_income}>.png" title="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>" alt="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>"></a>
+                    <a href="processing.php?op=set_onoff&amp;param_onoff=income&amp;pro_id=<{$processing.id}>" title="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>">
+                        <img class="wgsa-img-online" src="<{$wgsimpleacc_icon_url}>/32/<{$processing.pro_income}>.png" title="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>" alt="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>"></a>
                 </td>
                 <td class='center'>
-                    <a href="processing.php?op=set_onoff&amp;param_onoff=expenses&amp;pro_id=<{$processing.id}>" title="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>">
-                        <img class="wgsa-img-online" src="<{$wgsimpleacc_icon_url}>/32/<{$processing.pro_expenses}>.png" title="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>" alt="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>"></a>
+                    <a href="processing.php?op=set_onoff&amp;param_onoff=expenses&amp;pro_id=<{$processing.id}>" title="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>">
+                        <img class="wgsa-img-online" src="<{$wgsimpleacc_icon_url}>/32/<{$processing.pro_expenses}>.png" title="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>" alt="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>"></a>
                 </td>
                 <td class='center'>
-                    <a href="processing.php?op=set_onoff&amp;param_onoff=online&amp;pro_id=<{$processing.id}>" title="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>">
-                        <img class="wgsa-img-online" src="<{$wgsimpleacc_icon_url}>/32/<{$processing.pro_online}>.png" title="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>" alt="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>"></a>
+                    <a href="processing.php?op=set_onoff&amp;param_onoff=online&amp;pro_id=<{$processing.id}>" title="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>">
+                        <img class="wgsa-img-online" src="<{$wgsimpleacc_icon_url}>/32/<{$processing.pro_online}>.png" title="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>" alt="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>"></a>
                 </td>
                 <td class='center'>
-                    <a href="processing.php?op=set_onoff&amp;param_onoff=default&amp;pro_id=<{$processing.id}>" title="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>">
-                        <img class="wgsa-img-online" src="<{$wgsimpleacc_icon_url}>/32/<{$processing.pro_default}>.png" title="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>" alt="<{$smarty.const._MA_WGSIMPLEACC_PROCESSING_ONOFF}>"></a>
+                    <a href="processing.php?op=set_onoff&amp;param_onoff=default&amp;pro_id=<{$processing.id}>" title="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>">
+                        <img class="wgsa-img-online" src="<{$wgsimpleacc_icon_url}>/32/<{$processing.pro_default}>.png" title="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>" alt="<{$smarty.const._MD_WGSIMPLEACC_PROCESSING_ONOFF}>"></a>
                 </td>
                 <td class='center'><{$processing.weight}></td>
                 <td class='center'><{$processing.datecreated}></td>

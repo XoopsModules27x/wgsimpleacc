@@ -95,7 +95,7 @@ switch ($op) {
             $GLOBALS['xoopsTpl']->assign('dateTo', \time());
         }
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATIONS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATIONS];
         break;
     case 'compare_accounts':
         $allocationsCount = $allocationsHandler->getCountAllocations();
@@ -113,7 +113,7 @@ switch ($op) {
                 $crTransactions->add(new \Criteria('tra_status', Constants::TRASTATUS_DELETED, '>'));
                 $allocation['tracount'] = $transactionsHandler->getCount($crTransactions);
                 // get text on-/offline
-                $allocation['online_text'] = (1 == (int)$allocationsAll[$i]->getVar('all_online')) ? \_MA_WGSIMPLEACC_ONLINE : \_MA_WGSIMPLEACC_OFFLINE;
+                $allocation['online_text'] = (1 == (int)$allocationsAll[$i]->getVar('all_online')) ? \_MD_WGSIMPLEACC_ONLINE : \_MD_WGSIMPLEACC_OFFLINE;
                 // get accounts defined for this allocation
                 $arrAccounts = \unserialize($allocationsAll[$i]->getVar('all_accounts'), ['allowed_classes' => false]);
                 $allAccounts = [];
@@ -123,7 +123,7 @@ switch ($op) {
                         if (\is_object($accountsObj)) {
                             $allAccounts[$account]['name'] = $accountsObj->getVar('acc_name');
                             $allAccounts[$account]['online'] = $accountsObj->getVar('acc_online');
-                            $allAccounts[$account]['online_text'] = (1 == (int)$accountsObj->getVar('acc_online')) ? \_MA_WGSIMPLEACC_ONLINE : \_MA_WGSIMPLEACC_OFFLINE;
+                            $allAccounts[$account]['online_text'] = (1 == (int)$accountsObj->getVar('acc_online')) ? \_MD_WGSIMPLEACC_ONLINE : \_MD_WGSIMPLEACC_OFFLINE;
                         }
                         unset($accountsObj);
                     }
@@ -139,10 +139,10 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_ALLOCATIONS);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_ALLOCATIONS);
         }
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATION_ACCOUNTS_COMPARE];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATION_ACCOUNTS_COMPARE];
         break;
     case 'save':
         // Security Check
@@ -156,7 +156,7 @@ switch ($op) {
         if ($allId > 0) {
             $allocationsObj = $allocationsHandler->get($allId);
             if (!\is_object($allocationsObj)) {
-                \redirect_header('allocations.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('allocations.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
         } else {
             $allocationsObj = $allocationsHandler->create();
@@ -171,7 +171,7 @@ switch ($op) {
         if ($allPid > 0) {
             $allParentObj = $allocationsHandler->get($allPid);
             if (!\is_object($allParentObj)) {
-                \redirect_header('allocations.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('allocations.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             $level = $allParentObj->getVar('all_level') + 1;
         }
@@ -183,7 +183,7 @@ switch ($op) {
         // Insert Data
         if ($allocationsHandler->insert($allocationsObj)) {
             // redirect after insert
-            \redirect_header('allocations.php?op=' . $redir . '&amp;start=' . $start . '&amp;limit=' . $limit, 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('allocations.php?op=' . $redir . '&amp;start=' . $start . '&amp;limit=' . $limit, 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form Error
         $GLOBALS['xoopsTpl']->assign('error', $allocationsObj->getHtmlErrors());
@@ -204,17 +204,17 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATIONS, 'link' => 'allocations.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATION_ADD];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATIONS, 'link' => 'allocations.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATION_ADD];
         break;
     case 'edit':
         // Check params
         if (0 == $allId) {
-            \redirect_header('allocations.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('allocations.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $allocationsObj = $allocationsHandler->get($allId);
         if (!\is_object($allocationsObj)) {
-            \redirect_header('allocations.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('allocations.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permissionsHandler->getPermAllocationsEdit($allocationsObj->getVar('all_submitter'))) {
@@ -225,17 +225,17 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATIONS, 'link' => 'allocations.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATION_EDIT];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATIONS, 'link' => 'allocations.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATION_EDIT];
         break;
     case 'delete':
         // Check params
         if (0 == $allId) {
-            \redirect_header('allocations.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('allocations.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $allocationsObj = $allocationsHandler->get($allId);
         if (!\is_object($allocationsObj)) {
-            \redirect_header('allocations.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('allocations.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permissionsHandler->getPermAllocationsEdit($allocationsObj->getVar('all_submitter'))) {
@@ -246,7 +246,7 @@ switch ($op) {
         $crTransactions->add(new \Criteria('tra_allid', $allId));
         $transactionsCount = $transactionsHandler->getCount($crTransactions);
         if ($transactionsCount > 0) {
-            \redirect_header('allocations.php?op=list', 3, \_MA_WGSIMPLEACC_ALLOCATION_ERR_DELETE1);
+            \redirect_header('allocations.php?op=list', 3, \_MD_WGSIMPLEACC_ALLOCATION_ERR_DELETE1);
         }
         unset($crTransactions);
         // Check whether allocation has sub allocations
@@ -254,7 +254,7 @@ switch ($op) {
         $crAllocations->add(new \Criteria('all_pid', $allId));
         $allocationsCount = $allocationsHandler->getCount($crAllocations);
         if ($allocationsCount > 0) {
-            \redirect_header('allocations.php?op=list', 3, \_MA_WGSIMPLEACC_ALLOCATION_ERR_DELETE2);
+            \redirect_header('allocations.php?op=list', 3, \_MD_WGSIMPLEACC_ALLOCATION_ERR_DELETE2);
         }
         unset($crAllocations);
         $allName = $allocationsObj->getVar('all_name');
@@ -271,13 +271,13 @@ switch ($op) {
                 $allocationsObj->setVar('all_online', Constants::ONOFF_HIDDEN);
                 if ($allocationsHandler->insert($allocationsObj)) {
                     // redirect after insert
-                    \redirect_header('allocations.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                    \redirect_header('allocations.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 } else {
                     $GLOBALS['xoopsTpl']->assign('error', $allocationsObj->getHtmlErrors());
                 }
             } else {
                 if ($allocationsHandler->delete($allocationsObj)) {
-                    \redirect_header('allocations.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                    \redirect_header('allocations.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 } else {
                     $GLOBALS['xoopsTpl']->assign('error', $allocationsObj->getHtmlErrors());
                 }
@@ -286,13 +286,13 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'all_id' => $allId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $allocationsObj->getVar('all_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $allocationsObj->getVar('all_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
             // Breadcrumbs
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATIONS, 'link' => 'allocations.php?op=list'];
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATION_EDIT];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATIONS, 'link' => 'allocations.php?op=list'];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATION_EDIT];
         }
         break;
     case 'order':
@@ -327,7 +327,7 @@ wgsimpleaccMetaKeywords($helper->getConfig('keywords') . ', ' . \implode(',', $k
 unset($keywords);
 
 // Description
-wgsimpleaccMetaDescription(\_MA_WGSIMPLEACC_ALLOCATIONS_DESC);
+wgsimpleaccMetaDescription(\_MD_WGSIMPLEACC_ALLOCATIONS_DESC);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL . '/allocations.php');
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 

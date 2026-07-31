@@ -88,38 +88,38 @@ class Processing extends \XoopsObject
         }
 
         // Title
-        $title = $this->isNew() ? \_MA_WGSIMPLEACC_PROCESSING_ADD : \_MA_WGSIMPLEACC_PROCESSING_EDIT;
+        $title = $this->isNew() ? \_MD_WGSIMPLEACC_PROCESSING_ADD : \_MD_WGSIMPLEACC_PROCESSING_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
         // Form Text proText
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_PROCESSING_TEXT, 'pro_text', 50, 255, $this->getVar('pro_text')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_PROCESSING_TEXT, 'pro_text', 50, 255, $this->getVar('pro_text')));
         // Form Radio Yes/No proIncome
         $proIncome = $this->isNew() ? 0 : $this->getVar('pro_income');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_PROCESSING_INCOME, 'pro_income', $proIncome));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_PROCESSING_INCOME, 'pro_income', $proIncome));
         // Form Radio Yes/No proExpenses
         $proExpenses = $this->isNew() ? 0 : $this->getVar('pro_expenses');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_PROCESSING_EXPENSES, 'pro_expenses', $proExpenses));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_PROCESSING_EXPENSES, 'pro_expenses', $proExpenses));
         // Form Text proWeight
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_PROCESSING_WEIGHT, 'pro_weight', 10, 255, $this->getVar('pro_weight')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_PROCESSING_WEIGHT, 'pro_weight', 10, 255, $this->getVar('pro_weight')));
         // Form Radio Yes/No proOnline
         $proOnline = $this->isNew() ? 0 : $this->getVar('pro_online');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_PROCESSING_ONLINE, 'pro_online', $proOnline));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_PROCESSING_ONLINE, 'pro_online', $proOnline));
         // Form Radio Yes/No proDefault
         $proDefault = $this->isNew() ? 0 : $this->getVar('pro_default');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_PROCESSING_DEFAULT, 'pro_default', $proDefault));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_PROCESSING_DEFAULT, 'pro_default', $proDefault));
         // Form Text Date Select proDatecreated
         // Form Select User proSubmitter
         $proDatecreated = $this->isNew() ? \time() : $this->getVar('pro_datecreated');
         $proSubmitter = $this->isNew() ? $GLOBALS['xoopsUser']->uid() : $this->getVar('pro_submitter');
         if ($isAdmin) {
-            $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'pro_datecreated', '', $proDatecreated));
-            $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'pro_submitter', false, $proSubmitter));
+            $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'pro_datecreated', '', $proDatecreated));
+            $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'pro_submitter', false, $proSubmitter));
         } else {
-            $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_DATECREATED, \formatTimestamp($proDatecreated, 's')));
+            $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_DATECREATED, \formatTimestamp($proDatecreated, 's')));
             $form->addElement(new \XoopsFormHidden('pro_datecreated_int', \time()));
-            $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_SUBMITTER, \XoopsUser::getUnameFromId($proSubmitter)));
+            $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_SUBMITTER, \XoopsUser::getUnameFromId($proSubmitter)));
             $form->addElement(new \XoopsFormHidden('pro_submitter', $GLOBALS['xoopsUser']->uid()));
         }
         // To Save

@@ -4,7 +4,7 @@
             <tbody>
                 <tr>
                     <td><span id="incomes1"></span><span id="incomes2"></span>&nbsp</td>
-                    <td><{$smarty.const._MA_WGSIMPLEACC_TRANSACTIONS_INCOMES}>:</td>
+                    <td><{$smarty.const._MD_WGSIMPLEACC_TRANSACTIONS_INCOMES}>:</td>
                     <td class="wgsa-index-tratotal-amount"><{$transactions_total_in}></td>
                     <{if $indexTraInExPie|default:0 > 0}>
                         <td rowspan="3" class="center"><{include file='db:wgsimpleacc_chart_transactions_inexpie.tpl'}></td>
@@ -12,12 +12,12 @@
                 </tr>
                 <tr>
                     <td><span id="expenses1"></span><span id="expenses2"></span>&nbsp</td>
-                    <td><{$smarty.const._MA_WGSIMPLEACC_TRANSACTIONS_EXPENSES}>:</td>
+                    <td><{$smarty.const._MD_WGSIMPLEACC_TRANSACTIONS_EXPENSES}>:</td>
                     <td class="wgsa-index-tratotal-amount"><{$transactions_total_out}></td>
                 </tr>
                 <tr class="wgsa-index-tratotal-sum">
                     <td></td>
-                    <td><{$smarty.const._MA_WGSIMPLEACC_CHART_BALANCE}>:</td>
+                    <td><{$smarty.const._MD_WGSIMPLEACC_CHART_BALANCE}>:</td>
                     <td class="wgsa-index-tratotal-amount"><{$transactions_total}></td>
                 </tr>
             </tbody>

@@ -91,7 +91,7 @@ switch ($op) {
     case 'showfile':
         $filesObj = $filesHandler->get($filId);
         if (!\is_object($filesObj)) {
-            \redirect_header('index.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $filName = $filesObj->getVar('fil_name');
         $filePath = \XOOPS_ROOT_PATH . '/uploads/wgsimpleacc/files/' . $filName;
@@ -130,7 +130,7 @@ switch ($op) {
         $filesObj = $filesHandler->create();
         $form = $filesObj->getFormFiles(0);
         $GLOBALS['xoopsTpl']->assign('formFilesDir', $form->render());
-        $GLOBALS['xoopsTpl']->assign('header_fileslist', \_MA_WGSIMPLEACC_FILES_UPLOAD);
+        $GLOBALS['xoopsTpl']->assign('header_fileslist', \_MD_WGSIMPLEACC_FILES_UPLOAD);
         break;
     case 'filedir_edit':
         // Check permissions
@@ -139,19 +139,19 @@ switch ($op) {
         }
         // Check params
         if (0 == $filId && 'filedir_edit' === $op) {
-            \redirect_header('index.php', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Get Form
         $filesObj = $filesHandler->get($filId);
         if (!\is_object($filesObj)) {
-            \redirect_header('index.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $form = $filesObj->getFormFilesEdit();
         $GLOBALS['xoopsTpl']->assign('formFilesDir', $form->render());
         break;
     case 'filedir_list':
         $GLOBALS['xoopsTpl']->assign('filedir', true);
-        $GLOBALS['xoopsTpl']->assign('header_fileslist', \_MA_WGSIMPLEACC_FILES_LIST_FILEDIR);
+        $GLOBALS['xoopsTpl']->assign('header_fileslist', \_MD_WGSIMPLEACC_FILES_LIST_FILEDIR);
         $crFiles = new \CriteriaCompo();
         $crFiles->add(new \Criteria('fil_traid', 0));
         $filesCount = $filesHandler->getCount($crFiles);
@@ -172,10 +172,10 @@ switch ($op) {
         if ($filTraid > 0) {
             $transactionsObj = $transactionsHandler->get($filTraid);
             if (!\is_object($transactionsObj)) {
-                \redirect_header('index.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('index.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             $title = $transactionsObj->getVar('tra_year') . '/' . $transactionsObj->getVar('tra_nb') . ' ' . $transactionsObj->getVar('tra_desc');
-            $GLOBALS['xoopsTpl']->assign('header_fileslist', \str_replace('%t', $title, \_MA_WGSIMPLEACC_FILES_LISTHEADER));
+            $GLOBALS['xoopsTpl']->assign('header_fileslist', \str_replace('%t', $title, \_MD_WGSIMPLEACC_FILES_LISTHEADER));
         } else {
             $GLOBALS['xoopsTpl']->assign('header_fileslist', 'xxxx');
         }
@@ -208,10 +208,10 @@ switch ($op) {
         if ($filTraid > 0) {
             $transactionsObj = $transactionsHandler->get($filTraid);
             if (!\is_object($transactionsObj)) {
-                \redirect_header('index.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('index.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             $title = $transactionsObj->getVar('tra_year') . '/' . $transactionsObj->getVar('tra_nb') . ' ' . $transactionsObj->getVar('tra_desc');
-            $GLOBALS['xoopsTpl']->assign('header_fileslist', \str_replace('%t', $title, \_MA_WGSIMPLEACC_FILES_LISTHEADER));
+            $GLOBALS['xoopsTpl']->assign('header_fileslist', \str_replace('%t', $title, \_MD_WGSIMPLEACC_FILES_LISTHEADER));
         } else {
             break;
         }
@@ -256,13 +256,13 @@ switch ($op) {
         if ($filId > 0) {
             $filesObj = $filesHandler->get($filId);
             if (!\is_object($filesObj)) {
-                \redirect_header('index.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('index.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             if ($helper->getConfig('use_filhistories')) {
                 $filesHandler->saveHistoryFiles($filId);
             }
         } else {
-            \redirect_header('index.php', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $filesObj->setVar('fil_desc', Request::getString('fil_desc'));
         $filesObj->setVar('fil_ip', $_SERVER['REMOTE_ADDR']);
@@ -272,9 +272,9 @@ switch ($op) {
         if ($filesHandler->insert($filesObj)) {
             $filTraid = (int)$filesObj->getVar('fil_traid');
             if ($filTraid > 0) {
-                \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 2, \_MA_WGSIMPLEACC_FORM_OK);
+                \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 2, \_MD_WGSIMPLEACC_FORM_OK);
             } else {
-                \redirect_header('files.php?op=filedir_list&amp;fil_traid=0', 2, \_MA_WGSIMPLEACC_FORM_OK);
+                \redirect_header('files.php?op=filedir_list&amp;fil_traid=0', 2, \_MD_WGSIMPLEACC_FORM_OK);
             }
         }
         // Get Form Error
@@ -302,7 +302,7 @@ switch ($op) {
         if ($filId > 0) {
             $filesObj = $filesHandler->get($filId);
             if (!\is_object($filesObj)) {
-                \redirect_header('index.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('index.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
         } else {
             $filesObj = $filesHandler->create();
@@ -361,7 +361,7 @@ switch ($op) {
         $filePath = \XOOPS_ROOT_PATH . '/uploads/wgsimpleacc/files/' . $filName;
         if ('' === $filName) {
             if ('' === $uploaderErrors) {
-                $uploaderErrors = \_MA_WGSIMPLEACC_FILES_UPLOAD_ERROR;
+                $uploaderErrors = \_MD_WGSIMPLEACC_FILES_UPLOAD_ERROR;
             }
             \redirect_header('files.php?op=list&fil_traid=' . $filTraid, 5, $uploaderErrors);
         }
@@ -379,9 +379,9 @@ switch ($op) {
                 \redirect_header('files.php?op=edit&fil_id=' . $newFilId, 5, $uploaderErrors);
             } else {
                 if (0 === $filTraid) {
-                    \redirect_header('files.php?op=filedir_list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+                    \redirect_header('files.php?op=filedir_list', 2, \_MD_WGSIMPLEACC_FORM_OK);
                 } else {
-                    \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 2, \_MA_WGSIMPLEACC_FORM_OK);
+                    \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 2, \_MD_WGSIMPLEACC_FORM_OK);
                 }
             }
         }
@@ -403,12 +403,12 @@ switch ($op) {
         }
         // Check params
         if (0 == $filId) {
-            \redirect_header('index.php', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Get Form
         $filesObj = $filesHandler->get($filId);
         if (!\is_object($filesObj)) {
-            \redirect_header('index.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $form = $filesObj->getFormFilesEdit($traOp);
         $GLOBALS['xoopsTpl']->assign('formFilesEdit', $form->render());
@@ -417,11 +417,11 @@ switch ($op) {
     case 'delete':
         // Check params
         if (0 == $filId) {
-            \redirect_header('index.php', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $filesObj = $filesHandler->get($filId);
         if (!\is_object($filesObj)) {
-            \redirect_header('index.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permissionsHandler->getPermFilesEdit($filesObj->getVar('fil_submitter'))) {
@@ -440,9 +440,9 @@ switch ($op) {
             }
             if ($filesHandler->delete($filesObj)) {
                 if (0 === $filTraid) {
-                    \redirect_header('files.php?op=filedir_list', 2, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                    \redirect_header('files.php?op=filedir_list', 2, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 } else {
-                    \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                    \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 }
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $filesObj->getHtmlErrors());
@@ -451,7 +451,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'fil_id' => $filId, 'op' => 'delete', 'traOp' => $traOp],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $filesObj->getVar('fil_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $filesObj->getVar('fil_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }
@@ -464,19 +464,19 @@ switch ($op) {
         $fileName = Request::getString('fil_temp');
         $filePath = \XOOPS_ROOT_PATH . '/uploads/wgsimpleacc/temp/' . $fileName;
         \unlink($filePath);
-        \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+        \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
         break;
 }
 
 // Breadcrumbs
-$xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_FILES];
+$xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_FILES];
 
 // Keywords
 wgsimpleaccMetaKeywords($helper->getConfig('keywords') . ', ' . \implode(',', $keywords));
 unset($keywords);
 
 // Description
-wgsimpleaccMetaDescription(\_MA_WGSIMPLEACC_FILES_DESC);
+wgsimpleaccMetaDescription(\_MD_WGSIMPLEACC_FILES_DESC);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL . '/files.php');
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 

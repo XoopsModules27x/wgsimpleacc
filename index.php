@@ -131,7 +131,7 @@ if ($indexTrahbar || $indexTraInExSums || $indexAssetsPie) {
                     $transactions_datain2 .= $sumAmountin2 . ',';
                     $transactions_dataout1 .= $sumAmountout1 . ',';
                     $transactions_dataout2 .= $sumAmountout2 . ',';
-                    $transactions_labels .= "'" . \str_replace('%s', $allPidName, \_MA_WGSIMPLEACC_ALLOCATION_CURRID) . "',";
+                    $transactions_labels .= "'" . \str_replace('%s', $allPidName, \_MD_WGSIMPLEACC_ALLOCATION_CURRID) . "',";
                 }
 
                 unset($crAllocCur, $allocCurObj, $crTransactions);
@@ -202,8 +202,8 @@ if ($indexTrahbar || $indexTraInExSums || $indexAssetsPie) {
             $headerTra .= "'" . $allPidName . "'<br>";
             $headerTraSums .= "'" . $allPidName . "'<br>";
         }
-        $headerTra .= \_MA_WGSIMPLEACC_TRANSACTIONS_OVERVIEW . ': ' . \date('Y', $dateFrom);
-        $headerTraSums .= \_MA_WGSIMPLEACC_CHART_TRAINEXSUMS . ': ' . \date('Y', $dateFrom);
+        $headerTra .= \_MD_WGSIMPLEACC_TRANSACTIONS_OVERVIEW . ': ' . \date('Y', $dateFrom);
+        $headerTraSums .= \_MD_WGSIMPLEACC_CHART_TRAINEXSUMS . ': ' . \date('Y', $dateFrom);
         $GLOBALS['xoopsTpl']->assign('header_transactions', $headerTra);
         $GLOBALS['xoopsTpl']->assign('header_transactions_sums', $headerTraSums);
         $GLOBALS['xoopsTpl']->assign('tra_allocs_list', $tra_allocs_list);
@@ -217,10 +217,10 @@ if ($indexTrahbar || $indexTraInExSums || $indexAssetsPie) {
         $GLOBALS['xoopsTpl']->assign('transactions_total_out', Utility::FloatToString($transactions_total_out));
         $GLOBALS['xoopsTpl']->assign('transactions_total_out_val', $transactions_total_out);
         $GLOBALS['xoopsTpl']->assign('transactions_total', Utility::FloatToString($transactions_total_in - $transactions_total_out));
-        $GLOBALS['xoopsTpl']->assign('label_datain1', \_MA_WGSIMPLEACC_TRANSACTIONS_INCOMES . ' (' . \_MA_WGSIMPLEACC_TRASTATUS_APPROVED .')');
-        $GLOBALS['xoopsTpl']->assign('label_datain2', \_MA_WGSIMPLEACC_TRANSACTIONS_INCOMES . ' (' . \_MA_WGSIMPLEACC_TRASTATUS_SUBMITTED .')');
-        $GLOBALS['xoopsTpl']->assign('label_dataout1', \_MA_WGSIMPLEACC_TRANSACTIONS_EXPENSES . ' (' . \_MA_WGSIMPLEACC_TRASTATUS_APPROVED .')');
-        $GLOBALS['xoopsTpl']->assign('label_dataout2', \_MA_WGSIMPLEACC_TRANSACTIONS_EXPENSES . ' (' . \_MA_WGSIMPLEACC_TRASTATUS_SUBMITTED .')');
+        $GLOBALS['xoopsTpl']->assign('label_datain1', \_MD_WGSIMPLEACC_TRANSACTIONS_INCOMES . ' (' . \_MD_WGSIMPLEACC_TRASTATUS_APPROVED .')');
+        $GLOBALS['xoopsTpl']->assign('label_datain2', \_MD_WGSIMPLEACC_TRANSACTIONS_INCOMES . ' (' . \_MD_WGSIMPLEACC_TRASTATUS_SUBMITTED .')');
+        $GLOBALS['xoopsTpl']->assign('label_dataout1', \_MD_WGSIMPLEACC_TRANSACTIONS_EXPENSES . ' (' . \_MD_WGSIMPLEACC_TRASTATUS_APPROVED .')');
+        $GLOBALS['xoopsTpl']->assign('label_dataout2', \_MD_WGSIMPLEACC_TRANSACTIONS_EXPENSES . ' (' . \_MD_WGSIMPLEACC_TRASTATUS_SUBMITTED .')');
     }
     unset($count);
 }
@@ -232,7 +232,7 @@ if ($indexAssetsPie) {
     $assetsCurrent = $assetsHandler->getAssetsValues($dateFrom, $dateTo, false, true);
     $assetsCount = \count($assetsCurrent);
     if ($assetsCount > 0) {
-        $GLOBALS['xoopsTpl']->assign('assets_header', \_MA_WGSIMPLEACC_ASSETS_CURRENT  . ': ' . \date('Y', $dateFrom));
+        $GLOBALS['xoopsTpl']->assign('assets_header', \_MD_WGSIMPLEACC_ASSETS_CURRENT  . ': ' . \date('Y', $dateFrom));
         $GLOBALS['xoopsTpl']->assign('assetsCount', $assetsCount);
         $assets_data = '';
         $assets_labels = '';
@@ -266,7 +266,7 @@ if ($indexAssetsPieTotal) {
     $assetsCurrent = $assetsHandler->getCurrentAssetsValues();
     $assetsTotalCount = \count($assetsCurrent);
     if ($assetsTotalCount > 0) {
-        $GLOBALS['xoopsTpl']->assign('assetsTotal_header', \_MA_WGSIMPLEACC_ASSETSTOTAL_CURRENT);
+        $GLOBALS['xoopsTpl']->assign('assetsTotal_header', \_MD_WGSIMPLEACC_ASSETSTOTAL_CURRENT);
         $GLOBALS['xoopsTpl']->assign('assetsTotalCount', $assetsTotalCount);
         $assets_data = '';
         $assets_labels = '';
@@ -294,12 +294,12 @@ if ($indexAssetsPieTotal) {
 }
 
 // Breadcrumbs
-$xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_INDEX];
+$xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_INDEX];
 // Keywords
 wgsimpleaccMetaKeywords($helper->getConfig('keywords') . ', ' . \implode(',', $keywords));
 unset($keywords);
 // Description
-wgsimpleaccMetaDescription(\_MA_WGSIMPLEACC_INDEX_DESC);
+wgsimpleaccMetaDescription(\_MD_WGSIMPLEACC_INDEX_DESC);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL . '/index.php');
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 require __DIR__ . '/footer.php';

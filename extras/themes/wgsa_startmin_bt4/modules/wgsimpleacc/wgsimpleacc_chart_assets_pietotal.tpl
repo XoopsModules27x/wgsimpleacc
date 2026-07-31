@@ -135,7 +135,7 @@
 			},
 			title: {
 				display: true,
-				text: '<{$smarty.const._MA_WGSIMPLEACC_ASSETS}>'
+				text: '<{$smarty.const._MD_WGSIMPLEACC_ASSETS}>'
 			},
 			animation: {
 				animateScale: true,

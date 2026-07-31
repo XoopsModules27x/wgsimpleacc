@@ -4,7 +4,7 @@
 <{/if}>
 <br>
 <{if !empty($xoops_isadmin)}>
-	<div class='text-center bold'><a href='<{$admin}>'><{$smarty.const._MA_WGSIMPLEACC_ADMIN}></a></div>
+	<div class='text-center bold'><a href='<{$admin}>'><{$smarty.const._MD_WGSIMPLEACC_ADMIN}></a></div>
 <{/if}>
 <{if $copyright|default:''}>
 	<div class="clear"></div>

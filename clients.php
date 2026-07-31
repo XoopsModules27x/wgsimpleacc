@@ -64,7 +64,7 @@ switch ($op) {
     case 'list':
     default:
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_CLIENTS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_CLIENTS];
 
         $showFiltered= false;
         $crClients = new \CriteriaCompo();
@@ -129,7 +129,7 @@ switch ($op) {
         if ($cliId > 0) {
             $clientsObj = $clientsHandler->get($cliId);
             if (!\is_object($clientsObj)) {
-                \redirect_header('clients.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('clients.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
         } else {
             $clientsObj = $clientsHandler->create();
@@ -154,7 +154,7 @@ switch ($op) {
         // Insert Data
         if ($clientsHandler->insert($clientsObj)) {
             // redirect after insert
-            \redirect_header('clients.php', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('clients.php', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form Error
         $GLOBALS['xoopsTpl']->assign('error', $clientsObj->getHtmlErrors());
@@ -172,18 +172,18 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_CLIENTS, 'link' => 'clients.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_CLIENT_ADD];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_CLIENTS, 'link' => 'clients.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_CLIENT_ADD];
         break;
     case 'edit':
         // Check params
         if (0 == $cliId) {
-            \redirect_header('clients.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('clients.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Get object
         $clientsObj = $clientsHandler->get($cliId);
         if (!\is_object($clientsObj)) {
-            \redirect_header('clients.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('clients.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permissionsHandler->getPermClientsEdit($clientsObj->getVar('cli_submitter'))) {
@@ -194,18 +194,18 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_CLIENTS, 'link' => 'clients.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_CLIENT_EDIT];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_CLIENTS, 'link' => 'clients.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_CLIENT_EDIT];
         break;
     case 'delete':
         // Check params
         if (0 == $cliId) {
-            \redirect_header('clients.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('clients.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Get object
         $clientsObj = $clientsHandler->get($cliId);
         if (!\is_object($clientsObj)) {
-            \redirect_header('clients.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('clients.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permissionsHandler->getPermClientsEdit($clientsObj->getVar('cli_submitter'))) {
@@ -217,7 +217,7 @@ switch ($op) {
                 \redirect_header('clients.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($clientsHandler->delete($clientsObj)) {
-                \redirect_header('clients.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('clients.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $clientsObj->getHtmlErrors());
             }
@@ -225,25 +225,25 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'cli_id' => $cliId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $clientsObj->getVar('cli_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $clientsObj->getVar('cli_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_CLIENTS, 'link' => 'clients.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_CLIENT_EDIT];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_CLIENTS, 'link' => 'clients.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_CLIENT_EDIT];
         break;
     case 'change_yn':
         if ($cliId > 0) {
             $clientsObj = $clientsHandler->get($cliId);
             if (!\is_object($clientsObj)) {
-                \redirect_header('clients.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('clients.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             $clientsObj->setVar(Request::getString('field'), Request::getInt('value'));
             // Insert Data
             if ($clientsHandler->insert($clientsObj, true)) {
-                \redirect_header('clients.php?op=list&amp;start=' . $start . '&amp;limit=' . $limit, 2, \_MA_WGSIMPLEACC_FORM_OK);
+                \redirect_header('clients.php?op=list&amp;start=' . $start . '&amp;limit=' . $limit, 2, \_MD_WGSIMPLEACC_FORM_OK);
             }
         }
         break;

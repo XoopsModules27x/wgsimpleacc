@@ -5,29 +5,29 @@
     <table class='outer'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_YEARNB}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_DESC}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_REFERENCE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_REMARKS}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ACCID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ALLID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_DATE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_CURID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_TAXID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ASID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_CLIID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_STATUS}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_COMMENTS}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_CLASS}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_BALID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_BALIDT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_HIST}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_YEARNB}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_DESC}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_REFERENCE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_REMARKS}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ACCID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ALLID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_DATE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_CURID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_TAXID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ASID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_CLIID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_STATUS}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_COMMENTS}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_CLASS}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_BALID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_BALIDT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_HIST}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $transactions_count|default:0}>

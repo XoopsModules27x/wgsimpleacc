@@ -87,7 +87,7 @@ switch ($op) {
         }
         $GLOBALS['xoopsTpl']->assign('table_type', $helper->getConfig('table_type'));
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTTEMPLATES];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTTEMPLATES];
         break;
     case 'save':
         // Security Check
@@ -97,7 +97,7 @@ switch ($op) {
         if ($otplId > 0) {
             $outtemplatesObj = $outtemplatesHandler->get($otplId);
             if (!\is_object($outtemplatesObj)) {
-                \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('outtemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             // Check permissions
             if (!$permissionsHandler->getPermOuttemplatesSubmit()) {
@@ -136,7 +136,7 @@ switch ($op) {
         // Insert Data
         if ($outtemplatesHandler->insert($outtemplatesObj)) {
             // redirect after insert
-            \redirect_header('outtemplates.php', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('outtemplates.php', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form Error
         $GLOBALS['xoopsTpl']->assign('error', $outtemplatesObj->getHtmlErrors());
@@ -155,7 +155,7 @@ switch ($op) {
             $otplId = Request::getInt('otpl_id_clone');
             $outtemplatesObjOld = $outtemplatesHandler->get($otplId);
             if (!\is_object($outtemplatesObjOld)) {
-                \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('outtemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             foreach ($outtemplatesObjOld->vars as $k => $v) {
                 if ('otpl_id' !== $k) {
@@ -168,18 +168,18 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTTEMPLATES, 'link' => 'outtemplates.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTTEMPLATE_ADD];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTTEMPLATES, 'link' => 'outtemplates.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTTEMPLATE_ADD];
         break;
     case 'edit':
         // Check params
         if (0 == $otplId) {
-            \redirect_header('outtemplates.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('outtemplates.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Get object
         $outtemplatesObj = $outtemplatesHandler->get($otplId);
         if (!\is_object($outtemplatesObj)) {
-            \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('outtemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permApprove && !$permissionsHandler->getPermOuttemplatesSubmit()) {
@@ -189,8 +189,8 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTTEMPLATES, 'link' => 'outtemplates.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTTEMPLATE_EDIT];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTTEMPLATES, 'link' => 'outtemplates.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTTEMPLATE_EDIT];
         break;
     case 'delete':
         // Check permissions
@@ -199,11 +199,11 @@ switch ($op) {
         }
         // Check params
         if (0 == $otplId) {
-            \redirect_header('outtemplates.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('outtemplates.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $outtemplatesObj = $outtemplatesHandler->get($otplId);
         if (!\is_object($outtemplatesObj)) {
-            \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('outtemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $otplName = $outtemplatesObj->getVar('otpl_name');
         if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
@@ -211,7 +211,7 @@ switch ($op) {
                 \redirect_header('outtemplates.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($outtemplatesHandler->delete($outtemplatesObj)) {
-                \redirect_header('outtemplates.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('outtemplates.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $outtemplatesObj->getHtmlErrors());
             }
@@ -219,13 +219,13 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'otpl_id' => $otplId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $outtemplatesObj->getVar('otpl_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $outtemplatesObj->getVar('otpl_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
             // Breadcrumbs
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTTEMPLATES, 'link' => 'outtemplates.php?op=list'];
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTTEMPLATE_EDIT];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTTEMPLATES, 'link' => 'outtemplates.php?op=list'];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTTEMPLATE_EDIT];
         }
         break;
 /*
@@ -280,7 +280,7 @@ switch ($op) {
                 $useFooter = false;
                 require_once __DIR__ . '/output_pdf.php';
 
-                $filePdf = \str_replace(['%y', '%n'], [$outParams['tra_year'], $outParams['tra_nb']], \_MA_WGSIMPLEACC_PDF_TRANAME);
+                $filePdf = \str_replace(['%y', '%n'], [$outParams['tra_year'], $outParams['tra_nb']], \_MD_WGSIMPLEACC_PDF_TRANAME);
                 $filePdf = $filePdf . '_' . time() . '.pdf';
 
                 $outParams['file_name'] = $filePdf;
@@ -311,7 +311,7 @@ switch ($op) {
                     $filesObj->setVar('fil_submitter', $GLOBALS['xoopsUser']->id());
                     // Insert Data
                     $filesHandler->insert($filesObj);
-                    \redirect_header('transactions.php?op=list&amp;filePdf=' . $filePdf, 3, \_MA_WGSIMPLEACC_OUTTEMPLATE_PDF_SUCCESS);
+                    \redirect_header('transactions.php?op=list&amp;filePdf=' . $filePdf, 3, \_MD_WGSIMPLEACC_OUTTEMPLATE_PDF_SUCCESS);
                 }
                 break;
         }

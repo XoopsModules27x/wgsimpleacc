@@ -92,7 +92,7 @@ class Clients extends \XoopsObject
         }
 
         // Title
-        $title = $this->isNew() ? \_MA_WGSIMPLEACC_CLIENT_ADD : \_MA_WGSIMPLEACC_CLIENT_EDIT;
+        $title = $this->isNew() ? \_MD_WGSIMPLEACC_CLIENT_ADD : \_MD_WGSIMPLEACC_CLIENT_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form', $action, 'post', true);
@@ -106,12 +106,12 @@ class Clients extends \XoopsObject
         $editorConfigs1['width'] = '100%';
         $editorConfigs1['height'] = '400px';
         $editorConfigs1['editor'] = $editor;
-        $cliName = new \XoopsFormEditor(\_MA_WGSIMPLEACC_CLIENT_NAME, 'cli_name', $editorConfigs1);
+        $cliName = new \XoopsFormEditor(\_MD_WGSIMPLEACC_CLIENT_NAME, 'cli_name', $editorConfigs1);
         $form->addElement($cliName);
         // Form Text cliPostal
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_CLIENT_POSTAL, 'cli_postal', 50, 255, $this->getVar('cli_postal')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_CLIENT_POSTAL, 'cli_postal', 50, 255, $this->getVar('cli_postal')));
         // Form Text cliCity
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_CLIENT_CITY, 'cli_city', 50, 255, $this->getVar('cli_city')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_CLIENT_CITY, 'cli_city', 50, 255, $this->getVar('cli_city')));
         // Form Editor DhtmlTextArea cliAddress
         $editorConfigs2 = [];
         $editorConfigs2['name'] = 'cli_address';
@@ -121,38 +121,38 @@ class Clients extends \XoopsObject
         $editorConfigs2['width'] = '100%';
         $editorConfigs2['height'] = '400px';
         $editorConfigs2['editor'] = $editor;
-        $cliAddress = new \XoopsFormEditor(\_MA_WGSIMPLEACC_CLIENT_ADDRESS, 'cli_address', $editorConfigs2);
+        $cliAddress = new \XoopsFormEditor(\_MD_WGSIMPLEACC_CLIENT_ADDRESS, 'cli_address', $editorConfigs2);
         $form->addElement($cliAddress);
         // Form Select Country cliCtry
-        $cliCtrySelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_CLIENT_CTRY, 'cli_ctry', $this->getVar('cli_ctry'));
+        $cliCtrySelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_CLIENT_CTRY, 'cli_ctry', $this->getVar('cli_ctry'));
         $cliCtrySelect->addOption('', _NONE);
         $countryArray = \XoopsLists::getCountryList();
         $cliCtrySelect->addOptionArray($countryArray);
         $form->addElement($cliCtrySelect);
         // Form Text cliPhone
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_CLIENT_PHONE, 'cli_phone', 50, 255, $this->getVar('cli_phone')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_CLIENT_PHONE, 'cli_phone', 50, 255, $this->getVar('cli_phone')));
         // Form Text cliVat
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_CLIENT_VAT, 'cli_vat', 50, 255, $this->getVar('cli_vat')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_CLIENT_VAT, 'cli_vat', 50, 255, $this->getVar('cli_vat')));
         // Form Radio Yes/No cliCreditor
         $cliCreditor = $this->isNew() ?: $this->getVar('cli_creditor');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_CLIENT_CREDITOR, 'cli_creditor', $cliCreditor));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_CLIENT_CREDITOR, 'cli_creditor', $cliCreditor));
         // Form Radio Yes/No cliDebtor
         $cliDebtor = $this->isNew() ?: $this->getVar('cli_debtor');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_CLIENT_DEBTOR, 'cli_debtor', $cliDebtor));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_CLIENT_DEBTOR, 'cli_debtor', $cliDebtor));
         // Form Radio Yes/No cliOnline
         $cliOnline = $this->isNew() ?: $this->getVar('cli_online');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_CLIENT_ONLINE, 'cli_online', $cliOnline));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_CLIENT_ONLINE, 'cli_online', $cliOnline));
         // Form Text Date Select cliDatecreated
         // Form Select User cliSubmitter
         $cliDatecreated = $this->isNew() ? \time() : $this->getVar('cli_datecreated');
         $cliSubmitter = $this->isNew() ? $GLOBALS['xoopsUser']->uid() : $this->getVar('cli_submitter');
         if ($isAdmin) {
-            $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'cli_datecreated', '', $cliDatecreated));
-            $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'cli_submitter', false, $cliSubmitter));
+            $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'cli_datecreated', '', $cliDatecreated));
+            $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'cli_submitter', false, $cliSubmitter));
         } else {
-            $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_DATECREATED, \formatTimestamp($cliDatecreated, 's')));
+            $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_DATECREATED, \formatTimestamp($cliDatecreated, 's')));
             $form->addElement(new \XoopsFormHidden('cli_datecreated_int', \time()));
-            $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_SUBMITTER, \XoopsUser::getUnameFromId($cliSubmitter)));
+            $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_SUBMITTER, \XoopsUser::getUnameFromId($cliSubmitter)));
             $form->addElement(new \XoopsFormHidden('cli_submitter', $GLOBALS['xoopsUser']->uid()));
         }
         // To Save

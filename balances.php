@@ -64,14 +64,14 @@ switch ($op) {
         $balanceFromObj = \DateTime::createFromFormat(Utility::CustomDateFormat(), $balFrom);
         if ($balanceFromObj === false) {
             // invalid date
-            \redirect_header('balances.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MA_WGSIMPLEACC_INVALID_DATE);
+            \redirect_header('balances.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MD_WGSIMPLEACC_INVALID_DATE);
         }
         $balanceFrom = $balanceFromObj->getTimestamp();
         $balTo = Request::getString('bal_to') . ' 23:59';
         $balanceToObj = \DateTime::createFromFormat(Utility::CustomDateFormat(), $balTo);
         if ($balanceToObj === false) {
             // invalid date
-            \redirect_header('balances.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MA_WGSIMPLEACC_INVALID_DATE);
+            \redirect_header('balances.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MD_WGSIMPLEACC_INVALID_DATE);
         }
         $balanceTo = $balanceToObj->getTimestamp();
 
@@ -84,7 +84,7 @@ switch ($op) {
             $crBalances->add(new \Criteria('bal_status', Constants::TRASTATUS_APPROVED));
             $countBalances = $balancesHandler->getCount($crBalances);
             if ($countBalances > 0) {
-                \redirect_header('balances.php?op=list', 3, \_MA_WGSIMPLEACC_BALANCE_DATEUSED);
+                \redirect_header('balances.php?op=list', 3, \_MD_WGSIMPLEACC_BALANCE_DATEUSED);
             }
             unset($crBalances);
             // date 'balance to' within range
@@ -94,7 +94,7 @@ switch ($op) {
             $crBalances->add(new \Criteria('bal_status', Constants::TRASTATUS_APPROVED));
             $countBalances = $balancesHandler->getCount($crBalances);
             if ($countBalances > 0) {
-                \redirect_header('balances.php?op=list', 3, \_MA_WGSIMPLEACC_BALANCE_DATEUSED);
+                \redirect_header('balances.php?op=list', 3, \_MD_WGSIMPLEACC_BALANCE_DATEUSED);
             }
             unset($crBalances);
         }
@@ -105,7 +105,7 @@ switch ($op) {
         $assetsCurrent = $assetsHandler->getAssetsValues($balanceFrom, $balanceTo, true);
         $assetsCount = \count($assetsCurrent);
         if ($assetsCount > 0) {
-            $info = \str_replace('%f', $balFrom, \_MA_WGSIMPLEACC_BALANCE_CALC_PERIOD);
+            $info = \str_replace('%f', $balFrom, \_MD_WGSIMPLEACC_BALANCE_CALC_PERIOD);
             $info = \str_replace('%t', $balTo, $info);
             $GLOBALS['xoopsTpl']->assign('calc_info', $info);
             $assetsList = [];
@@ -134,7 +134,7 @@ switch ($op) {
         $crTransactions->add(new \Criteria('tra_status', Constants::TRASTATUS_NONE));
         $countNone = $transactionsHandler->getCount($crTransactions);
         if ($countNone > 0) {
-            $warnings[] = \sprintf(\_MA_WGSIMPLEACC_BALANCES_WARNING_NONE, $countNone);
+            $warnings[] = \sprintf(\_MD_WGSIMPLEACC_BALANCES_WARNING_NONE, $countNone);
         }
         unset($crTransactions);
         $crTransactions = new \CriteriaCompo();
@@ -143,7 +143,7 @@ switch ($op) {
         $crTransactions->add(new \Criteria('tra_status', Constants::TRASTATUS_CREATED));
         $countOffline = $transactionsHandler->getCount($crTransactions);
         if ($countOffline > 0) {
-            $warnings[] = \sprintf(\_MA_WGSIMPLEACC_BALANCES_WARNING_CREATED, $countOffline);
+            $warnings[] = \sprintf(\_MD_WGSIMPLEACC_BALANCES_WARNING_CREATED, $countOffline);
         }
         unset($crTransactions);
         $crTransactions = new \CriteriaCompo();
@@ -152,7 +152,7 @@ switch ($op) {
         $crTransactions->add(new \Criteria('tra_status', Constants::TRASTATUS_SUBMITTED));
         $countSubmitted = $transactionsHandler->getCount($crTransactions);
         if ($countSubmitted > 0) {
-            $warnings[] = \sprintf(\_MA_WGSIMPLEACC_BALANCES_WARNING_SUBMITTED, $countSubmitted);
+            $warnings[] = \sprintf(\_MD_WGSIMPLEACC_BALANCES_WARNING_SUBMITTED, $countSubmitted);
         }
         unset($crTransactions);
         if (\count($warnings) > 0) {
@@ -160,8 +160,8 @@ switch ($op) {
         }
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCES, 'link' => 'balances.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCE_PRECALC];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCES, 'link' => 'balances.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCE_PRECALC];
         break;
 
     case 'list':
@@ -204,7 +204,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('balancesCount', $balancesCount);
         $GLOBALS['xoopsTpl']->assign('balances', $balances);
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCES];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCES];
         break;
 
     case 'details':
@@ -228,7 +228,7 @@ switch ($op) {
                 $amountEndTotal += $balances[$i]['bal_amountend'];
             }
             $balances[$i + 1] = [
-                'from' => \_MA_WGSIMPLEACC_SUMS,
+                'from' => \_MD_WGSIMPLEACC_SUMS,
                 'amountstart' => Utility::FloatToString($amountStartTotal),
                 'amountend' => Utility::FloatToString($amountEndTotal)
                 ];
@@ -243,7 +243,7 @@ switch ($op) {
         }
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCE_DETAILS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCE_DETAILS];
         break;
 
     case 'save':
@@ -266,7 +266,7 @@ switch ($op) {
             $crBalances->add(new \Criteria('bal_status', Constants::TRASTATUS_APPROVED));
             $countBalances = $balancesHandler->getCount($crBalances);
             if ($countBalances > 0) {
-                \redirect_header('balances.php?op=list', 3, \_MA_WGSIMPLEACC_BALANCE_DATEUSED);
+                \redirect_header('balances.php?op=list', 3, \_MD_WGSIMPLEACC_BALANCE_DATEUSED);
             }
             unset($crBalances);
             // date 'balance to' within range
@@ -276,7 +276,7 @@ switch ($op) {
             $crBalances->add(new \Criteria('bal_status', Constants::TRASTATUS_APPROVED));
             $countBalances = $balancesHandler->getCount($crBalances);
             if ($countBalances > 0) {
-                \redirect_header('balances.php?op=list', 3, \_MA_WGSIMPLEACC_BALANCE_DATEUSED);
+                \redirect_header('balances.php?op=list', 3, \_MD_WGSIMPLEACC_BALANCE_DATEUSED);
             }
             unset($crBalances);
         } else {
@@ -349,10 +349,10 @@ switch ($op) {
         }
         // redirect after insert
         if (0 === $errors) {
-            \redirect_header('balances.php', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('balances.php', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form Error
-        $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_BALANCE_ERRORS . $balancesObj->getHtmlErrors());
+        $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_BALANCE_ERRORS . $balancesObj->getHtmlErrors());
         $form = $balancesObj->getFormBalances();
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
         break;
@@ -369,8 +369,8 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCES, 'link' => 'balances.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCE_SUBMIT];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCES, 'link' => 'balances.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCE_SUBMIT];
         break;
     case 'delete':
         // Check permissions
@@ -404,9 +404,9 @@ switch ($op) {
                     unset($crTransactions);
                 }
                 if (0 == $errors) {
-                    \redirect_header('balances.php?op=list', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                    \redirect_header('balances.php?op=list', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 } else {
-                    \redirect_header('balances.php?op=list', 3, \_MA_WGSIMPLEACC_FORM_DELETE_ERROR);
+                    \redirect_header('balances.php?op=list', 3, \_MD_WGSIMPLEACC_FORM_DELETE_ERROR);
                 }
             }
             unset($crBalances);
@@ -414,12 +414,12 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'balanceFrom' => $balanceFrom, 'balanceTo' => $balanceTo, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, sprintf(_MA_WGSIMPLEACC_BALANCE_DELETE_FROMTO, date(_SHORTDATESTRING, $balanceFrom), date(_SHORTDATESTRING, $balanceTo))), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, sprintf(_MD_WGSIMPLEACC_BALANCE_DELETE_FROMTO, date(_SHORTDATESTRING, $balanceFrom), date(_SHORTDATESTRING, $balanceTo))), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
             // Breadcrumbs
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCES, 'link' => 'balances.php?op=list'];
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCE_DELETE];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCES, 'link' => 'balances.php?op=list'];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCE_DELETE];
         }
         break;
 }

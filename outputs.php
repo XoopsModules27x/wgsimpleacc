@@ -66,8 +66,8 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('formFilter', $formFilter->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTPUTS];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCES];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTPUTS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCES];
         break;
     case 'bal_output':
         $GLOBALS['xoopsTpl']->assign('displayBalOutput', 1);
@@ -77,7 +77,7 @@ switch ($op) {
             $balanceFrom = Request::getInt('balanceFrom');
             $balanceTo   = Request::getInt('balanceTo');
             if (0 == $balanceFrom || 0 == $balanceTo) {
-                \redirect_header('index.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('index.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             $crBalances->add(new \Criteria('bal_from', $balanceFrom));
             $crBalances->add(new \Criteria('bal_to', $balanceTo));
@@ -90,7 +90,7 @@ switch ($op) {
             }
         }
         if (0 == \count($balIds)) {
-            \redirect_header('index.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $levelAlloc   = Request::getInt('level_alloc', $helper->getConfig('balance_level_alloc'));
         $levelAccount = Request::getInt('level_account', $helper->getConfig('balance_level_acc'));
@@ -162,15 +162,15 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('formFilter', $formFilter->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_OUTPUTS];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRANSACTIONS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_OUTPUTS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRANSACTIONS];
         break;
     case 'tra_output';
         switch ($outType) {
             case 'csv':
             case 'xlsx':
                 //$creator = ('' != $GLOBALS['xoopsUser']->getVar('name')) ? $GLOBALS['xoopsUser']->getVar('name') : $GLOBALS['xoopsUser']->getVar('uname');
-                $filename  = date('Ymd_H_i_s_', \time()) . \_MA_WGSIMPLEACC_TRANSACTIONS . '.' . $outType;
+                $filename  = date('Ymd_H_i_s_', \time()) . \_MD_WGSIMPLEACC_TRANSACTIONS . '.' . $outType;
                 $traStatus = Request::getArray('tra_status');
                 $traDesc   = Request::getString('tra_desc');
 
@@ -216,21 +216,21 @@ switch ($op) {
                 if ($transactionsCount > 0) {
                     //add field names
                     if ('xlsx' === $outType) {
-                        $data[] = [\_MA_WGSIMPLEACC_TRANSACTION_YEARNB, \_MA_WGSIMPLEACC_TRANSACTION_DESC, \_MA_WGSIMPLEACC_TRANSACTION_REFERENCE,
-                            \_MA_WGSIMPLEACC_TRANSACTION_ACCID, \_MA_WGSIMPLEACC_TRANSACTION_ALLID, \_MA_WGSIMPLEACC_TRANSACTION_DATE,
-                            \_MA_WGSIMPLEACC_TRANSACTION_AMOUNTIN, \_MA_WGSIMPLEACC_TRANSACTION_AMOUNTOUT, \_MA_WGSIMPLEACC_TRANSACTION_ASID,  \_MA_WGSIMPLEACC_TRANSACTION_STATUS];
+                        $data[] = [\_MD_WGSIMPLEACC_TRANSACTION_YEARNB, \_MD_WGSIMPLEACC_TRANSACTION_DESC, \_MD_WGSIMPLEACC_TRANSACTION_REFERENCE,
+                            \_MD_WGSIMPLEACC_TRANSACTION_ACCID, \_MD_WGSIMPLEACC_TRANSACTION_ALLID, \_MD_WGSIMPLEACC_TRANSACTION_DATE,
+                            \_MD_WGSIMPLEACC_TRANSACTION_AMOUNTIN, \_MD_WGSIMPLEACC_TRANSACTION_AMOUNTOUT, \_MD_WGSIMPLEACC_TRANSACTION_ASID,  \_MD_WGSIMPLEACC_TRANSACTION_STATUS];
                     } else {
                         $data[] = [
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_YEARNB . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_DESC . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_REFERENCE . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_ACCID . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_ALLID . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_DATE . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_AMOUNTIN . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_AMOUNTOUT . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_ASID . '"',
-                            '"' . \_MA_WGSIMPLEACC_TRANSACTION_STATUS . '"'
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_YEARNB . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_DESC . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_REFERENCE . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_ACCID . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_ALLID . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_DATE . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_AMOUNTIN . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_AMOUNTOUT . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_ASID . '"',
+                            '"' . \_MD_WGSIMPLEACC_TRANSACTION_STATUS . '"'
                         ];
                     }
 

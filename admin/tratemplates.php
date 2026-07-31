@@ -61,7 +61,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_TRATEMPLATES);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_TRATEMPLATES);
         }
         break;
     case 'new':
@@ -102,7 +102,7 @@ switch ($op) {
         $tratemplatesObj->setVar('ttpl_submitter', Request::getInt('ttpl_submitter'));
         // Insert Data
         if ($tratemplatesHandler->insert($tratemplatesObj)) {
-            \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('tratemplates.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form
         $GLOBALS['xoopsTpl']->assign('error', $tratemplatesObj->getHtmlErrors());
@@ -131,7 +131,7 @@ switch ($op) {
                 \redirect_header('tratemplates.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($tratemplatesHandler->delete($tratemplatesObj)) {
-                \redirect_header('tratemplates.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('tratemplates.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $tratemplatesObj->getHtmlErrors());
             }
@@ -139,7 +139,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'ttpl_id' => $tplId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $tratemplatesObj->getVar('ttpl_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $tratemplatesObj->getVar('ttpl_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }

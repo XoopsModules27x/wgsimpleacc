@@ -149,45 +149,45 @@ class TransactionsHandler extends \XoopsPersistableObjectHandler
         $form->setExtra('class="wgsa-form-inline"');
         // Form Table allocations
         $allocationsHandler = $helper->getHandler('Allocations');
-        $traAllocationSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_FILTERBY_ALLOC, 'all_id', $allId);
+        $traAllocationSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_FILTERBY_ALLOC, 'all_id', $allId);
         $traAllocationSelect->setExtra(" onchange='presetAllSubField()' ");
         $allocations = $allocationsHandler->getSelectTreeOfAllocations();
-        $traAllocationSelect->addOption(0, \_MA_WGSIMPLEACC_SHOW_ALL);
+        $traAllocationSelect->addOption(0, \_MD_WGSIMPLEACC_SHOW_ALL);
         foreach ($allocations as $allocation) {
             $traAllocationSelect->addOption($allocation['id'], $allocation['text']);
         }
         $form->addElement($traAllocationSelect, true);
-        $traAllSubRadio = new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_FILTERBY_ALLOCSUB, 'allSubs', $allSubs);
+        $traAllSubRadio = new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_FILTERBY_ALLOCSUB, 'allSubs', $allSubs);
         if (0 == $allId) {
             $traAllSubRadio->setExtra(" disabled='disabled' ");
         }
         $form->addElement($traAllSubRadio, true);
         /*
-        $invalidAccAll = new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_FILTER_SELECT_INVALID, 'filterInvalid', $filterInvalid);
+        $invalidAccAll = new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_FILTER_SELECT_INVALID, 'filterInvalid', $filterInvalid);
         //$invalidAccAll->setExtra(' onchange="document.getElementById(' . "'formFilter'" . ').submit();"');
         $form->addElement($invalidAccAll);
         */
         //linebreak
         $form->addElement(new \XoopsFormHidden('linebreak', ''));
         //Form  Tray with select date from/to
-        $selectFromToTray = new \XoopsFormElementTray(\_MA_WGSIMPLEACC_FILTERBY_PERIOD . ': ', '&nbsp;');
-        $selectFromToTray->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_FILTER_PERIODFROM, 'filterFrom', '', $filterFrom));
-        $selectFromToTray->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_FILTER_PERIODTO, 'filterTo', '', $filterTo));
+        $selectFromToTray = new \XoopsFormElementTray(\_MD_WGSIMPLEACC_FILTERBY_PERIOD . ': ', '&nbsp;');
+        $selectFromToTray->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_FILTER_PERIODFROM, 'filterFrom', '', $filterFrom));
+        $selectFromToTray->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_FILTER_PERIODTO, 'filterTo', '', $filterTo));
         $form->addElement($selectFromToTray);
         //linebreak
         $form->addElement(new \XoopsFormHidden('linebreak', ''));
         // Form Table assets
         $assetsHandler = $helper->getHandler('Assets');
-        $traAsidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_FILTERBY_ASSET, 'as_id', $asId);
-        $traAsidSelect->addOption(Constants::FILTER_TYPEALL, \_MA_WGSIMPLEACC_SHOW_ALL);
+        $traAsidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_FILTERBY_ASSET, 'as_id', $asId);
+        $traAsidSelect->addOption(Constants::FILTER_TYPEALL, \_MD_WGSIMPLEACC_SHOW_ALL);
         $traAsidSelect->addOptionArray($assetsHandler->getList());
         $form->addElement($traAsidSelect);
         //linebreak
         $form->addElement(new \XoopsFormHidden('linebreak', ''));
         // Form Table accounts
         $accountsHandler = $helper->getHandler('Accounts');
-        $traAccidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_FILTERBY_ACCOUNT, 'acc_id', $accId);
-        $traAccidSelect->addOption(Constants::FILTER_TYPEALL, \_MA_WGSIMPLEACC_SHOW_ALL);
+        $traAccidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_FILTERBY_ACCOUNT, 'acc_id', $accId);
+        $traAccidSelect->addOption(Constants::FILTER_TYPEALL, \_MD_WGSIMPLEACC_SHOW_ALL);
         $accountsCount = $accountsHandler->getCountAccounts();
         if ($accountsCount > 0) {
             $accountsAll = $accountsHandler->getAllAccounts();
@@ -204,8 +204,8 @@ class TransactionsHandler extends \XoopsPersistableObjectHandler
             $crClients = new \CriteriaCompo();
             $crClients->setSort('cli_name');
             $crClients->setOrder('ASC');
-            $traCliidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_FILTERBY_CLIENT, 'cli_id', $cliId);
-            $traCliidSelect->addOption(Constants::FILTER_TYPEALL, \_MA_WGSIMPLEACC_SHOW_ALL);
+            $traCliidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_FILTERBY_CLIENT, 'cli_id', $cliId);
+            $traCliidSelect->addOption(Constants::FILTER_TYPEALL, \_MD_WGSIMPLEACC_SHOW_ALL);
             $clientsAll = $clientsHandler->getAll($crClients);
             foreach ($clientsAll as $client) {
                 $traCliidSelect->addOption($client->getVar('cli_id'), Utility::cleanTextDropdown($client->getVar('cli_name')));
@@ -216,20 +216,20 @@ class TransactionsHandler extends \XoopsPersistableObjectHandler
             //linebreak
             $form->addElement(new \XoopsFormHidden('linebreak', ''));
             // Form Select Status traStatus
-            $traStatusSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_FILTERBY_STATUS, 'filterStatus', $traStatus, 4, true);
-            $traStatusSelect->addOption(Constants::TRASTATUS_CREATED, \_MA_WGSIMPLEACC_TRASTATUS_CREATED);
-            $traStatusSelect->addOption(Constants::TRASTATUS_SUBMITTED, \_MA_WGSIMPLEACC_TRASTATUS_SUBMITTED);
-            $traStatusSelect->addOption(Constants::TRASTATUS_APPROVED, \_MA_WGSIMPLEACC_TRASTATUS_APPROVED);
-            //$traStatusSelect->addOption(Constants::TRASTATUS_LOCKED, \_MA_WGSIMPLEACC_TRASTATUS_LOCKED);
+            $traStatusSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_FILTERBY_STATUS, 'filterStatus', $traStatus, 4, true);
+            $traStatusSelect->addOption(Constants::TRASTATUS_CREATED, \_MD_WGSIMPLEACC_TRASTATUS_CREATED);
+            $traStatusSelect->addOption(Constants::TRASTATUS_SUBMITTED, \_MD_WGSIMPLEACC_TRASTATUS_SUBMITTED);
+            $traStatusSelect->addOption(Constants::TRASTATUS_APPROVED, \_MD_WGSIMPLEACC_TRASTATUS_APPROVED);
+            //$traStatusSelect->addOption(Constants::TRASTATUS_LOCKED, \_MD_WGSIMPLEACC_TRASTATUS_LOCKED);
             $form->addElement($traStatusSelect);
         }
         //linebreak
         $form->addElement(new \XoopsFormHidden('linebreak', ''));
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_FILTERBY_DESC, 'tra_desc', 50, 255, $traDesc));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_FILTERBY_DESC, 'tra_desc', 50, 255, $traDesc));
 
         //linebreak
         $form->addElement(new \XoopsFormHidden('linebreak', ''));
-        $limitSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_LIMIT, 'limit', $limit);
+        $limitSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_LIMIT, 'limit', $limit);
         $limitSelect->addOption(10, 10);
         $limitSelect->addOption(20, 20);
         $limitSelect->addOption(50, 50);
@@ -241,7 +241,7 @@ class TransactionsHandler extends \XoopsPersistableObjectHandler
         if ('tra_output' === $op) {
             //linebreak
             $form->addElement(new \XoopsFormHidden('linebreak', ''));
-            $outputSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_FILTER_OUTPUTTYPE, 'output_type', 'xlsx', 5);
+            $outputSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_FILTER_OUTPUTTYPE, 'output_type', 'xlsx', 5);
             $outputSelect->addOption('csv', 'csv');
             $outputSelect->addOption('xlsx', 'xlsx');
             $form->addElement($outputSelect);
@@ -250,9 +250,9 @@ class TransactionsHandler extends \XoopsPersistableObjectHandler
         $form->addElement(new \XoopsFormHidden('linebreak', ''));
         //button
         if ('tra_output' === $op) {
-            $btnApply = new \XoopsFormButton('', 'submit', \_MA_WGSIMPLEACC_FILTER_OUTPUT, 'submit');
+            $btnApply = new \XoopsFormButton('', 'submit', \_MD_WGSIMPLEACC_FILTER_OUTPUT, 'submit');
         } else {
-            $btnApply = new \XoopsFormButton('', 'submit', \_MA_WGSIMPLEACC_FILTER_APPLY, 'submit');
+            $btnApply = new \XoopsFormButton('', 'submit', \_MD_WGSIMPLEACC_FILTER_APPLY, 'submit');
         }
         $form->addElement($btnApply);
         $form->addElement(new \XoopsFormHidden('displayfilter', 1));
