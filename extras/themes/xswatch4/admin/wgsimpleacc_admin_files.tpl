@@ -5,15 +5,15 @@
     <table class='table table-bordered'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_FILE_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_FILE_TRAID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_FILE_NAME}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_FILE_TYPE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_FILE_DESC}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_FILE_IP}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_FILE_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_FILE_TRAID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_FILE_NAME}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_FILE_TYPE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_FILE_DESC}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_FILE_IP}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $files_count|default:0}>

@@ -41,7 +41,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="calcModalLabel"><{$smarty.const._MA_WGSIMPLEACC_CALC}></h4>
+                <h4 class="modal-title" id="calcModalLabel"><{$smarty.const._MD_WGSIMPLEACC_CALC}></h4>
                 <button type="button" class="close btn-calc" data-bs-dismiss="modal" aria-label="<{$smarty.const._CLOSE}>">
                     <span class="btn btn-danger" aria-hidden="true">&times;</span>
                 </button>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btnApplyResult" type="button" class="btn btn-secondary btn-success btn-calc" data-bs-dismiss="modal"><{$smarty.const._MA_WGSIMPLEACC_CALC_APPLY}></button>
+                <button id="btnApplyResult" type="button" class="btn btn-secondary btn-success btn-calc" data-bs-dismiss="modal"><{$smarty.const._MD_WGSIMPLEACC_CALC_APPLY}></button>
             </div>
         </div>
     </div>

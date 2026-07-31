@@ -132,7 +132,7 @@ class OuttemplatesHandler extends \XoopsPersistableObjectHandler
 
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
-        $form = new \XoopsThemeForm(\_MA_WGSIMPLEACC_OUTTEMPLATE_FORM, 'formSelectOtpl', $action, 'post', true);
+        $form = new \XoopsThemeForm(\_MD_WGSIMPLEACC_OUTTEMPLATE_FORM, 'formSelectOtpl', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
         $form->setExtra('class="wgsa-form-inline"');
 
@@ -149,7 +149,7 @@ class OuttemplatesHandler extends \XoopsPersistableObjectHandler
         $editorConfigs1['width'] = '100%';
         $editorConfigs1['height'] = '400px';
         $editorConfigs1['editor'] = $editor;
-        $outHeader = new \XoopsFormEditor(\_MA_WGSIMPLEACC_OUTTEMPLATE_HEADER, 'otpl_header', $editorConfigs1);
+        $outHeader = new \XoopsFormEditor(\_MD_WGSIMPLEACC_OUTTEMPLATE_HEADER, 'otpl_header', $editorConfigs1);
         $form->addElement($outHeader);
 
         $editorConfigs2 = [];
@@ -160,7 +160,7 @@ class OuttemplatesHandler extends \XoopsPersistableObjectHandler
         $editorConfigs2['width'] = '100%';
         $editorConfigs2['height'] = '400px';
         $editorConfigs2['editor'] = $editor;
-        $outBody = new \XoopsFormEditor(\_MA_WGSIMPLEACC_OUTTEMPLATE_BODY, 'otpl_body', $editorConfigs2);
+        $outBody = new \XoopsFormEditor(\_MD_WGSIMPLEACC_OUTTEMPLATE_BODY, 'otpl_body', $editorConfigs2);
         $form->addElement($outBody);
 
         $editorConfigs3 = [];
@@ -171,16 +171,16 @@ class OuttemplatesHandler extends \XoopsPersistableObjectHandler
         $editorConfigs3['width'] = '100%';
         $editorConfigs3['height'] = '400px';
         $editorConfigs3['editor'] = $editor;
-        $outFooter = new \XoopsFormEditor(\_MA_WGSIMPLEACC_OUTTEMPLATE_FOOTER, 'otpl_footer', $editorConfigs3);
+        $outFooter = new \XoopsFormEditor(\_MD_WGSIMPLEACC_OUTTEMPLATE_FOOTER, 'otpl_footer', $editorConfigs3);
         $form->addElement($outFooter);
         // Form Select Target
-        $targetSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_OUTTEMPLATE_TARGET, 'target', 'form_browser', 5);
-        $targetSelect->addOption('form_browser', \_MA_WGSIMPLEACC_OUTTEMPLATE_TARGET_BROWSER);
-        $targetSelect->addOption('form_pdf', \_MA_WGSIMPLEACC_OUTTEMPLATE_TARGET_PDF);
+        $targetSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_OUTTEMPLATE_TARGET, 'target', 'form_browser', 5);
+        $targetSelect->addOption('form_browser', \_MD_WGSIMPLEACC_OUTTEMPLATE_TARGET_BROWSER);
+        $targetSelect->addOption('form_pdf', \_MD_WGSIMPLEACC_OUTTEMPLATE_TARGET_PDF);
         $form->addElement($targetSelect);
         // Form Radio Yes/No auto_add
-        $auto_addYN = new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_OUTTEMPLATE_AUTOADD, 'auto_add', 0);
-        $auto_addYN->setDescription(\_MA_WGSIMPLEACC_OUTTEMPLATE_AUTOADD_DESC);
+        $auto_addYN = new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_OUTTEMPLATE_AUTOADD, 'auto_add', 0);
+        $auto_addYN->setDescription(\_MD_WGSIMPLEACC_OUTTEMPLATE_AUTOADD_DESC);
         $form->addElement($auto_addYN);
 
         // To Save
@@ -208,7 +208,7 @@ class OuttemplatesHandler extends \XoopsPersistableObjectHandler
 
         $outtemplateObj = $helper->getHandler('Outtemplates')->get($outParams['otpl_id']);
         if (!\is_object($outtemplateObj)) {
-            \redirect_header('index.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('index.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $otplBody = \str_replace(['&lt;', '&gt;'], ['<', '>'], $outtemplateObj->getVar('otpl_body', 'n'));
         $otplHeader = \str_replace(['&lt;', '&gt;'], ['<', '>'], $outtemplateObj->getVar('otpl_header', 'n'));

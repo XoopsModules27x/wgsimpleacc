@@ -50,14 +50,14 @@
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: '<{$smarty.const._MA_WGSIMPLEACC_CHART_PERIOD}>'
+						labelString: '<{$smarty.const._MD_WGSIMPLEACC_CHART_PERIOD}>'
 					}
 				}],
 				yAxes: [{
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: '<{$smarty.const._MA_WGSIMPLEACC_CHART_AMOUNT}>'
+						labelString: '<{$smarty.const._MD_WGSIMPLEACC_CHART_AMOUNT}>'
 					}
 				}]
 			}

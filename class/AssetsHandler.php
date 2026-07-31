@@ -272,7 +272,7 @@ class AssetsHandler extends \XoopsPersistableObjectHandler
         if ($includeSum) {
             $ret[] = [
                 'id' => 0,
-                'name' => \_MA_WGSIMPLEACC_SUMS,
+                'name' => \_MD_WGSIMPLEACC_SUMS,
                 'date' => 0,
                 'amount_start_val' => $sumAmountStartTotal,
                 'amount_start' => Utility::FloatToString($sumAmountStartTotal),

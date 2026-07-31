@@ -34,7 +34,7 @@ use XoopsModules\Wgsimpleacc\Helper;
 if (\file_exists($tcpdf = \XOOPS_ROOT_PATH . '/Frameworks/tcpdf/')) {
     require_once $tcpdf . 'tcpdf.php';
 } else {
-    \redirect_header('transactions.php', 2, \_MA_WGSIMPLEACC_NO_PDF_LIBRARY);
+    \redirect_header('transactions.php', 2, \_MD_WGSIMPLEACC_NO_PDF_LIBRARY);
 }
 
 // Permissions
@@ -93,7 +93,7 @@ function execute_output ($template, $outParams)
     if (\file_exists($tcpdf = \XOOPS_ROOT_PATH . '/Frameworks/tcpdf/')) {
         require_once $tcpdf . 'tcpdf.php';
     } else {
-        \redirect_header('transactions.php', 2, \_MA_WGSIMPLEACC_NO_PDF_LIBRARY);
+        \redirect_header('transactions.php', 2, \_MD_WGSIMPLEACC_NO_PDF_LIBRARY);
     }
     require_once $tcpdf . 'config/tcpdf_config.php';
 

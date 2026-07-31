@@ -61,7 +61,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_ACCOUNTS);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_ACCOUNTS);
         }
         $GLOBALS['xoopsTpl']->assign('colors', Utility::getColors());
 
@@ -109,7 +109,7 @@ switch ($op) {
         $accountsObj->setVar('acc_submitter', Request::getInt('acc_submitter'));
         // Insert Data
         if ($accountsHandler->insert($accountsObj)) {
-            \redirect_header('accounts.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('accounts.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form
         $GLOBALS['xoopsTpl']->assign('error', $accountsObj->getHtmlErrors());
@@ -120,13 +120,13 @@ switch ($op) {
         if ($accId > 0) {
             $accountsObj = $accountsHandler->get($accId);
         } else {
-            \redirect_header('accounts.php', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('accounts.php', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Set Vars
         $accountsObj->setVar('acc_color', '#' . Request::getString('acc_color'));
         // Insert Data
         if ($accountsHandler->insert($accountsObj)) {
-            \redirect_header('accounts.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('accounts.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         break;
     case 'edit':
@@ -150,7 +150,7 @@ switch ($op) {
                 \redirect_header('accounts.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($accountsHandler->delete($accountsObj)) {
-                \redirect_header('accounts.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('accounts.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $accountsObj->getHtmlErrors());
             }
@@ -158,7 +158,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'acc_id' => $accId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $accountsObj->getVar('acc_key')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $accountsObj->getVar('acc_key')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }

@@ -66,7 +66,7 @@ $GLOBALS['xoopsTpl']->assign('colors', $colors);
 
 switch ($op) {
     case 'allocations':
-        $GLOBALS['xoopsTpl']->assign('header_allocs_bar', \_MA_WGSIMPLEACC_ALLOCATIONS_BARCHART);
+        $GLOBALS['xoopsTpl']->assign('header_allocs_bar', \_MD_WGSIMPLEACC_ALLOCATIONS_BARCHART);
         //*************************
         // handle transaction chart
         //*************************
@@ -74,7 +74,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('transactionsCount', $transactionsCount);
         $count = 1;
         if ($transactionsCount > 0) {
-            $GLOBALS['xoopsTpl']->assign('header_transactions', \_MA_WGSIMPLEACC_TRANSACTIONS_OVERVIEW );
+            $GLOBALS['xoopsTpl']->assign('header_transactions', \_MD_WGSIMPLEACC_TRANSACTIONS_OVERVIEW );
             //get all allocations
             $crAllocations = new \CriteriaCompo();
             if ($allPid > 0) {
@@ -98,7 +98,7 @@ switch ($op) {
                     //read current allocations
                     $allocCurrObj = $allocationsHandler->get($allPid);
                     if (!\is_object($allocCurrObj)) {
-                        \redirect_header('statistics.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                        \redirect_header('statistics.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
                     }
                     $allName = $allocCurrObj->getVar('all_name');
                     $sumAmountin = 0;
@@ -121,7 +121,7 @@ switch ($op) {
                         $transactions_datain .= $sumAmountin . ',';
                         $transactions_dataout .= $sumAmountout . ',';
                         $allocations_list[] = ['all_id' => $allId, 'all_name' => $allName];
-                        $transactions_labels .= "'" . \str_replace('%s', $allName, \_MA_WGSIMPLEACC_ALLOCATION_CURRID) . "',";
+                        $transactions_labels .= "'" . \str_replace('%s', $allName, \_MD_WGSIMPLEACC_ALLOCATION_CURRID) . "',";
                     }
 
                     unset($crAllocCur, $allocCurObj, $crTransactions);
@@ -189,8 +189,8 @@ switch ($op) {
             $GLOBALS['xoopsTpl']->assign('transactions_total_in', Utility::FloatToString($transactions_total_in));
             $GLOBALS['xoopsTpl']->assign('transactions_total_out', Utility::FloatToString($transactions_total_out));
             $GLOBALS['xoopsTpl']->assign('transactions_total', Utility::FloatToString($transactions_total_in - $transactions_total_out));
-            $GLOBALS['xoopsTpl']->assign('label_datain1', \_MA_WGSIMPLEACC_TRANSACTIONS_INCOMES . ' (' . \_MA_WGSIMPLEACC_TRASTATUS_APPROVED .')');
-            $GLOBALS['xoopsTpl']->assign('label_dataout1', \_MA_WGSIMPLEACC_TRANSACTIONS_EXPENSES . ' (' . \_MA_WGSIMPLEACC_TRASTATUS_APPROVED .')');
+            $GLOBALS['xoopsTpl']->assign('label_datain1', \_MD_WGSIMPLEACC_TRANSACTIONS_INCOMES . ' (' . \_MD_WGSIMPLEACC_TRASTATUS_APPROVED .')');
+            $GLOBALS['xoopsTpl']->assign('label_dataout1', \_MD_WGSIMPLEACC_TRANSACTIONS_EXPENSES . ' (' . \_MD_WGSIMPLEACC_TRASTATUS_APPROVED .')');
         }
         unset($count);
 
@@ -201,12 +201,12 @@ switch ($op) {
         }
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_STATISTICS];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ALLOCATIONS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_STATISTICS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ALLOCATIONS];
         break;
     case 'assets':
-        $GLOBALS['xoopsTpl']->assign('header_assets_pie', \_MA_WGSIMPLEACC_ASSETSTOTAL_CURRENT);
-        $GLOBALS['xoopsTpl']->assign('header_assets_line', \_MA_WGSIMPLEACC_ASSETS_TIMELINE);
+        $GLOBALS['xoopsTpl']->assign('header_assets_pie', \_MD_WGSIMPLEACC_ASSETSTOTAL_CURRENT);
+        $GLOBALS['xoopsTpl']->assign('header_assets_line', \_MD_WGSIMPLEACC_ASSETS_TIMELINE);
         //****************************
         // handle assets chart current
         //****************************
@@ -294,11 +294,11 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('line_labels', $line_labels);
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_STATISTICS];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ASSETS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_STATISTICS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ASSETS];
         break;
     case 'balances':
-        $GLOBALS['xoopsTpl']->assign('header_balances_line', \_MA_WGSIMPLEACC_BALANCES_TIMELINE);
+        $GLOBALS['xoopsTpl']->assign('header_balances_line', \_MD_WGSIMPLEACC_BALANCES_TIMELINE);
         //*****************************
         // handle balances chart timeline
         //*****************************
@@ -311,7 +311,7 @@ switch ($op) {
             $balAmounts = '';
             $assetsObj = $assetsHandler->get($balAsid);
             if (!\is_object($assetsObj)) {
-                \redirect_header('statistics.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('statistics.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             $asName    = $assetsObj->getVar('as_name');
             $asOnline  = (int)$assetsObj->getVar('as_online');
@@ -371,11 +371,11 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('line_labels', $line_labels);
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_STATISTICS];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_BALANCES];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_STATISTICS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_BALANCES];
         break;
     case 'accounts':
-        $GLOBALS['xoopsTpl']->assign('header_accounts_line', \_MA_WGSIMPLEACC_ACCOUNTS_TIMELINE);
+        $GLOBALS['xoopsTpl']->assign('header_accounts_line', \_MD_WGSIMPLEACC_ACCOUNTS_TIMELINE);
         //*****************************
         // handle accounts chart timeline(
         //*****************************
@@ -466,11 +466,11 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('level', $level);
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_STATISTICS];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ACCOUNTS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_STATISTICS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ACCOUNTS];
         break;
     case 'hbar_accounts':
-        $GLOBALS['xoopsTpl']->assign('header_accounts_bar', \_MA_WGSIMPLEACC_ACCOUNTS_BARCHART);
+        $GLOBALS['xoopsTpl']->assign('header_accounts_bar', \_MD_WGSIMPLEACC_ACCOUNTS_BARCHART);
         //*************************
         // handle transaction chart
         //*************************
@@ -478,7 +478,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('transactionsAccBarCount', $transactionsCount);
         $count = 1;
         if ($transactionsCount > 0) {
-            $GLOBALS['xoopsTpl']->assign('header_transactions', \_MA_WGSIMPLEACC_TRANSACTIONS_OVERVIEW );
+            $GLOBALS['xoopsTpl']->assign('header_transactions', \_MD_WGSIMPLEACC_TRANSACTIONS_OVERVIEW );
             //get all accounts
             $crAccounts = new \CriteriaCompo();
             if ($accPid > 0) {
@@ -503,7 +503,7 @@ switch ($op) {
                     //read current accounts
                     $accountCurrObj = $accountsHandler->get($accPid);
                     if (!\is_object($accountCurrObj)) {
-                        \redirect_header('statistics.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                        \redirect_header('statistics.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
                     }
                     $accName = $accountCurrObj->getVar('acc_name');
                     $sumAmountin = 0;
@@ -526,7 +526,7 @@ switch ($op) {
                         $transactions_datain .= $sumAmountin . ',';
                         $transactions_dataout .= $sumAmountout . ',';
                         $accounts_list[] = ['acc_id' => $accId, 'acc_name' => $accName];
-                        $transactions_labels .= "'" . \str_replace('%s', $accName, \_MA_WGSIMPLEACC_ACCOUNT_CURRID) . "',";
+                        $transactions_labels .= "'" . \str_replace('%s', $accName, \_MD_WGSIMPLEACC_ACCOUNT_CURRID) . "',";
                     }
 
                     unset($crTransactions);
@@ -594,8 +594,8 @@ switch ($op) {
             $GLOBALS['xoopsTpl']->assign('transactions_total_in', Utility::FloatToString($transactions_total_in));
             $GLOBALS['xoopsTpl']->assign('transactions_total_out', Utility::FloatToString($transactions_total_out));
             $GLOBALS['xoopsTpl']->assign('transactions_total', Utility::FloatToString($transactions_total_in - $transactions_total_out));
-            $GLOBALS['xoopsTpl']->assign('label_datain1', \_MA_WGSIMPLEACC_TRANSACTIONS_INCOMES . ' (' . \_MA_WGSIMPLEACC_TRASTATUS_APPROVED .')');
-            $GLOBALS['xoopsTpl']->assign('label_dataout1', \_MA_WGSIMPLEACC_TRANSACTIONS_EXPENSES . ' (' . \_MA_WGSIMPLEACC_TRASTATUS_APPROVED .')');
+            $GLOBALS['xoopsTpl']->assign('label_datain1', \_MD_WGSIMPLEACC_TRANSACTIONS_INCOMES . ' (' . \_MD_WGSIMPLEACC_TRASTATUS_APPROVED .')');
+            $GLOBALS['xoopsTpl']->assign('label_dataout1', \_MD_WGSIMPLEACC_TRANSACTIONS_EXPENSES . ' (' . \_MD_WGSIMPLEACC_TRASTATUS_APPROVED .')');
         }
         unset($count);
 
@@ -606,8 +606,8 @@ switch ($op) {
         }
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_STATISTICS];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ACCOUNTS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_STATISTICS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ACCOUNTS];
         break;
     case 'list':
     default:
@@ -620,7 +620,7 @@ switch ($op) {
 wgsimpleaccMetaKeywords($helper->getConfig('keywords') . ', ' . \implode(',', $keywords));
 unset($keywords);
 // Description
-wgsimpleaccMetaDescription(\_MA_WGSIMPLEACC_INDEX_DESC);
+wgsimpleaccMetaDescription(\_MD_WGSIMPLEACC_INDEX_DESC);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL.'/index.php');
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 require __DIR__ . '/footer.php';

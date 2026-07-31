@@ -88,7 +88,7 @@ class Balances extends \XoopsObject
         $dateFromM = mktime(0, 0, 0, date('m')-1, 1);
 
         // Title
-        $title = $this->isNew() ? \_MA_WGSIMPLEACC_BALANCE_ADD : \_MA_WGSIMPLEACC_BALANCE_EDIT;
+        $title = $this->isNew() ? \_MD_WGSIMPLEACC_BALANCE_ADD : \_MD_WGSIMPLEACC_BALANCE_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form', $action, 'post', true);
@@ -98,51 +98,51 @@ class Balances extends \XoopsObject
         $form->addElement(new \XoopsFormHidden('dateFrom[2]', date(\_SHORTDATESTRING, $dateFromY)));
         $form->addElement(new \XoopsFormHidden('dateTo[2]', date(\_SHORTDATESTRING, $dateToY)));
         // Form Select Status
-        $balStatusSelect = new \XoopsFormRadio(\_MA_WGSIMPLEACC_BALANCE_TYPE, 'bal_type', Constants::BALANCE_TYPE_TEMPORARY);
-        $balStatusSelect->addOption(Constants::BALANCE_TYPE_TEMPORARY, \_MA_WGSIMPLEACC_BALANCE_TYPE_TEMPORARY);
-        $balStatusSelect->addOption(Constants::BALANCE_TYPE_FINAL, \_MA_WGSIMPLEACC_BALANCE_TYPE_FINAL);
+        $balStatusSelect = new \XoopsFormRadio(\_MD_WGSIMPLEACC_BALANCE_TYPE, 'bal_type', Constants::BALANCE_TYPE_TEMPORARY);
+        $balStatusSelect->addOption(Constants::BALANCE_TYPE_TEMPORARY, \_MD_WGSIMPLEACC_BALANCE_TYPE_TEMPORARY);
+        $balStatusSelect->addOption(Constants::BALANCE_TYPE_FINAL, \_MD_WGSIMPLEACC_BALANCE_TYPE_FINAL);
         $balStatusSelect->setExtra(" onchange='presetBalType()' ");
         $form->addElement($balStatusSelect);
         // Form Text Date Select balFrom
         $balFrom = $this->isNew() ? $dateFromM : $this->getVar('bal_from');
-        $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_BALANCE_FROM, 'bal_from', '', $balFrom), true);
+        $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_BALANCE_FROM, 'bal_from', '', $balFrom), true);
         // Form Text Date Select balTo
         $balTo = $this->isNew() ? $dateToM : $this->getVar('bal_to');
-        $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_BALANCE_TO, 'bal_to', '', $balTo), true);
+        $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_BALANCE_TO, 'bal_to', '', $balTo), true);
         // Form Select Status balStatus
         $balStatus = $this->isNew() ? Constants::TRASTATUS_APPROVED : $this->getVar('bal_status');
         if ($admin) {
             // Form Table assets
             $assetsHandler = $helper->getHandler('Assets');
             $balAsid = $this->isNew() ? $assetsHandler->getPrimaryAsset() : $this->getVar('bal_asid');
-            $balAsidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_BALANCE_ASID, 'bal_asid', $balAsid);
+            $balAsidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_BALANCE_ASID, 'bal_asid', $balAsid);
             $balAsidSelect->addOptionArray($assetsHandler->getList());
             $form->addElement($balAsidSelect);
             // Form Table currencies
             $currenciesHandler = $helper->getHandler('Currencies');
-            $balCuridSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_BALANCE_CURID, 'bal_curid', $this->getVar('bal_curid'));
+            $balCuridSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_BALANCE_CURID, 'bal_curid', $this->getVar('bal_curid'));
             $balCuridSelect->addOptionArray($currenciesHandler->getList());
             $form->addElement($balCuridSelect);
             // Form Text balAmountStart
             $balAmountStart = $this->isNew() ? 0 : $this->getVar('bal_amountstart');
             $balAmountStart = Utility::FloatToString($balAmountStart);
-            $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_BALANCE_AMOUNTSTART, 'bal_amountstart', 20, 150, $balAmountStart), true);
+            $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_BALANCE_AMOUNTSTART, 'bal_amountstart', 20, 150, $balAmountStart), true);
             // Form Text balAmountEnd
             $balAmountEnd = $this->isNew() ? 0 : $this->getVar('bal_amountend');
             $balAmountEnd = Utility::FloatToString($balAmountEnd);
-            $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_BALANCE_AMOUNTEND, 'bal_amountend', 20, 150, $balAmountEnd), true);
+            $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_BALANCE_AMOUNTEND, 'bal_amountend', 20, 150, $balAmountEnd), true);
             // Form Select Status
-            $balStatusSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_BALANCE_STATUS, 'bal_status', $balStatus);
-            $balStatusSelect->addOption(Constants::BALSTATUS_NONE, \_MA_WGSIMPLEACC_BALSTATUS_NONE);
-            $balStatusSelect->addOption(Constants::BALSTATUS_TEMPORARY, \_MA_WGSIMPLEACC_BALSTATUS_TEMPORARY);
-            $balStatusSelect->addOption(Constants::BALSTATUS_APPROVED, \_MA_WGSIMPLEACC_BALSTATUS_APPROVED);
+            $balStatusSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_BALANCE_STATUS, 'bal_status', $balStatus);
+            $balStatusSelect->addOption(Constants::BALSTATUS_NONE, \_MD_WGSIMPLEACC_BALSTATUS_NONE);
+            $balStatusSelect->addOption(Constants::BALSTATUS_TEMPORARY, \_MD_WGSIMPLEACC_BALSTATUS_TEMPORARY);
+            $balStatusSelect->addOption(Constants::BALSTATUS_APPROVED, \_MD_WGSIMPLEACC_BALSTATUS_APPROVED);
             $form->addElement($balStatusSelect);
             // Form Text Date Select balDatecreated
             $balDatecreated = $this->isNew() ?: $this->getVar('bal_datecreated');
-            $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'bal_datecreated', '', $balDatecreated), true);
+            $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'bal_datecreated', '', $balDatecreated), true);
             // Form Select User balSubmitter
             $balSubmitter = $this->isNew() ? $GLOBALS['xoopsUser']->getVar('uid') : $this->getVar('bal_submitter');
-            $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'bal_submitter', false, $balSubmitter));
+            $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'bal_submitter', false, $balSubmitter));
         } else {
             $form->addElement(new \XoopsFormHidden('bal_status', $balStatus));
         }
@@ -150,10 +150,10 @@ class Balances extends \XoopsObject
         // To Save
         if ($admin) {
             $form->addElement(new \XoopsFormHidden('op', 'save'));
-            $form->addElement(new \XoopsFormButtonTray('', \_MA_WGSIMPLEACC_BALANCE_SUBMIT, 'submit', '', false));
+            $form->addElement(new \XoopsFormButtonTray('', \_MD_WGSIMPLEACC_BALANCE_SUBMIT, 'submit', '', false));
         } else {
             $form->addElement(new \XoopsFormHidden('op', 'precalc'));
-            $form->addElement(new \XoopsFormButtonTray('', \_MA_WGSIMPLEACC_BALANCE_PRECALC, 'submit', '', false));
+            $form->addElement(new \XoopsFormButtonTray('', \_MD_WGSIMPLEACC_BALANCE_PRECALC, 'submit', '', false));
         }
 
         return $form;
@@ -195,11 +195,11 @@ class Balances extends \XoopsObject
                 break;
             case Constants::BALSTATUS_TEMPORARY:
                 $ret['type'] = Constants::BALANCE_TYPE_TEMPORARY;
-                $ret['type_text'] = \_MA_WGSIMPLEACC_BALANCE_TYPE_TEMPORARY;
+                $ret['type_text'] = \_MD_WGSIMPLEACC_BALANCE_TYPE_TEMPORARY;
                 break;
             case Constants::BALSTATUS_APPROVED:
                 $ret['type'] = Constants::BALANCE_TYPE_FINAL;
-                $ret['type_text'] = \_MA_WGSIMPLEACC_BALANCE_TYPE_FINAL;
+                $ret['type_text'] = \_MD_WGSIMPLEACC_BALANCE_TYPE_FINAL;
                 break;
         }
         $ret['datecreated'] = \formatTimestamp($this->getVar('bal_datecreated'), 's');

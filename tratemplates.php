@@ -87,7 +87,7 @@ switch ($op) {
         }
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRATEMPLATES];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRATEMPLATES];
         break;
     case 'save':
         // Security Check
@@ -101,7 +101,7 @@ switch ($op) {
         if ($tplId > 0) {
             $tratemplatesObj = $tratemplatesHandler->get($tplId);
             if (!\is_object($tratemplatesObj)) {
-                \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('tratemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
         } else {
             $tratemplatesObj = $tratemplatesHandler->create();
@@ -124,7 +124,7 @@ switch ($op) {
         // Insert Data
         if ($tratemplatesHandler->insert($tratemplatesObj)) {
             // redirect after insert
-            \redirect_header('tratemplates.php', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('tratemplates.php', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form Error
         $GLOBALS['xoopsTpl']->assign('error', $tratemplatesObj->getHtmlErrors());
@@ -142,7 +142,7 @@ switch ($op) {
         if ($traId > 0) {
             $transactionsObj = $transactionsHandler->get($traId);
             if (!\is_object($transactionsObj)) {
-                \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('tratemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
             $tratemplatesObj->setVar('ttpl_desc', $transactionsObj->getVar('tra_desc', 'n'));
             $tratemplatesObj->setVar('ttpl_accid', $transactionsObj->getVar('tra_accid'));
@@ -157,18 +157,18 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRATEMPLATES, 'link' => 'tratemplates.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRATEMPLATE_ADD];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRATEMPLATES, 'link' => 'tratemplates.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRATEMPLATE_ADD];
         break;
     case 'edit':
         // Check params
         if (0 == $tplId) {
-            \redirect_header('tratemplates.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('tratemplates.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Get object
         $tratemplatesObj = $tratemplatesHandler->get($tplId);
         if (!\is_object($tratemplatesObj)) {
-            \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('tratemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permApprove && !$permissionsHandler->getPermTratemplatesEdit($tratemplatesObj->getVar('ttpl_submitter'))) {
@@ -178,17 +178,17 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRATEMPLATES, 'link' => 'tratemplates.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRATEMPLATE_EDIT];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRATEMPLATES, 'link' => 'tratemplates.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRATEMPLATE_EDIT];
         break;
     case 'delete':
         // Check params
         if (0 == $tplId) {
-            \redirect_header('tratemplates.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('tratemplates.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $tratemplatesObj = $tratemplatesHandler->get($tplId);
         if (!\is_object($tratemplatesObj)) {
-            \redirect_header('tratemplates.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('tratemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permApprove && !$permissionsHandler->getPermTratemplatesEdit($tratemplatesObj->getVar('ttpl_submitter'))) {
@@ -200,7 +200,7 @@ switch ($op) {
                 \redirect_header('tratemplates.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($tratemplatesHandler->delete($tratemplatesObj)) {
-                \redirect_header('tratemplates.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('tratemplates.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $tratemplatesObj->getHtmlErrors());
             }
@@ -208,13 +208,13 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'ttpl_id' => $tplId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $tratemplatesObj->getVar('ttpl_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $tratemplatesObj->getVar('ttpl_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
             // Breadcrumbs
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRATEMPLATES, 'link' => 'tratemplates.php?op=list'];
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_TRATEMPLATE_EDIT];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRATEMPLATES, 'link' => 'tratemplates.php?op=list'];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_TRATEMPLATE_EDIT];
         }
         break;
 }

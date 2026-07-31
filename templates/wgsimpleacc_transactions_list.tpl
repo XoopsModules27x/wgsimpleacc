@@ -35,7 +35,7 @@
     <{if $useFiles|default:''}>
         <td class="center">
             <{if $permSubmit && $transaction.editable}>
-                <a class='btn btn-secondary btn-sm right' href='files.php?op=list&amp;fil_traid=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._MA_WGSIMPLEACC_FILE_ADD}>' role='button'>
+                <a class='btn btn-secondary btn-sm right' href='files.php?op=list&amp;fil_traid=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._MD_WGSIMPLEACC_FILE_ADD}>' role='button'>
                     <i class="fa fa-plus fa-fw"></i>
                     <{if $transaction.nbfiles > 0}><span class="badge wgsa-files-badge"><{$transaction.nbfiles}></span><{/if}>
                 </a>
@@ -47,12 +47,12 @@
     <td class="center">
         <{if $transaction.waiting|default:''}>
             <{if $permApprove}>
-                <a class='btn btn-warning right' href='transactions.php?op=approve&amp;tra_id=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_STATUS_WAITING}>'><i class="fa fa-hourglass fa-fw"></i></a>
+                <a class='btn btn-warning right' href='transactions.php?op=approve&amp;tra_id=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_STATUS_WAITING}>'><i class="fa fa-hourglass fa-fw"></i></a>
             <{else}>
-                <a class='btn btn-warning disabled right' href='transactions.php?op=approve&amp;tra_id=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_STATUS_WAITING}>'><i class="fa fa-hourglass fa-fw"></i></a>
+                <a class='btn btn-warning disabled right' href='transactions.php?op=approve&amp;tra_id=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_STATUS_WAITING}>'><i class="fa fa-hourglass fa-fw"></i></a>
             <{/if}>
         <{/if}>
-        <a class='btn btn-success right' href='transactions.php?op=show<{$histOp|default:''}>&amp;tra_id=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._MA_WGSIMPLEACC_DETAILS}>'><i class="fa fa-search fa-fw"></i></a>
+        <a class='btn btn-success right' href='transactions.php?op=show<{$histOp|default:''}>&amp;tra_id=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._MD_WGSIMPLEACC_DETAILS}>'><i class="fa fa-search fa-fw"></i></a>
         <{if $permSubmit && $transaction.editable}>
             <a class='btn btn-primary right' href='transactions.php?op=edit&amp;tra_id=<{$transaction.tra_id}><{$traOp}>' title='<{$smarty.const._EDIT}>'><i class="fa fa-edit fa-fw"></i></a>
             <{if $permDelete|default:0}>
@@ -61,7 +61,7 @@
         <{/if}>
         <{if $transaction.outputTpls|default:false}>
             <{if $transaction.outputTpls|@count > 1}>
-                <a class='btn btn-secondary right' id="dropdown<{$transaction.tra_id}>" onClick="myDDToggle('myDD<{$transaction.tra_id}>')" title='<{$smarty.const._MA_WGSIMPLEACC_DOWNLOAD}>'><i class="fa fa-download fa-fw dd-down-1"></i><i class="fa fa-sort-down fa-fw dd-down-2"></i></a>
+                <a class='btn btn-secondary right' id="dropdown<{$transaction.tra_id}>" onClick="myDDToggle('myDD<{$transaction.tra_id}>')" title='<{$smarty.const._MD_WGSIMPLEACC_DOWNLOAD}>'><i class="fa fa-download fa-fw dd-down-1"></i><i class="fa fa-sort-down fa-fw dd-down-2"></i></a>
                 <div id="myDD<{$transaction.tra_id}>" class="dropdown-content">
                     <{foreach item=outputTpl from=$transaction.outputTpls}>
                         <a href='<{$outputTpl.href}>' title='<{$outputTpl.title}>'><img src="<{$modPathIcon32}>otpltype<{$outputTpl.type}>.png" style="height:16px"></img>&nbsp;<{$outputTpl.caption}></a>

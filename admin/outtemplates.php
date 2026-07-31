@@ -58,7 +58,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_OUTTEMPLATES);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_OUTTEMPLATES);
         }
         break;
     case 'new':
@@ -118,7 +118,7 @@ switch ($op) {
         $outtemplatesObj->setVar('otpl_submitter', Request::getInt('otpl_submitter'));
         // Insert Data
         if ($outtemplatesHandler->insert($outtemplatesObj)) {
-            \redirect_header('outtemplates.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('outtemplates.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form
         $GLOBALS['xoopsTpl']->assign('error', $outtemplatesObj->getHtmlErrors());
@@ -146,7 +146,7 @@ switch ($op) {
                 \redirect_header('outtemplates.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($outtemplatesHandler->delete($outtemplatesObj)) {
-                \redirect_header('outtemplates.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('outtemplates.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $outtemplatesObj->getHtmlErrors());
             }
@@ -154,7 +154,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'otpl_id' => $otplId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $outtemplatesObj->getVar('otpl_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $outtemplatesObj->getVar('otpl_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }

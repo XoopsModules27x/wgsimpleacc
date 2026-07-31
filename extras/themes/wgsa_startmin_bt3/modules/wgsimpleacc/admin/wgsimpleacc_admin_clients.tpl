@@ -5,20 +5,20 @@
     <table class='table table-bordered'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_NAME}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_POSTAL}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_CITY}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_ADDRESS}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_CTRY}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_PHONE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_VAT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_CREDITOR}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_DEBTOR}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_CLIENT_ONLINE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_NAME}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_POSTAL}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_CITY}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_ADDRESS}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_CTRY}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_PHONE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_VAT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_CREDITOR}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_DEBTOR}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_CLIENT_ONLINE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $clients_count|default:''}>

@@ -13,7 +13,7 @@
 					],
 					label: 'Dataset Transactions Pie'
 			}],
-			labels: ['<{$smarty.const._MA_WGSIMPLEACC_TRANSACTIONS_INCOMES}>', '<{$smarty.const._MA_WGSIMPLEACC_TRANSACTIONS_EXPENSES}>']
+			labels: ['<{$smarty.const._MD_WGSIMPLEACC_TRANSACTIONS_INCOMES}>', '<{$smarty.const._MD_WGSIMPLEACC_TRANSACTIONS_EXPENSES}>']
 		};
 		var myDoughnutChart = new Chart(ctxPieInEx, {
 			type: 'doughnut',

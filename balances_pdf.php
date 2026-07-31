@@ -30,7 +30,7 @@ require_once \XOOPS_ROOT_PATH . '/header.php';
 if (\file_exists($tcpdf = \XOOPS_ROOT_PATH.'/Frameworks/tcpdf/')) {
     require_once $tcpdf . 'tcpdf.php';
 } else {
-    \redirect_header('index.php', 2, \_MA_WGSIMPLEACC_NO_PDF_LIBRARY);
+    \redirect_header('index.php', 2, \_MD_WGSIMPLEACC_NO_PDF_LIBRARY);
 }
 
 // Permissions
@@ -122,9 +122,9 @@ if ($levelAlloc > 0) {
 $myts = MyTextSanitizer::getInstance();
 
 // Set defaults
-$pdfFilename = \_MA_WGSIMPLEACC_PDF_BALNAME . '.pdf';
+$pdfFilename = \_MD_WGSIMPLEACC_PDF_BALNAME . '.pdf';
 $title       = $GLOBALS['xoopsConfig']['sitename'];
-$subject     = \_MA_WGSIMPLEACC_PDF_BALHEADER;
+$subject     = \_MD_WGSIMPLEACC_PDF_BALHEADER;
 $content     = '';
 
 $author = '';
@@ -156,7 +156,7 @@ $pdfData['keywords']  = $helper->getConfig('keywords');
 \define('WGSIMPLEACC_IMAGES_PATH', \XOOPS_ROOT_PATH.'/images/');
 
 // Assign customs tpl fields
-//$pdfTpl->assign('content_header', \str_replace(['%y', '%n'], [$transactionsObj->getVar('tra_year'), $transactionsObj->getVar('tra_nb')], \_MA_WGSIMPLEACC_PDF_TRAHEADER));
+//$pdfTpl->assign('content_header', \str_replace(['%y', '%n'], [$transactionsObj->getVar('tra_year'), $transactionsObj->getVar('tra_nb')], \_MD_WGSIMPLEACC_PDF_TRAHEADER));
 $logo = ['src' => \WGSIMPLEACC_UPLOAD_IMAGES_URL . '/logoPdf.png', 'height' => '100px'];
 $pdfTpl->assign('logo', $logo);
 $pdfTpl->assign('header_title', \WGSIMPLEACC_HEADER_TITLE);

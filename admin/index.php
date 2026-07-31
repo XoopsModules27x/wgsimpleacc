@@ -86,9 +86,9 @@ $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('inde
 if ($helper->getConfig('displaySampleButton')) {
     \xoops_loadLanguage('admin/modulesadmin', 'system');
     require_once \dirname(__DIR__) . '/testdata/index.php';
-    $adminObject->addItemButton(\constant('CO_' . $moduleDirNameUpper . '_ADD_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=load');
-    $adminObject->addItemButton(\constant('CO_' . $moduleDirNameUpper . '_SAVE_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=save');
-//    $adminObject->addItemButton(\constant('CO_' . $moduleDirNameUpper . '_EXPORT_SCHEMA'), '__DIR__ . /../../testdata/index.php?op=exportschema', 'add');
+    $adminObject->addItemButton(\constant('_CO_WGSIMPLEACC_ADD_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=load');
+    $adminObject->addItemButton(\constant('_CO_WGSIMPLEACC_SAVE_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=save');
+//    $adminObject->addItemButton(\constant('_CO_WGSIMPLEACC_EXPORT_SCHEMA'), '__DIR__ . /../../testdata/index.php?op=exportschema', 'add');
     $adminObject->displayButton('left');
 }
 $GLOBALS['xoopsTpl']->assign('index', $adminObject->displayIndex());

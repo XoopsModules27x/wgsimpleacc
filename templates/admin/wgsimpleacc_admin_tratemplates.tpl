@@ -5,19 +5,19 @@
     <table class='outer'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_NAME}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_DESC}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_ACCID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_ALLID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_ASID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_CLASS}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_AMOUNTIN}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_AMOUNTOUT}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_TRATEMPLATE_ONLINE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_NAME}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_DESC}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_ACCID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_ALLID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_ASID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_CLASS}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_AMOUNTIN}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_AMOUNTOUT}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_TRATEMPLATE_ONLINE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $tratemplates_count|default:0}>

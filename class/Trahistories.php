@@ -111,11 +111,11 @@ class Trahistories extends \XoopsObject
             $ret['account'] = $accountsObj->getVar('acc_key') . ' ' . $accountsObj->getVar('acc_name');
         } else {
             $ret['acckey']  = '?';
-            $ret['account'] = \_MA_WGSIMPLEACC_MISSING_ID . ':' . $this->getVar('tra_accid');
+            $ret['account'] = \_MD_WGSIMPLEACC_MISSING_ID . ':' . $this->getVar('tra_accid');
         }
         $allocationsHandler   = $helper->getHandler('Allocations');
         $allocationsObj       = $allocationsHandler->get($this->getVar('tra_allid'));
-        $allName              = \_MA_WGSIMPLEACC_MISSING_ID . ':' . $this->getVar('tra_allid');
+        $allName              = \_MD_WGSIMPLEACC_MISSING_ID . ':' . $this->getVar('tra_allid');
         if (\is_object($allocationsObj)) {
             $allName = $allocationsObj->getVar('all_name');
         }
@@ -149,13 +149,13 @@ class Trahistories extends \XoopsObject
         switch ($traClass) {
             case Constants::CLASS_BOTH:
             default:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_BOTH;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_BOTH;
                 break;
             case Constants::CLASS_EXPENSES:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_EXPENSES;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_EXPENSES;
                 break;
             case Constants::CLASS_INCOME:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_INCOME;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_INCOME;
                 break;
         }
         $ret['class_text']      = $class_text;

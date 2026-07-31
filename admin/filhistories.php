@@ -59,7 +59,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_FILHISTORIES);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_FILHISTORIES);
         }
         break;
     case 'delete':
@@ -72,7 +72,7 @@ switch ($op) {
                 \redirect_header('filhistories.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($filhistoriesHandler->delete($filhistoriesObj)) {
-                \redirect_header('filhistories.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('filhistories.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $filhistoriesObj->getHtmlErrors());
             }
@@ -80,7 +80,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'hist_id' => $histId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $filName), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $filName), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }

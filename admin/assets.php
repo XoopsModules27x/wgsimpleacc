@@ -61,7 +61,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_ASSETS);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_ASSETS);
         }
 
         $GLOBALS['xoopsTpl']->assign('colors', Utility::getColors());
@@ -104,7 +104,7 @@ switch ($op) {
                 $asId = $asId > 0 ? $asId : $newAsId;
                 $assetsHandler->setPrimaryAssets($asId);
             }
-            \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('assets.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form
         $GLOBALS['xoopsTpl']->assign('error', $assetsObj->getHtmlErrors());
@@ -115,13 +115,13 @@ switch ($op) {
         if ($asId > 0) {
             $assetsObj = $assetsHandler->get($asId);
         } else {
-            \redirect_header('assets.php', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('assets.php', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Set Vars
         $assetsObj->setVar('as_color', '#' . Request::getString('as_color'));
         // Insert Data
         if ($assetsHandler->insert($assetsObj)) {
-            \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('assets.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         break;
     case 'edit':
@@ -145,7 +145,7 @@ switch ($op) {
                 \redirect_header('assets.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($assetsHandler->delete($assetsObj)) {
-                \redirect_header('assets.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('assets.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $assetsObj->getHtmlErrors());
             }
@@ -153,7 +153,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'as_id' => $asId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $assetsObj->getVar('as_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $assetsObj->getVar('as_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }

@@ -166,7 +166,7 @@ class ClientsHandler extends \XoopsPersistableObjectHandler
         $form->setExtra('enctype="multipart/form-data"');
         $nameTray = new \XoopsFormElementTray('', '');
         $formText = new \XoopsFormText('', 'cli_name', 30, 100, $cliName);
-        $formText->setExtra('placeholder="' . \_MA_WGSIMPLEACC_FORM_PLACEHOLDER_NAME . '"');
+        $formText->setExtra('placeholder="' . \_MD_WGSIMPLEACC_FORM_PLACEHOLDER_NAME . '"');
         $nameTray->addElement($formText);
         $nameTray->addElement(new \XoopsFormLabel('', '<button class="btn btn-primary" type="submit"><i class="fa fa-search fa-fw"></i></button>'));
         $form->addElement($nameTray);

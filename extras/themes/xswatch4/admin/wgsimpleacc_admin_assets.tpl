@@ -5,17 +5,17 @@
     <table class='table table-bordered'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_NAME}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_REFERENCE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_DESCR}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_COLOR}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_IECALC}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_ONLINE}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_PRIMARY}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ASSET_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ASSET_NAME}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ASSET_REFERENCE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ASSET_DESCR}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ASSET_COLOR}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ASSET_IECALC}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ASSET_ONLINE}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_ASSET_PRIMARY}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $assets_count|default:0}>

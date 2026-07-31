@@ -10,19 +10,19 @@
 </table>
 
 <{if $balancesCount|default:0 > 0}>
-    <h3><{$smarty.const._MA_WGSIMPLEACC_BALANCES_LIST}></h3>
+    <h3><{$smarty.const._MD_WGSIMPLEACC_BALANCES_LIST}></h3>
     <div>
         <table style="width:100%;" cellspacing="2" cellpadding="5">
             <thead>
             <tr class='head'>
-                <th style="<{$pdfStyleTh}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_ASID}></th>
-                <th style="<{$pdfStyleThC}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_FROM}></th>
-                <th style="<{$pdfStyleThC}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_TO}></th>
-                <th style="<{$pdfStyleThC}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_CURID}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_AMOUNTSTART}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_AMOUNTEND}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_DIFFERENCE}></th>
-                <th style="<{$pdfStyleThC}>"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
+                <th style="<{$pdfStyleTh}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_ASID}></th>
+                <th style="<{$pdfStyleThC}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_FROM}></th>
+                <th style="<{$pdfStyleThC}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_TO}></th>
+                <th style="<{$pdfStyleThC}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_CURID}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_AMOUNTSTART}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_AMOUNTEND}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_DIFFERENCE}></th>
+                <th style="<{$pdfStyleThC}>"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
             </tr>
             </thead>
             <tbody>
@@ -39,7 +39,7 @@
                     </tr>
                 <{/foreach}>
                 <tr>
-                    <td style="<{$pdfStyleTd}>" colspan="4" ><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
+                    <td style="<{$pdfStyleTd}>" colspan="4" ><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
                     <td style="<{$pdfStyleTdR}>"><{$balancesAmountIn}></td>
                     <td style="<{$pdfStyleTdR}>"><{$balancesAmountOut}></td>
                     <td style="<{$pdfStyleTdR}>"><{$balancesTotal}></td>
@@ -50,15 +50,15 @@
     </div>
 <{/if}>
 <{if $accountsCount|default:0 > 0}>
-    <h3><{$smarty.const._MA_WGSIMPLEACC_ACCOUNTS_LIST}></h3>
+    <h3><{$smarty.const._MD_WGSIMPLEACC_ACCOUNTS_LIST}></h3>
     <div>
         <table style="width:100%;" cellspacing="2" cellpadding="5">
             <thead>
             <tr class='head'>
-                <th style="<{$pdfStyleTh}>"><{$smarty.const._MA_WGSIMPLEACC_ACCOUNT_NAME}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
+                <th style="<{$pdfStyleTh}>"><{$smarty.const._MD_WGSIMPLEACC_ACCOUNT_NAME}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
             </tr>
             </thead>
             <tbody>
@@ -71,7 +71,7 @@
                 </tr>
                 <{/foreach}>
                 <tr>
-                    <td style="<{$pdfStyleTd}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
+                    <td style="<{$pdfStyleTd}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
                     <td style="<{$pdfStyleTdR}>"><{$accountsAmountIn}></td>
                     <td style="<{$pdfStyleTdR}>"><{$accountsAmountOut}></td>
                     <td style="<{$pdfStyleTdR}>"><{$accountsTotal}></td>
@@ -81,15 +81,15 @@
     </div>
 <{/if}>
 <{if $allocationsCount|default:0 > 0}>
-    <h3><{$smarty.const._MA_WGSIMPLEACC_ALLOCATIONS_LIST}></h3>
+    <h3><{$smarty.const._MD_WGSIMPLEACC_ALLOCATIONS_LIST}></h3>
     <div>
         <table style="width:100%;" cellspacing="2" cellpadding="5">
             <thead>
             <tr class='head'>
-                <th style="<{$pdfStyleTh}>"><{$smarty.const._MA_WGSIMPLEACC_ALLOCATION_NAME}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
-                <th style="<{$pdfStyleThR}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
+                <th style="<{$pdfStyleTh}>"><{$smarty.const._MD_WGSIMPLEACC_ALLOCATION_NAME}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTIN}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNTOUT}></th>
+                <th style="<{$pdfStyleThR}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
             </tr>
             </thead>
             <tbody>
@@ -102,7 +102,7 @@
                 </tr>
                 <{/foreach}>
             <tr >
-                <td style="<{$pdfStyleTd}>"><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
+                <td style="<{$pdfStyleTd}>"><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_SUMS}></td>
                 <td style="<{$pdfStyleTdR}>"><{$allocationsAmountIn}></td>
                 <td style="<{$pdfStyleTdR}>"><{$allocationsAmountOut}></td>
                 <td style="<{$pdfStyleTdR}>"><{$allocationsTotal}></td>

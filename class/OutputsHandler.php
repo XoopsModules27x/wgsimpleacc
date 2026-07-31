@@ -51,7 +51,7 @@ class OutputsHandler extends \XoopsPersistableObjectHandler
         }
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
-        $form = new \XoopsThemeForm(\_MA_WGSIMPLEACC_BALANCES_OUT_SELECT, 'formBalSelect', $action, 'post', true);
+        $form = new \XoopsThemeForm(\_MD_WGSIMPLEACC_BALANCES_OUT_SELECT, 'formBalSelect', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
 
         $checkboxList = "<ul class='wgsa-checkboxlist'>\n";
@@ -86,24 +86,24 @@ class OutputsHandler extends \XoopsPersistableObjectHandler
             unset($crBalancesSub);
         }
         $checkboxList .= '</ul>';
-        $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_BALANCES_OUT_SELECT, $checkboxList, 'labelBalids'));
+        $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_BALANCES_OUT_SELECT, $checkboxList, 'labelBalids'));
 
-        $balLevelDetails = new \XoopsFormElementTray(\_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL,'<br>');
-        $levelAllocations = new \XoopsFormSelect(\_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL_ALLOC, 'level_alloc', $helper->getConfig('balance_level_alloc'));
-        $levelAllocations->addOption(Constants::BALANCES_OUT_LEVEL_SKIP, \_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL_SKIP);
-        $levelAllocations->addOption(Constants::BALANCES_OUT_LEVEL_ALLOC1, \_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL_ALLOC1);
-        $levelAllocations->addOption(Constants::BALANCES_OUT_LEVEL_ALLOC2, \_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL_ALLOC2);
+        $balLevelDetails = new \XoopsFormElementTray(\_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL,'<br>');
+        $levelAllocations = new \XoopsFormSelect(\_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL_ALLOC, 'level_alloc', $helper->getConfig('balance_level_alloc'));
+        $levelAllocations->addOption(Constants::BALANCES_OUT_LEVEL_SKIP, \_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL_SKIP);
+        $levelAllocations->addOption(Constants::BALANCES_OUT_LEVEL_ALLOC1, \_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL_ALLOC1);
+        $levelAllocations->addOption(Constants::BALANCES_OUT_LEVEL_ALLOC2, \_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL_ALLOC2);
         $balLevelDetails->addElement($levelAllocations);
-        $levelAccounts = new \XoopsFormSelect(\_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL_ACC, 'level_account', $helper->getConfig('balance_level_acc'));
-        $levelAccounts->addOption(Constants::BALANCES_OUT_LEVEL_SKIP, \_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL_SKIP);
-        //$levelAccounts->addOption(Constants::BALANCES_OUT_LEVEL_ACC1, \_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL_ACC1);
-        $levelAccounts->addOption(Constants::BALANCES_OUT_LEVEL_ACC2, \_MA_WGSIMPLEACC_BALANCES_OUT_LEVEL_ACC2);
+        $levelAccounts = new \XoopsFormSelect(\_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL_ACC, 'level_account', $helper->getConfig('balance_level_acc'));
+        $levelAccounts->addOption(Constants::BALANCES_OUT_LEVEL_SKIP, \_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL_SKIP);
+        //$levelAccounts->addOption(Constants::BALANCES_OUT_LEVEL_ACC1, \_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL_ACC1);
+        $levelAccounts->addOption(Constants::BALANCES_OUT_LEVEL_ACC2, \_MD_WGSIMPLEACC_BALANCES_OUT_LEVEL_ACC2);
         $balLevelDetails->addElement($levelAccounts);
 
         $form->addElement($balLevelDetails);
 
         $form->addElement(new \XoopsFormHidden('op', 'bal_output'));
-        $form->addElement(new \XoopsFormButtonTray('', \_MA_WGSIMPLEACC_OUTPUT_BALANCES, 'submit', '', false));
+        $form->addElement(new \XoopsFormButtonTray('', \_MD_WGSIMPLEACC_OUTPUT_BALANCES, 'submit', '', false));
 
         return $form;
     }

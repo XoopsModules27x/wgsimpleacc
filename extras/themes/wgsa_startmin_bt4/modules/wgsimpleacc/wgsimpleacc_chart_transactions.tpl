@@ -7,7 +7,7 @@
 	}
 </style>
 
-<h3><{$smarty.const._MA_WGSIMPLEACC_TRANSACTIONS_OVERVIEW}></h3>
+<h3><{$smarty.const._MD_WGSIMPLEACC_TRANSACTIONS_OVERVIEW}></h3>
 
 <{if $formFilter|default:''}>
     <{$formFilter}>
@@ -33,14 +33,14 @@
     var data = {
       labels: [<{$transactions_labels}>],
       datasets: [{
-        "label": "<{$smarty.const._MA_WGSIMPLEACC_TRANSACTIONS_EXPENSES}>",
+        "label": "<{$smarty.const._MD_WGSIMPLEACC_TRANSACTIONS_EXPENSES}>",
         "yAxisID": "A",
         "backgroundColor": window.chartColors.red,
         "borderColor": window.chartColors.darkred,
         "borderWidth": 1,
         "data": [<{$transactions_dataout}>]
       }, {
-        "label": "<{$smarty.const._MA_WGSIMPLEACC_TRANSACTIONS_INCOMES}>",
+        "label": "<{$smarty.const._MD_WGSIMPLEACC_TRANSACTIONS_INCOMES}>",
         "yAxisID": "A",
         "backgroundColor": window.chartColors.green,
         "borderColor": window.chartColors.darkgreen,

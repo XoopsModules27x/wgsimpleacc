@@ -83,13 +83,13 @@ class Tratemplates extends \XoopsObject
         }
         $isAdmin = $GLOBALS['xoopsUser']->isAdmin($GLOBALS['xoopsModule']->mid());
         // Title
-        $title = $this->isNew() ? \_MA_WGSIMPLEACC_TRATEMPLATE_ADD : \_MA_WGSIMPLEACC_TRATEMPLATE_EDIT;
+        $title = $this->isNew() ? \_MD_WGSIMPLEACC_TRATEMPLATE_ADD : \_MD_WGSIMPLEACC_TRATEMPLATE_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
         // Form Text tplName
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_TRATEMPLATE_NAME, 'ttpl_name', 50, 255, $this->getVar('ttpl_name')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_TRATEMPLATE_NAME, 'ttpl_name', 50, 255, $this->getVar('ttpl_name')));
         // Form Text tplDesc
         $editorConfigs = [];
         if ($isAdmin) {
@@ -104,11 +104,11 @@ class Tratemplates extends \XoopsObject
         $editorConfigs['width'] = '100%';
         $editorConfigs['height'] = '400px';
         $editorConfigs['editor'] = $editor;
-        $traDesc = new \XoopsFormEditor(\_MA_WGSIMPLEACC_TRATEMPLATE_DESC, 'ttpl_desc', $editorConfigs);
+        $traDesc = new \XoopsFormEditor(\_MD_WGSIMPLEACC_TRATEMPLATE_DESC, 'ttpl_desc', $editorConfigs);
         $form->addElement($traDesc);
         // Form Table allocations
         $allocationsHandler = $helper->getHandler('Allocations');
-        $tplAllidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_TRATEMPLATE_ALLID, 'ttpl_allid', $this->getVar('ttpl_allid'), 15);
+        $tplAllidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_TRATEMPLATE_ALLID, 'ttpl_allid', $this->getVar('ttpl_allid'), 15);
         $allocations = $allocationsHandler->getSelectTreeOfAllocations();
         foreach ($allocations as $allocation) {
             $tplAllidSelect->addOption($allocation['id'], $allocation['text']);
@@ -116,7 +116,7 @@ class Tratemplates extends \XoopsObject
         $form->addElement($tplAllidSelect);
         // Form Table accounts
         $accountsHandler = $helper->getHandler('Accounts');
-        $tplAccidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_TRATEMPLATE_ACCID, 'ttpl_accid', $this->getVar('ttpl_accid'), 15);
+        $tplAccidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_TRATEMPLATE_ACCID, 'ttpl_accid', $this->getVar('ttpl_accid'), 15);
         $accounts = $accountsHandler->getSelectTreeOfAccounts(Constants::CLASS_BOTH);
         foreach ($accounts as $account) {
             $tplAccidSelect->addOption($account['id'], $account['text']);
@@ -124,7 +124,7 @@ class Tratemplates extends \XoopsObject
         $form->addElement($tplAccidSelect);
         // Form Table assets
         $assetsHandler = $helper->getHandler('Assets');
-        $ttplAsidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_TRATEMPLATE_ASID, 'ttpl_asid', $this->getVar('ttpl_asid'));
+        $ttplAsidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_TRATEMPLATE_ASID, 'ttpl_asid', $this->getVar('ttpl_asid'));
         $ttplAsidSelect->addOptionArray($assetsHandler->getList());
         $form->addElement($ttplAsidSelect);
         // Form Table clients
@@ -133,7 +133,7 @@ class Tratemplates extends \XoopsObject
             $crClients = new \CriteriaCompo();
             $crClients->setSort('cli_name');
             $crClients->setOrder('ASC');
-            $ttplCliidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_TRANSACTION_CLIID, 'ttpl_cliid', $this->getVar('ttpl_cliid'));
+            $ttplCliidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_TRANSACTION_CLIID, 'ttpl_cliid', $this->getVar('ttpl_cliid'));
             $ttplCliidSelect->addOption(0, ' ');
             $clientsAll = $clientsHandler->getAll($crClients);
             foreach ($clientsAll as $client) {
@@ -143,25 +143,25 @@ class Tratemplates extends \XoopsObject
         }
         // Form Select ttplClass
         $ttplClass = $this->isNew() ? Constants::CLASS_BOTH : $this->getVar('ttpl_class');
-        $traClassSelect = new \XoopsFormRadio(\_MA_WGSIMPLEACC_TRANSACTION_CLASS, 'ttpl_class', $ttplClass);
-        $traClassSelect->addOption(Constants::CLASS_BOTH, \_MA_WGSIMPLEACC_CLASS_BOTH);
-        $traClassSelect->addOption(Constants::CLASS_EXPENSES, \_MA_WGSIMPLEACC_CLASS_EXPENSES);
-        $traClassSelect->addOption(Constants::CLASS_INCOME, \_MA_WGSIMPLEACC_CLASS_INCOME);
+        $traClassSelect = new \XoopsFormRadio(\_MD_WGSIMPLEACC_TRANSACTION_CLASS, 'ttpl_class', $ttplClass);
+        $traClassSelect->addOption(Constants::CLASS_BOTH, \_MD_WGSIMPLEACC_CLASS_BOTH);
+        $traClassSelect->addOption(Constants::CLASS_EXPENSES, \_MD_WGSIMPLEACC_CLASS_EXPENSES);
+        $traClassSelect->addOption(Constants::CLASS_INCOME, \_MD_WGSIMPLEACC_CLASS_INCOME);
         $form->addElement($traClassSelect);
         // Form Text tplAmountin
         $ttplAmountin = Utility::FloatToString($this->getVar('ttpl_amountin'));
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_TRATEMPLATE_AMOUNTIN, 'ttpl_amountin', 20, 150, $ttplAmountin));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_TRATEMPLATE_AMOUNTIN, 'ttpl_amountin', 20, 150, $ttplAmountin));
         // Form Text tplAmountout
         $ttplAmountout = Utility::FloatToString($this->getVar('ttpl_amountout'));
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_TRATEMPLATE_AMOUNTOUT, 'ttpl_amountout', 20, 150, $ttplAmountout));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_TRATEMPLATE_AMOUNTOUT, 'ttpl_amountout', 20, 150, $ttplAmountout));
         // Form Radio Yes/No asOnline
         $ttplOnline = $this->isNew() ?: $this->getVar('ttpl_online');
-        $form->addElement(new \XoopsFormRadioYN(\_MA_WGSIMPLEACC_TRATEMPLATE_ONLINE, 'ttpl_online', $ttplOnline));
+        $form->addElement(new \XoopsFormRadioYN(\_MD_WGSIMPLEACC_TRATEMPLATE_ONLINE, 'ttpl_online', $ttplOnline));
         // Form Text Date Select tplDatecreated
         $ttplDatecreated = $this->isNew() ?: $this->getVar('ttpl_datecreated');
-        $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'ttpl_datecreated', '', $ttplDatecreated));
+        $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'ttpl_datecreated', '', $ttplDatecreated));
         // Form Select User tplSubmitter
-        $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'ttpl_submitter', false, $GLOBALS['xoopsUser']->uid()));
+        $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'ttpl_submitter', false, $GLOBALS['xoopsUser']->uid()));
         // To Save
         $form->addElement(new \XoopsFormHidden('op', 'save'));
         $form->addElement(new \XoopsFormButtonTray('', \_SUBMIT, 'submit', '', false));
@@ -197,7 +197,7 @@ class Tratemplates extends \XoopsObject
         $ret['accid']         = $accKey;
         $ret['accname']       = $accName;
         $ret['acconline']     = $accOnline;
-        $ret['acconlinetext'] = $accOnline > 0 ? \_MA_WGSIMPLEACC_ONLINE : \_MA_WGSIMPLEACC_OFFLINE;
+        $ret['acconlinetext'] = $accOnline > 0 ? \_MD_WGSIMPLEACC_ONLINE : \_MD_WGSIMPLEACC_OFFLINE;
         $allocationsHandler = $helper->getHandler('Allocations');
         $allocationsObj = $allocationsHandler->get($this->getVar('ttpl_allid'));
         $allName   = '';
@@ -208,7 +208,7 @@ class Tratemplates extends \XoopsObject
         }
         $ret['allid']         = $allName;
         $ret['allonline']     = $allOnline;
-        $ret['allonlinetext'] = $allOnline > 0 ? \_MA_WGSIMPLEACC_ONLINE : \_MA_WGSIMPLEACC_OFFLINE;
+        $ret['allonlinetext'] = $allOnline > 0 ? \_MD_WGSIMPLEACC_ONLINE : \_MD_WGSIMPLEACC_OFFLINE;
         $assetsHandler = $helper->getHandler('Assets');
         $assetsObj = $assetsHandler->get($this->getVar('ttpl_asid'));
         $asName   = '';
@@ -219,7 +219,7 @@ class Tratemplates extends \XoopsObject
         }
         $ret['asid']         = $asName;
         $ret['asonline']     = $asOnline;
-        $ret['asonlinetext'] = $asOnline > 0 ? \_MA_WGSIMPLEACC_ONLINE : \_MA_WGSIMPLEACC_OFFLINE;
+        $ret['asonlinetext'] = $asOnline > 0 ? \_MD_WGSIMPLEACC_ONLINE : \_MD_WGSIMPLEACC_OFFLINE;
         $clientsHandler = $helper->getHandler('Clients');
         $clientsObj = $clientsHandler->get($this->getVar('ttpl_cliid'));
         $cliName   = '';
@@ -230,19 +230,19 @@ class Tratemplates extends \XoopsObject
         }
         $ret['cliid']         = $cliName;
         $ret['clionline']     = $cliOnline;
-        $ret['clionlinetext'] = $cliOnline > 0 ? \_MA_WGSIMPLEACC_ONLINE : \_MA_WGSIMPLEACC_OFFLINE;
+        $ret['clionlinetext'] = $cliOnline > 0 ? \_MD_WGSIMPLEACC_ONLINE : \_MD_WGSIMPLEACC_OFFLINE;
         $ttplClass        = $this->getVar('ttpl_class');
         $ret['class']     = $ttplClass;
         switch ($ttplClass) {
             case Constants::CLASS_BOTH:
             default:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_BOTH;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_BOTH;
                 break;
             case Constants::CLASS_EXPENSES:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_EXPENSES;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_EXPENSES;
                 break;
             case Constants::CLASS_INCOME:
-                $class_text = \_MA_WGSIMPLEACC_CLASS_INCOME;
+                $class_text = \_MD_WGSIMPLEACC_CLASS_INCOME;
                 break;
         }
         $ret['class_text']  = $class_text;

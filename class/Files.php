@@ -81,7 +81,7 @@ class Files extends \XoopsObject
             $action = $_SERVER['REQUEST_URI'];
         }
         // Title
-        $title = $this->isNew() ? \_MA_WGSIMPLEACC_FILE_ADD : \_MA_WGSIMPLEACC_FILE_EDIT;
+        $title = $this->isNew() ? \_MD_WGSIMPLEACC_FILE_ADD : \_MD_WGSIMPLEACC_FILE_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form', $action, 'post', true);
@@ -89,7 +89,7 @@ class Files extends \XoopsObject
         // Form Table transactions
         $transactionsHandler = $helper->getHandler('Transactions');
         $filTraid = $this->isNew() ? $traId : $this->getVar('fil_traid');
-        $filTraidSelect = new \XoopsFormSelect(\_MA_WGSIMPLEACC_FILE_TRAID, 'fil_traid', $filTraid);
+        $filTraidSelect = new \XoopsFormSelect(\_MD_WGSIMPLEACC_FILE_TRAID, 'fil_traid', $filTraid);
         $transactionsAll = $transactionsHandler->getAll();
         foreach (\array_keys($transactionsAll) as $i) {
             //$yearMin = date('Y', $transactionsAll[$i]->getVar('tra_date'));
@@ -101,27 +101,27 @@ class Files extends \XoopsObject
         // Form File: Upload filName
         $filName = $this->isNew() ? '' : $this->getVar('fil_name');
 
-        $fileUploadTray = new \XoopsFormElementTray(\_MA_WGSIMPLEACC_FILE_NAME, '<br>');
+        $fileUploadTray = new \XoopsFormElementTray(\_MD_WGSIMPLEACC_FILE_NAME, '<br>');
         $fileDirectory = '/uploads/wgsimpleacc/files';
         if (!$this->isNew()) {
-            $fileUploadTray->addElement(new \XoopsFormLabel(\sprintf(\_MA_WGSIMPLEACC_FILE_NAME_UPLOADS, ".$fileDirectory/"), $filName));
+            $fileUploadTray->addElement(new \XoopsFormLabel(\sprintf(\_MD_WGSIMPLEACC_FILE_NAME_UPLOADS, ".$fileDirectory/"), $filName));
         }
         $maxsize = $helper->getConfig('maxsize_file');
         $fileUploadTray->addElement(new \XoopsFormFile('', 'fil_name', $maxsize));
-        $fileUploadTray->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_FORM_UPLOAD_SIZE, ($maxsize / 1048576) . ' '  . \_MA_WGSIMPLEACC_FORM_UPLOAD_SIZE_MB));
+        $fileUploadTray->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_FORM_UPLOAD_SIZE, ($maxsize / 1048576) . ' '  . \_MD_WGSIMPLEACC_FORM_UPLOAD_SIZE_MB));
         $form->addElement($fileUploadTray, true);
         // Form Select filType
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_FILE_TYPE, 'fil_type', 20, 150, $this->getVar('fil_type')));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_FILE_TYPE, 'fil_type', 20, 150, $this->getVar('fil_type')));
         // Form Editor TextArea filDesc
-        $form->addElement(new \XoopsFormTextArea(\_MA_WGSIMPLEACC_FILE_DESC, 'fil_desc', $this->getVar('fil_desc', 'e'), 4, 47));
+        $form->addElement(new \XoopsFormTextArea(\_MD_WGSIMPLEACC_FILE_DESC, 'fil_desc', $this->getVar('fil_desc', 'e'), 4, 47));
         // Form Text IP filIp
         $filIp = $_SERVER['REMOTE_ADDR'];
-        $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_FILE_IP, 'fil_ip', 20, 150, $filIp));
+        $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_FILE_IP, 'fil_ip', 20, 150, $filIp));
         // Form Text Date Select filDatecreated
         $filDatecreated = $this->isNew() ?: $this->getVar('fil_datecreated');
-        $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'fil_datecreated', '', $filDatecreated));
+        $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'fil_datecreated', '', $filDatecreated));
         // Form Select User filSubmitter
-        $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'fil_submitter', false, $this->getVar('fil_submitter')));
+        $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'fil_submitter', false, $this->getVar('fil_submitter')));
         // To Save
         $form->addElement(new \XoopsFormHidden('op', 'save'));
         $form->addElement(new \XoopsFormButtonTray('', _SUBMIT, 'submit', '', false));
@@ -143,7 +143,7 @@ class Files extends \XoopsObject
         }
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
-        $form = new \XoopsThemeForm(\_MA_WGSIMPLEACC_FILE_EDIT, 'form', $action, 'post', true);
+        $form = new \XoopsThemeForm(\_MD_WGSIMPLEACC_FILE_EDIT, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
         // Form Table transactions
         $transactionsHandler = $helper->getHandler('Transactions');
@@ -152,15 +152,15 @@ class Files extends \XoopsObject
             $transactionsObj = $transactionsHandler->get($filTraid);
             $transaction = $transactionsObj->getVar('tra_year') . '/' . $transactionsObj->getVar('tra_nb') . ' ' . $transactionsObj->getVar('tra_desc');
         } else {
-            $transaction = \_MA_WGSIMPLEACC_FILE_NO_TRANSACTION;
+            $transaction = \_MD_WGSIMPLEACC_FILE_NO_TRANSACTION;
         }
-        $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_TRANSACTION, $transaction));
+        $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_TRANSACTION, $transaction));
         // Form filName
-        $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_FILE_NAME, $this->getVar('fil_name')));
+        $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_FILE_NAME, $this->getVar('fil_name')));
         // Form Select filType
-        $form->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_FILE_TYPE, $this->getVar('fil_type')));
+        $form->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_FILE_TYPE, $this->getVar('fil_type')));
         // Form Editor TextArea filDesc
-        $form->addElement(new \XoopsFormTextArea(\_MA_WGSIMPLEACC_FILE_DESC, 'fil_desc', $this->getVar('fil_desc', 'e'), 4, 47));
+        $form->addElement(new \XoopsFormTextArea(\_MD_WGSIMPLEACC_FILE_DESC, 'fil_desc', $this->getVar('fil_desc', 'e'), 4, 47));
         // To Save
         $form->addElement(new \XoopsFormHidden('op', 'save_edit'));
         $form->addElement(new \XoopsFormHidden('traOp', $traOp));
@@ -182,7 +182,7 @@ class Files extends \XoopsObject
             $action = $_SERVER['REQUEST_URI'];
         }
         // Title
-        $title = $this->isNew() ? '' : \_MA_WGSIMPLEACC_FILE_EDIT;
+        $title = $this->isNew() ? '' : \_MD_WGSIMPLEACC_FILE_EDIT;
         // Get Theme Form
         \xoops_load('XoopsFormLoader');
         $form = new \XoopsThemeForm($title, 'form_getfiles', $action, 'post', true);
@@ -191,14 +191,14 @@ class Files extends \XoopsObject
         $filTraid = $this->isNew() ? $traId : $this->getVar('fil_traid');
         // Form File: Upload filName
         $filName = $this->isNew() ? '' : $this->getVar('fil_name');
-        $fileUploadTray = new \XoopsFormElementTray(\_MA_WGSIMPLEACC_FILE_NAME, '<br>');
+        $fileUploadTray = new \XoopsFormElementTray(\_MD_WGSIMPLEACC_FILE_NAME, '<br>');
         $fileDirectory = '/uploads/wgsimpleacc/files';
         if (!$this->isNew()) {
-            $fileUploadTray->addElement(new \XoopsFormLabel(\sprintf(\_MA_WGSIMPLEACC_FILE_NAME_UPLOADS, ".$fileDirectory/"), $filName));
+            $fileUploadTray->addElement(new \XoopsFormLabel(\sprintf(\_MD_WGSIMPLEACC_FILE_NAME_UPLOADS, ".$fileDirectory/"), $filName));
         }
         $maxsize = $helper->getConfig('maxsize_file');
         $fileUploadTray->addElement(new \XoopsFormFile('', 'fil_name', $maxsize), true);
-        $fileUploadTray->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_FORM_UPLOAD_SIZE, ($maxsize / 1048576) . ' '  . \_MA_WGSIMPLEACC_FORM_UPLOAD_SIZE_MB));
+        $fileUploadTray->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_FORM_UPLOAD_SIZE, ($maxsize / 1048576) . ' '  . \_MD_WGSIMPLEACC_FORM_UPLOAD_SIZE_MB));
         $mimetypes = $helper->getConfig('mimetypes_file');
         $extensions = '';
         foreach ($mimetypes as $mimetype) {
@@ -207,14 +207,14 @@ class Files extends \XoopsObject
             }
             $extensions .= Utility::MimetypeToExtension($mimetype);
         }
-        $fileUploadTray->addElement(new \XoopsFormLabel(\_MA_WGSIMPLEACC_FORM_UPLOAD_ALLOWEDMIME, $extensions));
+        $fileUploadTray->addElement(new \XoopsFormLabel(\_MD_WGSIMPLEACC_FORM_UPLOAD_ALLOWEDMIME, $extensions));
         $form->addElement($fileUploadTray);
         if (!$this->isNew()) {
             // Form Select filType
-            $form->addElement(new \XoopsFormText(\_MA_WGSIMPLEACC_FILE_TYPE, 'fil_type', 20, 150, $this->getVar('fil_type')));
+            $form->addElement(new \XoopsFormText(\_MD_WGSIMPLEACC_FILE_TYPE, 'fil_type', 20, 150, $this->getVar('fil_type')));
         }
         // Form Editor TextArea filDesc
-        $form->addElement(new \XoopsFormTextArea(\_MA_WGSIMPLEACC_FILE_DESC, 'fil_desc', $this->getVar('fil_desc', 'e'), 4, 47));
+        $form->addElement(new \XoopsFormTextArea(\_MD_WGSIMPLEACC_FILE_DESC, 'fil_desc', $this->getVar('fil_desc', 'e'), 4, 47));
         // To Save
         if (0 === $filTraid) {
             $form->addElement(new \XoopsFormHidden('op', 'upload_filedir'));
@@ -250,8 +250,8 @@ class Files extends \XoopsObject
 
         $filTemp = 'blank.gif';
         $imageDirectory = '/uploads/wgsimpleacc/temp';
-        $imageTray = new \XoopsFormElementTray(\_MA_WGSIMPLEACC_FILES_TEMP, '<br>');
-        $imageSelect = new \XoopsFormSelect(\str_replace('%f', ".$imageDirectory/", \_MA_WGSIMPLEACC_FILES_TEMP_DESC), 'fil_temp', $filTemp, 5);
+        $imageTray = new \XoopsFormElementTray(\_MD_WGSIMPLEACC_FILES_TEMP, '<br>');
+        $imageSelect = new \XoopsFormSelect(\str_replace('%f', ".$imageDirectory/", \_MD_WGSIMPLEACC_FILES_TEMP_DESC), 'fil_temp', $filTemp, 5);
         $imageArray = \XoopsLists::getImgListAsArray( \XOOPS_ROOT_PATH . $imageDirectory );
         foreach ($imageArray as $image1) {
             if ('blank.gif' !== $image1 && 'blank.png' !== $image1) {
@@ -264,14 +264,14 @@ class Files extends \XoopsObject
         $form->addElement($imageTray);
 
         // Form Editor TextArea filDesc
-        $form->addElement(new \XoopsFormTextArea(\_MA_WGSIMPLEACC_FILE_DESC, 'fil_desc', $this->getVar('fil_desc', 'e'), 4, 47));
+        $form->addElement(new \XoopsFormTextArea(\_MD_WGSIMPLEACC_FILE_DESC, 'fil_desc', $this->getVar('fil_desc', 'e'), 4, 47));
         // To Save
         $form->addElement(new \XoopsFormHidden('op', 'save_temp'));
         $form->addElement(new \XoopsFormHidden('fil_traid', $traId));
         $form->addElement(new \XoopsFormHidden('traOp', $traOp));
         $btnTray = new \XoopsFormElementTray('', '');
         $btnTray->addElement(new \XoopsFormButtonTray('', \_SUBMIT, 'submit', '', false));
-        $btnTray->addElement(new \XoopsFormButton('', 'delete_filtemp', \_MA_WGSIMPLEACC_FILES_TEMP_DELETE, 'submit'));
+        $btnTray->addElement(new \XoopsFormButton('', 'delete_filtemp', \_MD_WGSIMPLEACC_FILES_TEMP_DELETE, 'submit'));
         $form->addElement($btnTray);
         return $form;
     }

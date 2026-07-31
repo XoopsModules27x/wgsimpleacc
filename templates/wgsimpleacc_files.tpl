@@ -6,12 +6,12 @@
         <table class='table table-striped'>
             <thead>
             <tr>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_NAME}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_DESC}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_TYPE}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_PREVIEW}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_NAME}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_DESC}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_TYPE}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_PREVIEW}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -23,7 +23,7 @@
         </table>
     </div>
     <{else}>
-    <{$smarty.const._MA_WGSIMPLEACC_THEREARENT_FILES}>
+    <{$smarty.const._MD_WGSIMPLEACC_THEREARENT_FILES}>
     <{/if}>
     <div class="clear"></div>
     <{/if}>
@@ -38,14 +38,14 @@
     <div id='filehandler' class='col-xs-12 col-sm-12'>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"><{$smarty.const._MA_WGSIMPLEACC_FILES_CURRENT}></button>
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"><{$smarty.const._MD_WGSIMPLEACC_FILES_CURRENT}></button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="upload_file-tab" data-bs-toggle="tab" data-bs-target="#upload_file" type="button" role="tab" aria-controls="upload_file" aria-selected="false"><{$smarty.const._MA_WGSIMPLEACC_FILES_UPLOAD}></button>
+                <button class="nav-link" id="upload_file-tab" data-bs-toggle="tab" data-bs-target="#upload_file" type="button" role="tab" aria-controls="upload_file" aria-selected="false"><{$smarty.const._MD_WGSIMPLEACC_FILES_UPLOAD}></button>
             </li>
             <{if $upload_by_app|default:''}>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="upload_temp-tab" data-bs-toggle="tab" data-bs-target="#upload_temp" type="button" role="tab" aria-controls="upload_temp" aria-selected="false"><{$smarty.const._MA_WGSIMPLEACC_FILES_TEMP}></button>
+                    <button class="nav-link" id="upload_temp-tab" data-bs-toggle="tab" data-bs-target="#upload_temp" type="button" role="tab" aria-controls="upload_temp" aria-selected="false"><{$smarty.const._MD_WGSIMPLEACC_FILES_TEMP}></button>
                 </li>
             <{/if}>
         </ul>
@@ -57,12 +57,12 @@
                         <table class='table table-striped'>
                             <thead>
                             <tr>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_NAME}></th>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_DESC}></th>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_TYPE}></th>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_FILE_PREVIEW}></th>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_NAME}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_DESC}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_TYPE}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_FILE_PREVIEW}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
@@ -74,7 +74,7 @@
                         </table>
                     </div>
                     <{else}>
-                    <div style="padding:20px"><{$smarty.const._MA_WGSIMPLEACC_THEREARENT_FILES}></div>
+                    <div style="padding:20px"><{$smarty.const._MD_WGSIMPLEACC_THEREARENT_FILES}></div>
                 <{/if}>
                 <a class='btn btn-danger right' href='transactions.php?op=list<{$traOp}>' title='<{$smarty.const._BACK}>'><{$smarty.const._BACK}></a>
             </div>
@@ -245,7 +245,7 @@
                     const dotCount = (filename.match(/\./g) || []).length;
 
                     if (dotCount > 1) {
-                        alert("<{$smarty.const._MA_WGSIMPLEACC_FORM_UPLOAD_MULTIDOTS}>");
+                        alert("<{$smarty.const._MD_WGSIMPLEACC_FORM_UPLOAD_MULTIDOTS}>");
                     }
                 }
             });

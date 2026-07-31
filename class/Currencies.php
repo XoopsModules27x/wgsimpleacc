@@ -96,9 +96,9 @@ class Currencies extends \XoopsObject
         $form->addElement(new \XoopsFormRadioYN(\_AM_WGSIMPLEACC_CURRENCY_ONLINE, 'cur_online', $curOnline));
         // Form Text Date Select curDatecreated
         $curDatecreated = $this->isNew() ?: $this->getVar('cur_datecreated');
-        $form->addElement(new \XoopsFormTextDateSelect(\_MA_WGSIMPLEACC_DATECREATED, 'cur_datecreated', '', $curDatecreated));
+        $form->addElement(new \XoopsFormTextDateSelect(\_MD_WGSIMPLEACC_DATECREATED, 'cur_datecreated', '', $curDatecreated));
         // Form Select User curSubmitter
-        $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'cur_submitter', false, $this->getVar('cur_submitter')));
+        $form->addElement(new \XoopsFormSelectUser(\_MD_WGSIMPLEACC_SUBMITTER, 'cur_submitter', false, $this->getVar('cur_submitter')));
         // To Save
         $form->addElement(new \XoopsFormHidden('op', 'save'));
         $form->addElement(new \XoopsFormButtonTray('', \_SUBMIT, 'submit', '', false));

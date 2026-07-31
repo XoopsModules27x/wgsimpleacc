@@ -1,7 +1,7 @@
 <{if $showList|default:''}>
     <{if $transactionsCount|default:0 > 0}>
         <{if $showItem|default:false}>
-            <h3><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_DETAILS}></h3>
+            <h3><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_DETAILS}></h3>
             <{foreach item=transaction from=$transactions}>
                 <{include file='db:wgsimpleacc_transactions_item.tpl' }>
             <{/foreach}>
@@ -22,31 +22,31 @@
                     <thead>
                         <tr>
                             <th scope="col">
-                                <{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_YEARNB}>
+                                <{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_YEARNB}>
                                 <a class='btn btn-warning btn-xs wgsa-btn-sort' href='transactions.php?op=list&amp;sortby=tra_id&amp;order=asc<{$traOpSorter|default:''}>' title='<{$smarty.const._ASCENDING}>' <{if $sort_order|default:'' == 'tra_id_asc'}>disabled<{/if}>><i class="fa fa-arrow-up fa-fw"></i></a>
                                 <a class='btn btn-warning btn-xs wgsa-btn-sort' href='transactions.php?op=list&amp;sortby=tra_id&amp;order=desc<{$traOpSorter|default:''}>' title='<{$smarty.const._DESCENDING}>' <{if $sort_order|default:'' == 'tra_id_desc'}>disabled<{/if}>><i class="fa fa-arrow-down fa-fw"></i></a>
                             </th>
                             <{if $useClients|default:''}>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_CLIID}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_CLIID}></th>
                             <{/if}>
-                            <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_DESC}></th>
-                            <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_REFERENCE}></th>
-                            <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ALLID}></th>
-                            <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ACCID}></th>
+                            <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_DESC}></th>
+                            <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_REFERENCE}></th>
+                            <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ALLID}></th>
+                            <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ACCID}></th>
                             <th scope="col">
-                                <{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_DATE}>
+                                <{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_DATE}>
                                 <a class='btn btn-warning btn-xs wgsa-btn-sort' href='transactions.php?op=list&amp;sortby=tra_date&amp;order=asc<{$traOpSorter|default:''}>' title='<{$smarty.const._ASCENDING}>' <{if $sort_order|default:'' == 'tra_date_asc'}>disabled<{/if}>><i class="fa fa-arrow-up fa-fw"></i></a>
                                 <a class='btn btn-warning btn-xs wgsa-btn-sort' href='transactions.php?op=list&amp;sortby=tra_date&amp;order=desc<{$traOpSorter|default:''}>' title='<{$smarty.const._DESCENDING}>' <{if $sort_order|default:'' == 'tra_date_desc'}>disabled<{/if}>><i class="fa fa-arrow-down fa-fw"></i></a>
                             </th>
-                            <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNT}></th>
+                            <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNT}></th>
                             <{if $showAssets|default:''}>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ASID}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ASID}></th>
                             <{/if}>
                             <{if $useTaxes|default:''}>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_TAXID}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_TAXID}></th>
                             <{/if}>
                             <{if $useFiles|default:''}>
-                                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_FILES}></th>
+                                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_FILES}></th>
                             <{/if}>
                             <th scope="col" style="min-width:210px"></th>
                         </tr>
@@ -75,25 +75,25 @@
         <div class="alert alert-danger"><{$noData|default:''}></div>
     <{/if}>
     <{if $sumAmountIn|default:''}>
-        <h3><{$smarty.const._MA_WGSIMPLEACC_SUMS}></h3>
+        <h3><{$smarty.const._MD_WGSIMPLEACC_SUMS}></h3>
         <table class="wgsa-transaction-sum">
             <thead>
                 <tr>
                     <th>&nbsp;</th>
-                    <th><{$smarty.const._MA_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
-                    <th><{$smarty.const._MA_WGSIMPLEACC_TRASTATUS_SUBMITTED}></th>
-                    <th><{$smarty.const._MA_WGSIMPLEACC_TRASTATUS_APPROVED}></th>
+                    <th><{$smarty.const._MD_WGSIMPLEACC_BALANCES_OUT_TOTAL}></th>
+                    <th><{$smarty.const._MD_WGSIMPLEACC_TRASTATUS_SUBMITTED}></th>
+                    <th><{$smarty.const._MD_WGSIMPLEACC_TRASTATUS_APPROVED}></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="row-class-3">
-                    <td class="left"><{$smarty.const._MA_WGSIMPLEACC_CLASS_INCOME}></td>
+                    <td class="left"><{$smarty.const._MD_WGSIMPLEACC_CLASS_INCOME}></td>
                     <td class="right"><{$sumAmountIn.total|default:0}></td>
                     <td class="right"><{$sumAmountIn.submitted|default:0}></td>
                     <td class="right"><{$sumAmountIn.approved|default:0}></td>
                 </tr>
                 <tr class="row-class-2">
-                    <td class="left"><{$smarty.const._MA_WGSIMPLEACC_CLASS_EXPENSES}></td>
+                    <td class="left"><{$smarty.const._MD_WGSIMPLEACC_CLASS_EXPENSES}></td>
                     <td class="right"><{$sumAmountOut.total|default:0}></td>
                     <td class="right"><{$sumAmountOut.submitted|default:0}></td>
                     <td class="right"><{$sumAmountOut.approved|default:0}></td>
@@ -104,35 +104,35 @@
 <{/if}>
 
 <{if $showHist|default:''}>
-    <h3><{$smarty.const._MA_WGSIMPLEACC_TRAHISTORY_LIST}></h3>
+    <h3><{$smarty.const._MD_WGSIMPLEACC_TRAHISTORY_LIST}></h3>
     <div class='table-responsive'>
         <table class='table table-striped'>
             <thead>
             <tr>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_HIST}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_YEARNB}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_HIST}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_YEARNB}></th>
                 <{if $useClients|default:''}>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_CLIID}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_CLIID}></th>
                 <{/if}>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_DESC}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_REMARKS}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_REFERENCE}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ACCID}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ALLID}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_DATE}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_AMOUNT}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_DESC}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_REMARKS}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_REFERENCE}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ACCID}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ALLID}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_DATE}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_AMOUNT}></th>
                 <{if $showAssets|default:''}>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_ASID}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_ASID}></th>
                 <{/if}>
                 <{if $useTaxes|default:''}>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_TAXID}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_TAXID}></th>
                 <{/if}>
                 <{if $useFiles|default:''}>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_FILES}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_FILES}></th>
                 <{/if}>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_TRANSACTION_STATUS}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th scope="col"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_TRANSACTION_STATUS}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th scope="col"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
             </tr>
             </thead>
             <tbody>
@@ -156,13 +156,13 @@
     $(document).ready(function(){
         $("#toggleFormFilter").click(function(){
             $("#formFilter").toggle(1000);
-            if (document.getElementById("toggleFormFilter").innerText == "<{$smarty.const._MA_WGSIMPLEACC_FILTER_HIDE}>")
+            if (document.getElementById("toggleFormFilter").innerText == "<{$smarty.const._MD_WGSIMPLEACC_FILTER_HIDE}>")
             {
-                document.getElementById("toggleFormFilter").innerText = "<{$smarty.const._MA_WGSIMPLEACC_FILTER_SHOW}>";
+                document.getElementById("toggleFormFilter").innerText = "<{$smarty.const._MD_WGSIMPLEACC_FILTER_SHOW}>";
             }
             else
             {
-                document.getElementById("toggleFormFilter").innerText = "<{$smarty.const._MA_WGSIMPLEACC_FILTER_HIDE}>";
+                document.getElementById("toggleFormFilter").innerText = "<{$smarty.const._MD_WGSIMPLEACC_FILTER_HIDE}>";
             }
         });
     });
@@ -323,7 +323,7 @@
                         wasOpen = false;
                     $( "<a>" )
                         .attr( "tabIndex", -1 )
-                        .attr( "title", "<{$smarty.const._MA_WGSIMPLEACC_CLIENTS_SHOWALL}>" )
+                        .attr( "title", "<{$smarty.const._MD_WGSIMPLEACC_CLIENTS_SHOWALL}>" )
                         .tooltip()
                         .appendTo( this.wrapper )
                         .button({
@@ -381,7 +381,7 @@
                     // Remove invalid value
                     this.input
                         .val( "" )
-                        .attr( "title", "'" + value + "'<{$smarty.const._MA_WGSIMPLEACC_CLIENTS_NOTFOUND}>" )
+                        .attr( "title", "'" + value + "'<{$smarty.const._MD_WGSIMPLEACC_CLIENTS_NOTFOUND}>" )
                         .tooltip( "open" );
                     this.element.val( "" );
                     this._delay(function() {

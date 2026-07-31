@@ -10,9 +10,9 @@
                 <th class="center"><{$smarty.const._AM_WGSIMPLEACC_TAX_RATE}></th>
                 <th class="center"><{$smarty.const._AM_WGSIMPLEACC_TAX_ONLINE}></th>
                 <th class="center"><{$smarty.const._AM_WGSIMPLEACC_TAX_PRIMARY}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $taxes_count|default:0}>

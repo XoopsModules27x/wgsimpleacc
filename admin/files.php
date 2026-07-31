@@ -61,7 +61,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_FILES);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_FILES);
         }
         break;
     case 'new':
@@ -122,7 +122,7 @@ switch ($op) {
             if ('' !== $uploaderErrors) {
                 \redirect_header('files.php?op=edit&fil_id=' . $filId, 5, $uploaderErrors);
             } else {
-                \redirect_header('files.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+                \redirect_header('files.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
             }
         }
         // Get Form
@@ -151,7 +151,7 @@ switch ($op) {
                 \redirect_header('files.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($filesHandler->delete($filesObj)) {
-                \redirect_header('files.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('files.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $filesObj->getHtmlErrors());
             }
@@ -159,7 +159,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'fil_id' => $filId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $filesObj->getVar('fil_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $filesObj->getVar('fil_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }

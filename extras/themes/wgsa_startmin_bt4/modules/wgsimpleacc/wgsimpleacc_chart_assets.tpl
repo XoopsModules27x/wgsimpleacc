@@ -7,7 +7,7 @@
 	}
 </style>
 
-<h3><{$smarty.const._MA_WGSIMPLEACC_ASSETS_OVERVIEW}></h3>
+<h3><{$smarty.const._MD_WGSIMPLEACC_ASSETS_OVERVIEW}></h3>
 <div id="canvas-holder" class="canvas-assets" style="width:100%">
 	<canvas id="chart-assets"></canvas>
 </div>
@@ -132,7 +132,7 @@
 			},
 			title: {
 				display: true,
-				text: '<{$smarty.const._MA_WGSIMPLEACC_ASSETS}>'
+				text: '<{$smarty.const._MD_WGSIMPLEACC_ASSETS}>'
 			},
 			animation: {
 				animateScale: true,

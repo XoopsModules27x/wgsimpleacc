@@ -59,7 +59,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
             }
         } else {
-            $GLOBALS['xoopsTpl']->assign('error', \_MA_WGSIMPLEACC_THEREARENT_BALANCES);
+            $GLOBALS['xoopsTpl']->assign('error', \_MD_WGSIMPLEACC_THEREARENT_BALANCES);
         }
         break;
     case 'save':
@@ -94,7 +94,7 @@ switch ($op) {
         $balancesObj->setVar('bal_submitter', Request::getInt('bal_submitter'));
         // Insert Data
         if ($balancesHandler->insert($balancesObj)) {
-            \redirect_header('balances.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('balances.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form
         $GLOBALS['xoopsTpl']->assign('error', $balancesObj->getHtmlErrors());
@@ -130,7 +130,7 @@ switch ($op) {
                 $crTransactions = new \CriteriaCompo();
                 $crTransactions->add(new \Criteria('tra_balidt', $balId));
                 $transactionsHandler->updateAll('tra_balidt', '0', $crTransactions, true);
-                \redirect_header('balances.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                \redirect_header('balances.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $balancesObj->getHtmlErrors());
             }
@@ -138,7 +138,7 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'bal_id' => $balId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $balancesObj->getVar('bal_id')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $balancesObj->getVar('bal_id')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
         }

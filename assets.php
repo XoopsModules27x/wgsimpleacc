@@ -101,7 +101,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('dateFrom', $minTra);
         $GLOBALS['xoopsTpl']->assign('dateTo', \time());
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ASSETS];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ASSETS];
         break;
     case 'save':
         // Security Check
@@ -115,7 +115,7 @@ switch ($op) {
         if ($asId > 0) {
             $assetsObj = $assetsHandler->get($asId);
             if (!\is_object($assetsObj)) {
-                \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+                \redirect_header('assets.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
             }
         } else {
             $assetsObj = $assetsHandler->create();
@@ -137,7 +137,7 @@ switch ($op) {
                 $assetsHandler->setPrimaryAssets($asId);
             }
             // redirect after insert
-            \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_FORM_OK);
+            \redirect_header('assets.php?op=list', 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form Error
         $GLOBALS['xoopsTpl']->assign('error', $assetsObj->getHtmlErrors());
@@ -155,17 +155,17 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ASSETS, 'link' => 'assets.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ASSET_ADD];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ASSETS, 'link' => 'assets.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ASSET_ADD];
         break;
     case 'edit':
         // Check params
         if (0 == $asId) {
-            \redirect_header('assets.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('assets.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $assetsObj = $assetsHandler->get($asId);
         if (!\is_object($assetsObj)) {
-            \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('assets.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permissionsHandler->getPermAssetsEdit($assetsObj->getVar('as_submitter'))) {
@@ -175,17 +175,17 @@ switch ($op) {
         $form = $assetsObj->getFormAssets();
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
         // Breadcrumbs
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ASSETS, 'link' => 'assets.php?op=list'];
-        $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ASSET_EDIT];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ASSETS, 'link' => 'assets.php?op=list'];
+        $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ASSET_EDIT];
         break;
     case 'delete':
         // Check params
         if (0 == $asId) {
-            \redirect_header('assets.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('assets.php?op=list', 3, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $assetsObj = $assetsHandler->get($asId);
         if (!\is_object($assetsObj)) {
-            \redirect_header('assets.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            \redirect_header('assets.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         // Check permissions
         if (!$permissionsHandler->getPermAssetsEdit($assetsObj->getVar('as_submitter'))) {
@@ -193,7 +193,7 @@ switch ($op) {
         }
         // Check whether asset is primary asset
         if ($assetsObj->getVar('as_primary') > 0) {
-            \redirect_header('assets.php?op=list', 3, \_MA_WGSIMPLEACC_ASSET_ERR_DELETE);
+            \redirect_header('assets.php?op=list', 3, \_MD_WGSIMPLEACC_ASSET_ERR_DELETE);
         }
         $asName = $assetsObj->getVar('as_name');
         if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
@@ -208,14 +208,14 @@ switch ($op) {
                 // set asset offline
                 $assetsObj->setVar('as_online', 0);
                 if ($assetsHandler->insert($assetsObj)) {
-                    \redirect_header('assets.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                    \redirect_header('assets.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 } else {
                     $GLOBALS['xoopsTpl']->assign('error', $assetsObj->getHtmlErrors());
                 }
             } else {
                 // asset not used, delete it
                 if ($assetsHandler->delete($assetsObj)) {
-                    \redirect_header('assets.php', 3, \_MA_WGSIMPLEACC_FORM_DELETE_OK);
+                    \redirect_header('assets.php', 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 } else {
                     $GLOBALS['xoopsTpl']->assign('error', $assetsObj->getHtmlErrors());
                 }
@@ -225,13 +225,13 @@ switch ($op) {
             $customConfirm = new Common\Confirm(
                 ['ok' => 1, 'as_id' => $asId, 'op' => 'delete'],
                 $_SERVER['REQUEST_URI'],
-                \sprintf(\_MA_WGSIMPLEACC_FORM_SURE_DELETE, $assetsObj->getVar('as_name')), _MA_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MA_WGSIMPLEACC_FORM_DELETE_LABEL);
+                \sprintf(\_MD_WGSIMPLEACC_FORM_SURE_DELETE, $assetsObj->getVar('as_name')), _MD_WGSIMPLEACC_FORM_DELETE_CONFIRM, _MD_WGSIMPLEACC_FORM_DELETE_LABEL);
             $form = $customConfirm->getFormConfirm();
             $GLOBALS['xoopsTpl']->assign('form', $form->render());
 
             // Breadcrumbs
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ASSETS, 'link' => 'assets.php?op=list'];
-            $xoBreadcrumbs[] = ['title' => \_MA_WGSIMPLEACC_ASSET_EDIT];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ASSETS, 'link' => 'assets.php?op=list'];
+            $xoBreadcrumbs[] = ['title' => \_MD_WGSIMPLEACC_ASSET_EDIT];
         }
         break;
 }
@@ -241,7 +241,7 @@ wgsimpleaccMetaKeywords($helper->getConfig('keywords') . ', ' . \implode(',', $k
 unset($keywords);
 
 // Description
-wgsimpleaccMetaDescription(\_MA_WGSIMPLEACC_ASSETS_DESC);
+wgsimpleaccMetaDescription(\_MD_WGSIMPLEACC_ASSETS_DESC);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL . '/assets.php');
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 

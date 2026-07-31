@@ -5,17 +5,17 @@
     <table class='outer'>
         <thead>
             <tr class='head'>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_ID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_FROM}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_TO}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_ASID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_CURID}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_AMOUNTSTART}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_AMOUNTEND}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_BALANCE_STATUS}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_DATECREATED}></th>
-                <th class="center"><{$smarty.const._MA_WGSIMPLEACC_SUBMITTER}></th>
-                <th class="center width5"><{$smarty.const._MA_WGSIMPLEACC_FORM_ACTION}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_ID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_FROM}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_TO}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_ASID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_CURID}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_AMOUNTSTART}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_AMOUNTEND}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_BALANCE_STATUS}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_DATECREATED}></th>
+                <th class="center"><{$smarty.const._MD_WGSIMPLEACC_SUBMITTER}></th>
+                <th class="center width5"><{$smarty.const._MD_WGSIMPLEACC_FORM_ACTION}></th>
             </tr>
         </thead>
         <{if $balances_count|default:0}>
