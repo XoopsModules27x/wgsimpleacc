@@ -296,7 +296,7 @@ switch ($op) {
         }
         break;
     case 'order':
-        $aorder = Request::getArray('menuItem');
+        $aorder = Request::getArray('menuItem', [], 'POST');
         $i      = 0;
         foreach (\array_keys($aorder) as $key) {
             $allPid = (int)$aorder[$key];
