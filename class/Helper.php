@@ -19,7 +19,7 @@ namespace XoopsModules\Wgsimpleacc;
  * @since
  * @author       Goffy - XOOPS Development Team
  */
-//\defined('\XOOPS_ROOT_PATH') || die('Restricted access');
+//\defined('XOOPS_ROOT_PATH') || die('Restricted access');
 
 /**
  * Class Helper

@@ -121,7 +121,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('currencies.php'));
         $currenciesObj = $currenciesHandler->get($curId);
         $curCode = $currenciesObj->getVar('cur_code');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('currencies.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

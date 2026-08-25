@@ -151,7 +151,7 @@ switch ($op) {
         $transactionsObj = $transactionsHandler->get($traId);
         $transactionsHandler->saveHistoryTransactions($traId, 'delete Admin');
         $traDesc = $transactionsObj->getVar('tra_desc');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('transactions.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

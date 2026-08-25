@@ -17,7 +17,7 @@ namespace XoopsModules\Wgsimpleacc;
  * @license      GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @author       Goffy - XOOPS Development Team
  */
-//\defined('\XOOPS_ROOT_PATH') || die('Restricted access');
+//\defined('XOOPS_ROOT_PATH') || die('Restricted access');
 
 /**
  * Class Wgmenu

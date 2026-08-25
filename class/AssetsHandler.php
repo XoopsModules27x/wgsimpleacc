@@ -136,6 +136,9 @@ class AssetsHandler extends \XoopsPersistableObjectHandler
         $sql .= 'GROUP BY ' . $xoopsDB->prefix('wgsimpleacc_transactions') . '.tra_asid ';
         $sql .= 'ORDER BY ' . $xoopsDB->prefix('wgsimpleacc_transactions') . '.tra_asid;';
         $result = $xoopsDB->query($sql);
+        if (!$xoopsDB->isResultSet($result) || !$result instanceof \mysqli_result) {
+            throw new \RuntimeException('Database query in getCurrentAssetsValues failed');
+        }
         while (list($balAsid, $sumIn, $sumOut) = $xoopsDB->fetchRow($result)) {
             $assetsObj = $assetsHandler->get($balAsid);
             $asName = $assetsObj->getVar('as_name');
@@ -356,7 +359,7 @@ class AssetsHandler extends \XoopsPersistableObjectHandler
 
         // reset all
         $strSQL = 'UPDATE ' . $GLOBALS['xoopsDB']->prefix('wgsimpleacc_assets') . ' SET ' . $GLOBALS['xoopsDB']->prefix('wgsimpleacc_assets') . '.as_primary = 0';
-        $GLOBALS['xoopsDB']->queryF($strSQL);
+        $GLOBALS['xoopsDB']->exec($strSQL);
         // Set Vars
         $assetsObj->setVar('as_primary', 1);
         // Insert Data

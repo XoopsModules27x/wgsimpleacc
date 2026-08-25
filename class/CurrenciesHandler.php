@@ -137,7 +137,7 @@ class CurrenciesHandler extends \XoopsPersistableObjectHandler
 
         // reset all
         $strSQL = 'UPDATE ' . $GLOBALS['xoopsDB']->prefix('wgsimpleacc_currencies') . ' SET ' . $GLOBALS['xoopsDB']->prefix('wgsimpleacc_currencies') . '.cur_primary = 0';
-        $GLOBALS['xoopsDB']->queryF($strSQL);
+        $GLOBALS['xoopsDB']->exec($strSQL);
         // Set Vars
         $currenciesObj->setVar('cue_primary', 1);
         // Insert Data

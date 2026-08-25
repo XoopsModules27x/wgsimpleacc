@@ -320,11 +320,11 @@ switch ($op) {
             $uploader = new \XoopsMediaUploader(\WGSIMPLEACC_UPLOAD_FILES_PATH . '/',
                 $helper->getConfig('mimetypes_file'),
                 $helper->getConfig('maxsize_file'), null, null);
-            if ($uploader->fetchMedia($_POST['xoops_upload_file'][0])) {
+            $uploadFile = Request::getArray('xoops_upload_file', []);
+            if ($uploader->fetchMedia($uploadFile[0] ?? '')) {
                 $imgName = \substr($filename, 0, strrpos($filename, '.'));
                 $imgName = \preg_replace('/[^A-Za-z0-9\-]/', '_', $imgName);
                 $uploader->setPrefix($imgName . '_');
-                $uploader->fetchMedia($_POST['xoops_upload_file'][0]);
                 if (!$uploader->upload()) {
                     $uploaderErrors = $uploader->getErrors();
                 } else {
@@ -429,7 +429,7 @@ switch ($op) {
         }
         $filName = $filesObj->getVar('fil_name');
         $filTraid = $filesObj->getVar('fil_traid');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('files.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

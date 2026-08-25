@@ -41,6 +41,9 @@ function wgsimpleacc_notify_iteminfo($category, $item_id)
         case 'transactions':
             $sql          = 'SELECT tra_desc FROM ' . $xoopsDB->prefix('wgsimpleacc_transactions') . ' WHERE tra_id = '. $item_id;
             $result       = $xoopsDB->query($sql);
+            if (!$xoopsDB->isResultSet($result) || !$result instanceof \mysqli_result) {
+                throw new \RuntimeException('Database query in wgsimpleacc_notify_iteminfo failed');
+            }
             $result_array = $xoopsDB->fetchArray($result);
             $item['name'] = \strip_tags($result_array['tra_desc']);
             $item['url']  = WGSIMPLEACC_URL . '/transactions.php?tra_id=' . $item_id;

@@ -120,7 +120,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('processing.php'));
         $processingObj = $processingHandler->get($proId);
         $cliName = $processingObj->getVar('cli_name');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('processing.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

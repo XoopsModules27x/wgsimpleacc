@@ -67,7 +67,7 @@ switch ($op) {
         $templateMain = 'wgsimpleacc_admin_trahistories.tpl';
         $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('trahistories.php'));
         $trahistoriesObj = $trahistoriesHandler->get($histId);
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('trahistories.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
