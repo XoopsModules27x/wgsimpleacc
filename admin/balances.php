@@ -117,7 +117,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('balances.php'));
         $balancesObj = $balancesHandler->get($balId);
         $balFrom = $balancesObj->getVar('bal_from');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('balances.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

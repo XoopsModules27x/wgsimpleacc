@@ -64,6 +64,9 @@ class OutputsHandler extends \XoopsPersistableObjectHandler
         $sql .= $GLOBALS['xoopsDB']->prefix('wgsimpleacc_balances') . '.bal_submitter ';
         $sql .= 'ORDER BY ' . $GLOBALS['xoopsDB']->prefix('wgsimpleacc_balances') . '.bal_datecreated DESC;';
         $result = $GLOBALS['xoopsDB']->query($sql);
+        if (!$GLOBALS['xoopsDB']->isResultSet($result) || !$result instanceof \mysqli_result) {
+            throw new \RuntimeException('Database query in getFormBalancesSelect failed');
+        }
         while (list($balFrom, $balTo, $balAmountStart, $balAmountEnd, $balStatus, $balDatecreated, $balSubmitter) = $GLOBALS['xoopsDB']->fetchRow($result)) {
             $checkboxList .= '<li><input type="checkbox" />';
             $checkboxList .= '<span class="wgsa-input-label">' . date(\_SHORTDATESTRING, $balFrom) . ' - ' . date(\_SHORTDATESTRING, $balTo) .'</span>';
@@ -165,6 +168,9 @@ class OutputsHandler extends \XoopsPersistableObjectHandler
         $sql .= 'GROUP BY ' . $xoopsDB->prefix('wgsimpleacc_transactions') . '.tra_accid ';
         $sql .= 'ORDER BY ' . $xoopsDB->prefix('wgsimpleacc_transactions') . '.tra_accid;';
         $result = $xoopsDB->query($sql);
+        if (!$xoopsDB->isResultSet($result) || !$result instanceof \mysqli_result) {
+            throw new \RuntimeException('Database query in getListAccountsValues failed');
+        }
         while (list($balAccid, $sumIn, $sumOut) = $xoopsDB->fetchRow($result)) {
             $accountsObj = $accountsHandler->get($balAccid);
             $accName = $accountsObj->getVar('acc_key') . ' - ' . $accountsObj->getVar('acc_name');
@@ -219,6 +225,9 @@ class OutputsHandler extends \XoopsPersistableObjectHandler
         $sql .= 'GROUP BY ' . $xoopsDB->prefix('wgsimpleacc_transactions') . '.tra_allid ';
         $sql .= 'ORDER BY ' . $xoopsDB->prefix('wgsimpleacc_transactions') . '.tra_allid;';
         $result = $xoopsDB->query($sql);
+        if (!$xoopsDB->isResultSet($result) || !$result instanceof \mysqli_result) {
+            throw new \RuntimeException('Database query in getListAllocationsValues failed');
+        }
         while (list($balAllid, $sumIn, $sumOut) = $xoopsDB->fetchRow($result)) {
             $allocationsObj = $allocationsHandler->get($balAllid);
             $amountTotal = ($sumIn - $sumOut);

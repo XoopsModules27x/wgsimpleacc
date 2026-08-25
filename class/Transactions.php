@@ -29,7 +29,7 @@ use XoopsModules\Wgsimpleacc\{
 };
 use XoopsModules\Wgsimpleacc\Form\FormSelectCascading;
 
-\defined('\XOOPS_ROOT_PATH') || die('Restricted access');
+\defined('XOOPS_ROOT_PATH') || die('Restricted access');
 
 /**
  * Class Object Transactions

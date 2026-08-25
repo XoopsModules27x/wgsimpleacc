@@ -137,7 +137,7 @@ class TaxesHandler extends \XoopsPersistableObjectHandler
 
         // reset all
         $strSQL = 'UPDATE ' . $GLOBALS['xoopsDB']->prefix('wgsimpleacc_taxes') . ' SET ' . $GLOBALS['xoopsDB']->prefix('wgsimpleacc_taxes') . '.tax_primary = 0';
-        $GLOBALS['xoopsDB']->queryF($strSQL);
+        $GLOBALS['xoopsDB']->exec($strSQL);
         // Set Vars
         $taxesObj->setVar('tax_primary', 1);
         // Insert Data

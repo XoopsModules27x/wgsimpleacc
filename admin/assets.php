@@ -140,7 +140,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('assets.php'));
         $assetsObj = $assetsHandler->get($asId);
         $asName = $assetsObj->getVar('as_name');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('assets.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

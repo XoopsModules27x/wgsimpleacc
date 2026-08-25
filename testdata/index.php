@@ -38,7 +38,7 @@ $helper->loadLanguage('common');
 
 switch ($op) {
     case 'load':
-        if (Request::hasVar('ok', 'REQUEST') && 1 == $_REQUEST['ok']) {
+        if (Request::hasVar('ok', 'REQUEST') && 1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('../admin/index.php', 3, \implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
@@ -177,7 +177,7 @@ function loadTableFromArrayWithReplace($table, $data, $search, $replace)
 
     $sql = 'DELETE FROM ' . $prefixedTable . ' WHERE `' . $search . '`=' . $db->quote($replace);
 
-    $result = $db->queryF($sql);
+    $result = $db->exec($sql);
 
     foreach ($data as $row) {
         $insertInto  = 'INSERT INTO ' . $prefixedTable . ' (';
@@ -201,7 +201,7 @@ function loadTableFromArrayWithReplace($table, $data, $search, $replace)
 
         $sql = $insertInto . ') ' . $valueClause . ')';
 
-        $result = $db->queryF($sql);
+        $result = $db->exec($sql);
         if (false !== $result) {
             ++$count;
         }

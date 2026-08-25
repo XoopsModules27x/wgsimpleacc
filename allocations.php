@@ -258,7 +258,7 @@ switch ($op) {
         }
         unset($crAllocations);
         $allName = $allocationsObj->getVar('all_name');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('allocations.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
@@ -296,7 +296,7 @@ switch ($op) {
         }
         break;
     case 'order':
-        $aorder = $_POST['menuItem'];
+        $aorder = Request::getArray('menuItem', [], 'POST');
         $i      = 0;
         foreach (\array_keys($aorder) as $key) {
             $allPid = (int)$aorder[$key];

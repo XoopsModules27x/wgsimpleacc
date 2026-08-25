@@ -196,7 +196,7 @@ switch ($op) {
             \redirect_header('assets.php?op=list', 3, \_MD_WGSIMPLEACC_ASSET_ERR_DELETE);
         }
         $asName = $assetsObj->getVar('as_name');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('assets.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

@@ -381,7 +381,7 @@ switch ($op) {
         $balanceFrom = Request::getInt('balanceFrom');
         $balanceTo   = Request::getInt('balanceTo');
 
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             $crBalances = new \CriteriaCompo();
             $crBalances->add(new \Criteria('bal_from', $balanceFrom));
             $crBalances->add(new \Criteria('bal_to', $balanceTo));

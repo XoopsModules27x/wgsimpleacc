@@ -276,6 +276,9 @@ switch ($op) {
                     $sql .= ') AND ((' . $xoopsDB->prefix('wgsimpleacc_transactions') . '.tra_asid)=' . $asId;
                     $sql .= ') AND ((' . $xoopsDB->prefix('wgsimpleacc_transactions') . '.tra_status) > ' . Constants::TRASTATUS_SUBMITTED . '));';
                     $result = $xoopsDB->query($sql);
+                    if (!$xoopsDB->isResultSet($result) || !$result instanceof \mysqli_result) {
+                        throw new \RuntimeException('Database query failed');
+                    }
                     while (list($sumIn, $sumOut) = $xoopsDB->fetchRow($result)) {
                         $amount += (float)($sumIn - $sumOut);
                         $dataAmounts .= round($amount, 2) . ',';
@@ -307,6 +310,9 @@ switch ($op) {
         $data=[];
         // get all balances in balances
         $result = $xoopsDB->query('SELECT `bal_asid` FROM ' . $xoopsDB->prefix('wgsimpleacc_balances') . ' GROUP BY `bal_asid`');
+        if (!$xoopsDB->isResultSet($result) || !$result instanceof \mysqli_result) {
+            throw new \RuntimeException('Database query failed');
+        }
         while (list($balAsid) = $xoopsDB->fetchRow($result)) {
             $balAmounts = '';
             $assetsObj = $assetsHandler->get($balAsid);

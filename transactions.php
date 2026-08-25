@@ -550,7 +550,7 @@ switch ($op) {
             $transactionsHandler->saveHistoryTransactions($traId, 'delete');
         }
         $traDesc = $transactionsObj->getVar('tra_desc');
-        if (isset($_REQUEST['ok']) && 1 === (int)$_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('transactions.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

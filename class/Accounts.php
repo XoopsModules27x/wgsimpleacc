@@ -24,7 +24,7 @@ namespace XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\Constants;
 
-\defined('\XOOPS_ROOT_PATH') || die('Restricted access');
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 /**
  * Class Object Accounts

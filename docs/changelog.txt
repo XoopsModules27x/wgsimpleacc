@@ -4,6 +4,8 @@
  - added perms for admin allocation/accounts/assets/balances (goffy)
  - added possibility to change balance type on admin side (goffy)
  - updated lang files for usage as array (goffy)
+ - added isResultSet guard (goffy)
+ - replaced super global access by XMF\Request (goffy)
 
 ==============================================================
 1.3.3 Stable [2025/06/07]

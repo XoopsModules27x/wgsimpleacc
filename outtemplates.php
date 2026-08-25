@@ -206,7 +206,7 @@ switch ($op) {
             \redirect_header('outtemplates.php?op=list', 2, \_MD_WGSIMPLEACC_INVALID_PARAM);
         }
         $otplName = $outtemplatesObj->getVar('otpl_name');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('outtemplates.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

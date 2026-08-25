@@ -212,7 +212,7 @@ switch ($op) {
             \redirect_header('clients.php?op=list', 3, \_NOPERM);
         }
         $cliName = $clientsObj->getVar('cli_name');
-        if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
+        if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 \redirect_header('clients.php', 3, \implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }

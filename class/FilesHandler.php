@@ -145,7 +145,7 @@ class FilesHandler extends \XoopsPersistableObjectHandler
             $select .= ', ' . $var;
         }
         $insert .= ') ';
-        $GLOBALS['xoopsDB']->queryF($insert . $select . $from . $where) or die ('MySQL-Error: ' . $GLOBALS['xoopsDB']->error());
+        $GLOBALS['xoopsDB']->exec($insert . $select . $from . $where) or die ('MySQL-Error: ' . $GLOBALS['xoopsDB']->error());
 
         return true;
     }
