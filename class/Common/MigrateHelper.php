@@ -200,7 +200,7 @@ class MigrateHelper
      * @param string $line
      * @return array|bool
      */
-    private function getColumns (string $line)
+    private function getColumns (string $line): bool|array
     {
 
         $columns = [];
@@ -218,16 +218,17 @@ class MigrateHelper
         }
         $columns['name'] = $name;
         // update quotes
-        if (\strpos($attributes, "''") > 0) {
-            $attributes = \trim(\str_replace("''", "''''''''" , $attributes));
-        } elseif (\strpos($attributes, "'") > 0) {
-            $attributes = \trim(\str_replace("'", "''" , $attributes));
+        $attributes = \trim($attributes);
+        if (\strpos($attributes, "'") > 0) {
+            $columns['attributes'] = '" ' . $attributes . ' "';
+        } else {
+            $columns['attributes'] = "' " . $attributes . " '";
         }
-        $columns['attributes'] = "' " . $attributes . " '";
 
         return $columns;
 
     }
+
 
     /**
      * Extract options of table from given line

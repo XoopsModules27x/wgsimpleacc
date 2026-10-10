@@ -358,7 +358,7 @@ require_once __DIR__ . '/admin.php';
 \define('_MD_WGSIMPLEACC_OUTTEMPLATE_FOOTER', 'Page footer');
 \define('_MD_WGSIMPLEACC_OUTTEMPLATE_SMARTY', 'Smarty variables');
 \define('_MD_WGSIMPLEACC_OUTTEMPLATE_SMARTY_DESC', '
-    This module uses the Xoops <a href="http://www.smarty.net/">Smarty template engine</a> to render the output.
+    This module uses the Xoops <a href="https://www.smarty.net/">Smarty template engine</a> to render the output.
     <br><br>
     Available smarty-vars for transactions are:
     <ul>

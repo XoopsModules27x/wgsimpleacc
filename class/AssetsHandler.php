@@ -207,8 +207,8 @@ class AssetsHandler extends \XoopsPersistableObjectHandler
         $currenciesHandler = $helper->getHandler('Currencies');
 
         $ret = [];
-        $sumAmountStartTotal = (float)0;
-        $sumAmountEndTotal   = (float)0;
+        $sumAmountStartTotal = 0.0;
+        $sumAmountEndTotal   = 0.0;
         $balCurid = $currenciesHandler->getPrimaryCurrency() > 0 ? $currenciesHandler->getPrimaryCurrency() : 0;
 
         $assetsAll = $assetsHandler->getAll();
@@ -226,10 +226,10 @@ class AssetsHandler extends \XoopsPersistableObjectHandler
             $crBalances->setOrder('DESC');
             $crBalances->setStart();
             $crBalances->setLimit(1);
-            $balAmountStart = (float)0;
-            $sumAmountin    = (float)0;
-            $sumAmountout   = (float)0;
-            $balDate        = (float)0;
+            $balAmountStart = 0.0;
+            $sumAmountin    = 0.0;
+            $sumAmountout   = 0.0;
+            $balDate        = 0.0;
             $balancesAll = $balancesHandler->getAll($crBalances);
             foreach (\array_keys($balancesAll) as $b) {
                 $balAmountStart = $balancesAll[$b]->getVar('bal_amountend');
