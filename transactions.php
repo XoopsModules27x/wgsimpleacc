@@ -212,7 +212,7 @@ switch ($op) {
                         }
                     }
                     if ($showOtpl) {
-                        $outputOp = match ($otplType) {
+                        $outputOp = match ((int)$otplType) {
                             Constants::OUTTEMPLATE_TYPE_READY => 'exec_output&amp;target=pdf',
                             Constants::OUTTEMPLATE_TYPE_FORM => 'exec_output&amp;target=editoutput',
                             default => 'exec_output&amp;target=browser',

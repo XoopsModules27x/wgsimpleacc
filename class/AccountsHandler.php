@@ -144,7 +144,7 @@ class AccountsHandler extends \XoopsPersistableObjectHandler
         if ($accountsCount > 0) {
             foreach (\array_keys($accountsAll) as $i) {
                 $level = $accountsAll[$i]->getVar('acc_level');
-                $dots = match ($level) {
+                $dots = match ((int)$level) {
                     1 => \str_repeat('- ', $level),
                     default => \str_repeat('&nbsp; ', $level) . \str_repeat('- ', $level),
                 };
