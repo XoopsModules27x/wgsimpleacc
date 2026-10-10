@@ -36,7 +36,7 @@ $modversion = [
     'author_website_name' => 'XOOPS on Wedega',
     'credits'             => 'Goffy - XOOPS Development Team',
     'license'             => 'GPL 2.0 or later',
-    'license_url'         => 'http://www.gnu.org/licenses/gpl-3.0.en.html',
+    'license_url'         => 'https://www.gnu.org/licenses/gpl-3.0.en.html',
     'help'                => 'page=help',
     'release_info'        => 'release_info',
     'release_file'        => \XOOPS_URL . '/modules/wgsimpleacc/docs/release_info file',

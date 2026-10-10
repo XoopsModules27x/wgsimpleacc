@@ -90,7 +90,7 @@ switch ($op) {
         $uploader = new \XoopsMediaUploader(\WGSIMPLEACC_UPLOAD_FILES_PATH . '/',
                                                     $helper->getConfig('mimetypes_file'), 
                                                     $helper->getConfig('maxsize_file'), null, null);
-        $uploadFile = Request::getArray('xoops_upload_file', []);
+        $uploadFile = Request::getArray('xoops_upload_file');
         if ($uploader->fetchMedia($uploadFile[0] ?? '')) {
             $extension = \preg_replace('/^.+\.([^.]+)$/sU', '', $fileName);
             $imgName = \str_replace(' ', '', $imgNameDef) . '.' . $extension;

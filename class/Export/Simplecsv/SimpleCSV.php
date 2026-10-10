@@ -28,18 +28,18 @@ class SimpleCSV {
         }
         if ($this->_delimiter === 'auto') {
             // detect delimiter
-            if ( \strpos($this->_csv, $this->_enclosure . ',' ) !== false ) {
+            if (str_contains($this->_csv, $this->_enclosure . ',')) {
                 $this->_delimiter = ',';
-            } else if (\strpos($this->_csv, $this->_enclosure."\t") !== false ) {
+            } else if (str_contains($this->_csv, $this->_enclosure . "\t")) {
                 $this->_delimiter = "\t";
-            } else if ( \strpos($this->_csv, $this->_enclosure . ';' ) !== false ) {
+            } else if (str_contains($this->_csv, $this->_enclosure . ';')) {
                 $this->_delimiter = ';';
-            } else if ( \strpos($this->_csv, ',' ) !== false ) {
+            } else if (str_contains($this->_csv, ',')) {
                 $this->_delimiter = ',';
-            } else if (\strpos($this->_csv, "\t") !== false) {
+            } else if (str_contains($this->_csv, "\t")) {
                 $this->_delimiter = "\t";
             }
-            else if ( \strpos($this->_csv, ';' ) !== false) {
+            else if (str_contains($this->_csv, ';')) {
                 $this->_delimiter = ';';
             }
             else {
@@ -54,10 +54,10 @@ class SimpleCSV {
         }
         if ($this->_enclosure === 'auto') {
             // detect quot
-            if (\strpos($this->_csv, '"') !== false) {
+            if (str_contains($this->_csv, '"')) {
                 $this->_enclosure = '"';
             }
-            else if (\strpos($this->_csv, "'") !== false) {
+            else if (str_contains($this->_csv, "'")) {
                 $this->_enclosure = "'";
             }
             else {
@@ -71,13 +71,13 @@ class SimpleCSV {
             return $this->_linebreak = $set;
         }
         if ($this->_linebreak === 'auto') {
-            if (\strpos($this->_csv,"\r\n") !== false) {
+            if (str_contains($this->_csv, "\r\n")) {
                 $this->_linebreak = "\r\n";
             }
-            else if (\strpos($this->_csv,"\n") !== false) {
+            else if (str_contains($this->_csv, "\n")) {
                 $this->_linebreak = "\n";
             }
-            else if (\strpos($this->_csv,"\r") !== false) {
+            else if (str_contains($this->_csv, "\r")) {
                 $this->_linebreak = "\r";
             }
             else {
@@ -163,13 +163,13 @@ class SimpleCSV {
             $line = '';
             
             foreach ($i as $v) { 
-                if (\strpos($v, $CSV_ENCLOSURE) !== false) { 
+                if (str_contains($v, $CSV_ENCLOSURE)) {
                     $v = \str_replace($CSV_ENCLOSURE, $CSV_ENCLOSURE . $CSV_ENCLOSURE, $v); 
                 }
 
-                if ((\strpos($v, $CSV_DELIMITER) !== false) 
-                    || (\strpos($v, $CSV_ENCLOSURE) !== false) 
-                    || (\strpos($v, $CSV_LINEBREAK) !== false))
+                if ((str_contains($v, $CSV_DELIMITER))
+                    || (str_contains($v, $CSV_ENCLOSURE))
+                    || (str_contains($v, $CSV_LINEBREAK)))
                 {
                     $v = $CSV_ENCLOSURE . $v . $CSV_ENCLOSURE; 
                 }

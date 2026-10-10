@@ -144,15 +144,10 @@ class AccountsHandler extends \XoopsPersistableObjectHandler
         if ($accountsCount > 0) {
             foreach (\array_keys($accountsAll) as $i) {
                 $level = $accountsAll[$i]->getVar('acc_level');
-                switch ($level) {
-                    case 1:
-                        $dots = \str_repeat('- ', $level);
-                        break;
-                    case 2:
-                    default:
-                        $dots = \str_repeat('&nbsp; ', $level) . \str_repeat('- ', $level);
-                        break;
-                }
+                $dots = match ($level) {
+                    1 => \str_repeat('- ', $level),
+                    default => \str_repeat('&nbsp; ', $level) . \str_repeat('- ', $level),
+                };
                 $list[] = ['id' => $accountsAll[$i]->getVar('acc_id'), 'text' => $dots . $accountsAll[$i]->getVar('acc_key') . ' ' . $accountsAll[$i]->getVar('acc_name')];
             }
         } else {

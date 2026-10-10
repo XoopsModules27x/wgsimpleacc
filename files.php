@@ -320,7 +320,7 @@ switch ($op) {
             $uploader = new \XoopsMediaUploader(\WGSIMPLEACC_UPLOAD_FILES_PATH . '/',
                 $helper->getConfig('mimetypes_file'),
                 $helper->getConfig('maxsize_file'), null, null);
-            $uploadFile = Request::getArray('xoops_upload_file', []);
+            $uploadFile = Request::getArray('xoops_upload_file');
             if ($uploader->fetchMedia($uploadFile[0] ?? '')) {
                 $imgName = \substr($filename, 0, strrpos($filename, '.'));
                 $imgName = \preg_replace('/[^A-Za-z0-9\-]/', '_', $imgName);

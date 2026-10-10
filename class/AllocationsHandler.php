@@ -153,15 +153,10 @@ class AllocationsHandler extends \XoopsPersistableObjectHandler
                         $dots = \str_repeat('&nbsp; ', $level) . \str_repeat('&#9725; ', $level);
                         break;
                 }*/
-                switch ($level) {
-                    case 1:
-                        $dots = \str_repeat('- ', $level);
-                        break;
-                    case 2:
-                    default:
-                        $dots = \str_repeat('&nbsp; ', $level) . \str_repeat('-&nbsp;', $level);
-                        break;
-                }
+                $dots = match ($level) {
+                    1 => \str_repeat('- ', $level),
+                    default => \str_repeat('&nbsp; ', $level) . \str_repeat('-&nbsp;', $level),
+                };
                 $list[] = ['id' => $allocationsAll[$i]->getVar('all_id'), 'text' => $dots . ' ' . $allocationsAll[$i]->getVar('all_name')];
             }
         } else {

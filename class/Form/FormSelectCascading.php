@@ -129,10 +129,10 @@ class FormSelectCascading extends \XoopsFormSelect
             if (count($ele_value) > 0 && in_array($ele_option['id'], $ele_value) && ((int)$ele_option['init'] === (int)$ele_option['rel'])) {
                 $ret .= ' selected';
             }
-            if (1 === (int)$ele_type) {
+            if (1 === $ele_type) {
                 $ret .= ' data-ref="' . $ele_option['id'] . '"';
             }
-            if (2 === (int)$ele_type) {
+            if (2 === $ele_type) {
                 $ret .= ' data-belong="' . $ele_option['rel'] . '"';
             }
             if ((int)$ele_option['init'] !== (int)$ele_option['rel']) {
@@ -142,7 +142,7 @@ class FormSelectCascading extends \XoopsFormSelect
         }
         $ret .= '</select>';
 
-        if (1 === (int)$ele_type) {
+        if (1 === $ele_type) {
             $ret .= '<script>
                     $(document).ready(function(){
                         $(".selectFilter").on("change",function(){
@@ -169,7 +169,7 @@ class FormSelectCascading extends \XoopsFormSelect
      * @return int
      */
     public function getType() {
-        return $this->type;
+        return (int)$this->type;
     }
 
     /**

@@ -358,7 +358,7 @@ require_once __DIR__ . '/admin.php';
 \define('_MD_WGSIMPLEACC_OUTTEMPLATE_FOOTER', 'Seitenfuss');
 \define('_MD_WGSIMPLEACC_OUTTEMPLATE_SMARTY', 'Smarty Variable');
 \define('_MD_WGSIMPLEACC_OUTTEMPLATE_SMARTY_DESC', '
-    Dieses Modul verwendet die Xoops <a href="http://www.smarty.net/">Smarty template engine</a> zum Rendern von Ausgaben.
+    Dieses Modul verwendet die Xoops <a href="https://www.smarty.net/">Smarty template engine</a> zum Rendern von Ausgaben.
     <br><br>
     Verfügbare Smarty-Variable sind:
     <ul>
