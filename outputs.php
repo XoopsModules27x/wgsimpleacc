@@ -30,7 +30,7 @@ use XoopsModules\Wgsimpleacc\{
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 require_once \XOOPS_ROOT_PATH . '/header.php';
 $GLOBALS['xoopsTpl']->assign('template_sub', 'db:wgsimpleacc_outputs.tpl');
 
@@ -283,7 +283,7 @@ switch ($op) {
         break;
 }
 
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';
 
 /**
  * function to clean output for csv

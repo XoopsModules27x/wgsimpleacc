@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Utility
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 require_once \XOOPS_ROOT_PATH . '/header.php';
 $GLOBALS['xoopsTpl']->assign('template_sub', 'db:wgsimpleacc_transactions.tpl');
 
@@ -669,4 +669,4 @@ $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 // View comments
 require_once \XOOPS_ROOT_PATH . '/include/comment_view.php';
 
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

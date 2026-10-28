@@ -25,7 +25,7 @@ use XoopsModules\Wgsimpleacc\{
     Common
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 require_once \XOOPS_ROOT_PATH . '/header.php';
 $GLOBALS['xoopsTpl']->assign('template_sub', 'db:wgsimpleacc_files.tpl');
 
@@ -272,9 +272,9 @@ switch ($op) {
         if ($filesHandler->insert($filesObj)) {
             $filTraid = (int)$filesObj->getVar('fil_traid');
             if ($filTraid > 0) {
-                \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 2, \_MD_WGSIMPLEACC_FORM_OK);
+                \redirect_header('files.php?op=list&fil_traid=' . $filTraid . $traOp, 2, \_MD_WGSIMPLEACC_FORM_OK);
             } else {
-                \redirect_header('files.php?op=filedir_list&amp;fil_traid=0', 2, \_MD_WGSIMPLEACC_FORM_OK);
+                \redirect_header('files.php?op=filedir_list&fil_traid=0', 2, \_MD_WGSIMPLEACC_FORM_OK);
             }
         }
         // Get Form Error
@@ -381,7 +381,7 @@ switch ($op) {
                 if (0 === $filTraid) {
                     \redirect_header('files.php?op=filedir_list', 2, \_MD_WGSIMPLEACC_FORM_OK);
                 } else {
-                    \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 2, \_MD_WGSIMPLEACC_FORM_OK);
+                    \redirect_header('files.php?op=list&fil_traid=' . $filTraid . $traOp, 2, \_MD_WGSIMPLEACC_FORM_OK);
                 }
             }
         }
@@ -436,13 +436,15 @@ switch ($op) {
             if ($helper->getConfig('use_filhistories')) {
                 $filesHandler->saveHistoryFiles($filId);
             } else {
-                \unlink(\XOOPS_ROOT_PATH . '/uploads/wgsimpleacc/files/' . $filName);
+                if (\is_file(\XOOPS_ROOT_PATH . '/uploads/wgsimpleacc/files/' . $filName)) {
+                    \unlink(\XOOPS_ROOT_PATH . '/uploads/wgsimpleacc/files/' . $filName);
+                }
             }
             if ($filesHandler->delete($filesObj)) {
                 if (0 === $filTraid) {
                     \redirect_header('files.php?op=filedir_list', 2, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 } else {
-                    \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
+                    \redirect_header('files.php?op=list&fil_traid=' . $filTraid . $traOp, 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
                 }
             } else {
                 $GLOBALS['xoopsTpl']->assign('error', $filesObj->getHtmlErrors());
@@ -463,8 +465,10 @@ switch ($op) {
         }
         $fileName = Request::getString('fil_temp');
         $filePath = \XOOPS_ROOT_PATH . '/uploads/wgsimpleacc/temp/' . $fileName;
-        \unlink($filePath);
-        \redirect_header('files.php?op=list&amp;fil_traid=' . $filTraid . $traOp, 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
+        if (\is_file($filePath)) {
+            \unlink($filePath);
+        }
+        \redirect_header('files.php?op=list&fil_traid=' . $filTraid . $traOp, 3, \_MD_WGSIMPLEACC_FORM_DELETE_OK);
         break;
 }
 
@@ -480,4 +484,4 @@ wgsimpleaccMetaDescription(\_MD_WGSIMPLEACC_FILES_DESC);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL . '/files.php');
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

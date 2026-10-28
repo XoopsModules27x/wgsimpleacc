@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\Constants;
 use XoopsModules\Wgsimpleacc\Common;
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 require_once \XOOPS_ROOT_PATH . '/header.php';
 $GLOBALS['xoopsTpl']->assign('template_sub', 'db:wgsimpleacc_clients.tpl');
 
@@ -243,7 +243,7 @@ switch ($op) {
             $clientsObj->setVar(Request::getString('field'), Request::getInt('value'));
             // Insert Data
             if ($clientsHandler->insert($clientsObj, true)) {
-                \redirect_header('clients.php?op=list&amp;start=' . $start . '&amp;limit=' . $limit, 2, \_MD_WGSIMPLEACC_FORM_OK);
+                \redirect_header('clients.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MD_WGSIMPLEACC_FORM_OK);
             }
         }
         break;
@@ -256,4 +256,4 @@ unset($keywords);
 // Description
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL . '/clients.php');
 
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

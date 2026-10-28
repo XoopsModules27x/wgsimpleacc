@@ -127,8 +127,6 @@ $modversion['templates'] = [
     ['file' => 'wgsimpleacc_transactions_list.tpl', 'description' => ''],
     ['file' => 'wgsimpleacc_transactions_hist.tpl', 'description' => ''],
     ['file' => 'wgsimpleacc_transactions_item.tpl', 'description' => ''],
-    ['file' => 'wgsimpleacc_transactions_pdf.tpl', 'description' => ''],
-    ['file' => 'wgsimpleacc_transactions_print.tpl', 'description' => ''],
     ['file' => 'wgsimpleacc_clients.tpl', 'description' => ''],
     ['file' => 'wgsimpleacc_clients_list.tpl', 'description' => ''],
     ['file' => 'wgsimpleacc_clients_item.tpl', 'description' => ''],

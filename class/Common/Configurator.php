@@ -22,6 +22,8 @@ namespace XoopsModules\Wgsimpleacc\Common;
  */
 
 
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
+
 /**
  * Class Configurator
  */

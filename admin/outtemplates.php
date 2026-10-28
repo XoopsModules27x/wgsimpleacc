@@ -23,7 +23,7 @@ use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\Constants;
 use XoopsModules\Wgsimpleacc\Common;
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request otpl_id
@@ -36,9 +36,9 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_outtemplates.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('outtemplates.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('outtemplates.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_OUTTEMPLATE, 'outtemplates.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $outtemplatesCount = $outtemplatesHandler->getCountOuttemplates();
         $outtemplatesAll = $outtemplatesHandler->getAllOuttemplates($start, $limit);
         $GLOBALS['xoopsTpl']->assign('outtemplates_count', $outtemplatesCount);
@@ -64,9 +64,9 @@ switch ($op) {
     case 'new':
     case 'clone':
         $templateMain = 'wgsimpleacc_admin_outtemplates.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('outtemplates.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('outtemplates.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_OUTTEMPLATES, 'outtemplates.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $outtemplatesObj = $outtemplatesHandler->create();
         if ('clone' === $op) {
@@ -127,10 +127,10 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_outtemplates.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('outtemplates.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('outtemplates.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_OUTTEMPLATE, 'outtemplates.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_OUTTEMPLATES, 'outtemplates.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $outtemplatesObj = $outtemplatesHandler->get($otplId);
         $form = $outtemplatesObj->getFormOuttemplates();
@@ -138,7 +138,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_outtemplates.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('outtemplates.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('outtemplates.php'));
         $outtemplatesObj = $outtemplatesHandler->get($otplId);
         $otplName = $outtemplatesObj->getVar('otpl_name');
         if (1 == Request::getInt('ok')) {
@@ -160,4 +160,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

@@ -146,13 +146,13 @@ class FileChecker
 $op = Request::getString('op', '', 'POST');
 if ($op == 'copyfile') {
     if (\Xmf\Request::hasVar('original_file_path', 'POST')) {
-        $original_file_path = $_POST['original_file_path'];
+        $original_file_path = Request::getString('original_file_path');
     }
     if (\Xmf\Request::hasVar('file_path', 'POST')) {
-        $file_path = $_POST['file_path'];
+        $file_path = Request::getString('file_path');
     }
     if (\Xmf\Request::hasVar('redirect', 'POST')) {
-        $redirect = $_POST['redirect'];
+        $redirect =Request::getString('redirect');
     }
     $msg = FileChecker::copyFile($original_file_path, $file_path) ? \constant('_CO_WGSIMPLEACC_FC_FILECOPIED') : \constant('_CO_WGSIMPLEACC_FC_FILENOTCOPIED');
     \redirect_header($redirect, 2, $msg . ': ' . $file_path);

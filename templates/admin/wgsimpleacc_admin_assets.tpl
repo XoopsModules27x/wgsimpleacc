@@ -32,7 +32,7 @@
                                 <{if $color.code == $asset.color}>
                                     <span style="background-color:<{$asset.color}>;border:3px double #000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                 <{else}>
-                                    <a href="assets.php?op=savecolor&amp;as_id=<{$asset.id}>&amp;as_color=<{$color.code|substr:1}>" title="<{$color.name}>">
+                                    <a href="assets.php?op=savecolor&amp;as_id=<{$asset.id}>&amp;as_color=<{$color.code_nohash}>" title="<{$color.name}>">
                                         <span style="background-color:<{$color.code}>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     </a>
                                 <{/if}>

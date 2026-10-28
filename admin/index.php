@@ -22,7 +22,7 @@
 use XoopsModules\Wgsimpleacc\Common;
 
 require_once \dirname(__DIR__) . '/preloads/autoloader.php';
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 
 // Template Index
 $templateMain = 'wgsimpleacc_admin_index.tpl';
@@ -81,7 +81,7 @@ $adminObject->addConfigBoxLine('wgphpoffice', 'module');
 */
 
 // Render Index
-$GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('index.php'));
+$GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('index.php'));
 // Test Data
 if ($helper->getConfig('displaySampleButton')) {
     \xoops_loadLanguage('admin/modulesadmin', 'system');
@@ -89,8 +89,8 @@ if ($helper->getConfig('displaySampleButton')) {
     $adminObject->addItemButton(\constant('_CO_WGSIMPLEACC_ADD_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=load');
     $adminObject->addItemButton(\constant('_CO_WGSIMPLEACC_SAVE_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=save');
 //    $adminObject->addItemButton(\constant('_CO_WGSIMPLEACC_EXPORT_SCHEMA'), '__DIR__ . /../../testdata/index.php?op=exportschema', 'add');
-    $adminObject->displayButton('left');
+    $adminObject->renderButton('left');
 }
-$GLOBALS['xoopsTpl']->assign('index', $adminObject->displayIndex());
+$GLOBALS['xoopsTpl']->assign('index', $adminObject->renderIndex());
 // End Test Data
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

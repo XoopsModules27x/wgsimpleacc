@@ -26,6 +26,8 @@ namespace XoopsModules\Wgsimpleacc;
  * @since        
  */
 
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
+
 use Xmf\Request;
 use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\{Helper, Constants, Form\FormInline};
@@ -116,28 +118,28 @@ class Utility
     public static function getColors()
     {
         $colors = [];
-        $colors[] = ['name' => 'lightred',    'code' => '#ff9999', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTRED];
-        $colors[] = ['name' => 'red',         'code' => '#ff3333', 'descr' => \_MD_WGSIMPLEACC_COLOR_RED];
-        $colors[] = ['name' => 'darkred',     'code' => '#990000', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKRED];
-        $colors[] = ['name' => 'lightorange', 'code' => '#ffcc99', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTORANGE];
-        $colors[] = ['name' => 'orange',      'code' => '#ff9933', 'descr' => \_MD_WGSIMPLEACC_COLOR_ORANGE];
-        $colors[] = ['name' => 'darkorange',  'code' => '#993300', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKORANGE];
-        $colors[] = ['name' => 'lightyellow', 'code' => '#ffffcc', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTYELLOW];
-        $colors[] = ['name' => 'yellow',      'code' => '#ffff66', 'descr' => \_MD_WGSIMPLEACC_COLOR_YELLOW];
-        $colors[] = ['name' => 'darkyellow',  'code' => '#999900', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKYELLOW];
-        $colors[] = ['name' => 'lightgreen',  'code' => '#ccff99', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTGREEN];
-        $colors[] = ['name' => 'green',       'code' => '#66cc00', 'descr' => \_MD_WGSIMPLEACC_COLOR_GREEN];
-        $colors[] = ['name' => 'darkgreen',   'code' => '#339900', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKGREEN];
-        $colors[] = ['name' => 'lightblue',   'code' => '#99ccff', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTBLUE];
-        $colors[] = ['name' => 'blue',        'code' => '#3399ff', 'descr' => \_MD_WGSIMPLEACC_COLOR_BLUE];
-        $colors[] = ['name' => 'darkblue',    'code' => '#0066cc', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKBLUE];
-        $colors[] = ['name' => 'purple',      'code' => '#9966cc', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTPURPLE];
-        $colors[] = ['name' => 'lightpurple', 'code' => '#cc99ff', 'descr' => \_MD_WGSIMPLEACC_COLOR_PURPLE];
-        $colors[] = ['name' => 'darkpurple',  'code' => '#660099', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKPURPLE];
-        $colors[] = ['name' => 'lightbrown',  'code' => '#996666', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTBROWN];
-        $colors[] = ['name' => 'brown',       'code' => '#663300', 'descr' => \_MD_WGSIMPLEACC_COLOR_BROWN];
-        $colors[] = ['name' => 'darkbrown',   'code' => '#330000', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKBROWN];
-        $colors[] = ['name' => 'grey',        'code' => '#999999', 'descr' => \_MD_WGSIMPLEACC_COLOR_GREY];
+        $colors[] = ['name' => 'lightred',    'code' => '#ff9999', 'code_nohash' => 'ff9999', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTRED];
+        $colors[] = ['name' => 'red',         'code' => '#ff3333', 'code_nohash' => 'ff3333', 'descr' => \_MD_WGSIMPLEACC_COLOR_RED];
+        $colors[] = ['name' => 'darkred',     'code' => '#990000', 'code_nohash' => '990000', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKRED];
+        $colors[] = ['name' => 'lightorange', 'code' => '#ffcc99', 'code_nohash' => 'ffcc99', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTORANGE];
+        $colors[] = ['name' => 'orange',      'code' => '#ff9933', 'code_nohash' => 'ff9933', 'descr' => \_MD_WGSIMPLEACC_COLOR_ORANGE];
+        $colors[] = ['name' => 'darkorange',  'code' => '#993300', 'code_nohash' => '993300', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKORANGE];
+        $colors[] = ['name' => 'lightyellow', 'code' => '#ffffcc', 'code_nohash' => 'ffffcc', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTYELLOW];
+        $colors[] = ['name' => 'yellow',      'code' => '#ffff66', 'code_nohash' => 'ffff66', 'descr' => \_MD_WGSIMPLEACC_COLOR_YELLOW];
+        $colors[] = ['name' => 'darkyellow',  'code' => '#999900', 'code_nohash' => '999900', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKYELLOW];
+        $colors[] = ['name' => 'lightgreen',  'code' => '#ccff99', 'code_nohash' => 'ccff99', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTGREEN];
+        $colors[] = ['name' => 'green',       'code' => '#66cc00', 'code_nohash' => '66cc00', 'descr' => \_MD_WGSIMPLEACC_COLOR_GREEN];
+        $colors[] = ['name' => 'darkgreen',   'code' => '#339900', 'code_nohash' => '339900', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKGREEN];
+        $colors[] = ['name' => 'lightblue',   'code' => '#99ccff', 'code_nohash' => '99ccff', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTBLUE];
+        $colors[] = ['name' => 'blue',        'code' => '#3399ff', 'code_nohash' => '3399ff', 'descr' => \_MD_WGSIMPLEACC_COLOR_BLUE];
+        $colors[] = ['name' => 'darkblue',    'code' => '#0066cc', 'code_nohash' => '0066cc', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKBLUE];
+        $colors[] = ['name' => 'purple',      'code' => '#9966cc', 'code_nohash' => '9966cc', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTPURPLE];
+        $colors[] = ['name' => 'lightpurple', 'code' => '#cc99ff', 'code_nohash' => 'cc99ff', 'descr' => \_MD_WGSIMPLEACC_COLOR_PURPLE];
+        $colors[] = ['name' => 'darkpurple',  'code' => '#660099', 'code_nohash' => '660099', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKPURPLE];
+        $colors[] = ['name' => 'lightbrown',  'code' => '#996666', 'code_nohash' => '996666', 'descr' => \_MD_WGSIMPLEACC_COLOR_LIGHTBROWN];
+        $colors[] = ['name' => 'brown',       'code' => '#663300', 'code_nohash' => '663300', 'descr' => \_MD_WGSIMPLEACC_COLOR_BROWN];
+        $colors[] = ['name' => 'darkbrown',   'code' => '#330000', 'code_nohash' => '330000', 'descr' => \_MD_WGSIMPLEACC_COLOR_DARKBROWN];
+        $colors[] = ['name' => 'grey',        'code' => '#999999', 'code_nohash' => '999999', 'descr' => \_MD_WGSIMPLEACC_COLOR_GREY];
 
         return $colors;
     }

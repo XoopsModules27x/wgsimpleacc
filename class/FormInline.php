@@ -27,6 +27,8 @@ use XoopsSimpleForm;
 /**
  * base class
  */
+
+\xoops_load('XoopsFormLoader');
 \xoops_load('XoopsForm');
 
 /**

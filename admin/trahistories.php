@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Utility
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request hist_id
@@ -40,7 +40,7 @@ switch ($op) {
         // Define Stylesheet
         $GLOBALS['xoTheme']->addStylesheet($style, null);
         $templateMain = 'wgsimpleacc_admin_trahistories.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('trahistories.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('trahistories.php'));
         $trahistoriesCount = $trahistoriesHandler->getCountTrahistories();
         $trahistoriesAll = $trahistoriesHandler->getAllTrahistories($start, $limit);
         $GLOBALS['xoopsTpl']->assign('trahistories_count', $trahistoriesCount);
@@ -65,7 +65,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_trahistories.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('trahistories.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('trahistories.php'));
         $trahistoriesObj = $trahistoriesHandler->get($histId);
         if (1 == Request::getInt('ok')) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
@@ -86,4 +86,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

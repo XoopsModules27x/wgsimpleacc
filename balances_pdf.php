@@ -25,7 +25,7 @@ use XoopsModules\Wgsimpleacc\{
     Utility
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 require_once \XOOPS_ROOT_PATH . '/header.php';
 if (\file_exists($tcpdf = \XOOPS_ROOT_PATH.'/Frameworks/tcpdf/')) {
     require_once $tcpdf . 'tcpdf.php';
@@ -194,7 +194,7 @@ if ('cn' == _LANGCODE) {
 }
 // Set some language-dependent strings (optional)
 $lang = \XOOPS_ROOT_PATH.'/Frameworks/tcpdf/lang/eng.php';
-if (@\file_exists($lang)) {
+if (\file_exists($lang) && is_file($lang)) {
     require_once $lang;
     $pdf->setLanguageArray($lang);
 }

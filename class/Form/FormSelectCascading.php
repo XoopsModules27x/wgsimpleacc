@@ -63,6 +63,8 @@ use XoopsFormSelect;
 
 \defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
+\xoops_load('XoopsFormLoader');
+
 /**
  * Create cascading form select
  */

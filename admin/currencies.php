@@ -25,7 +25,7 @@ use XoopsModules\Wgsimpleacc\{
     Common
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request cur_id
@@ -38,9 +38,9 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_currencies.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('currencies.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('currencies.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_CURRENCY, 'currencies.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $currenciesCount = $currenciesHandler->getCountCurrencies();
         $currenciesAll = $currenciesHandler->getAllCurrencies($start, $limit);
         $GLOBALS['xoopsTpl']->assign('currencies_count', $currenciesCount);
@@ -65,9 +65,9 @@ switch ($op) {
         break;
     case 'new':
         $templateMain = 'wgsimpleacc_admin_currencies.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('currencies.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('currencies.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_CURRENCIES, 'currencies.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $currenciesObj = $currenciesHandler->create();
         $form = $currenciesObj->getFormCurrencies();
@@ -107,10 +107,10 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_currencies.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('currencies.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('currencies.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_CURRENCY, 'currencies.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_CURRENCIES, 'currencies.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $currenciesObj = $currenciesHandler->get($curId);
         $form = $currenciesObj->getFormCurrencies();
@@ -118,7 +118,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_currencies.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('currencies.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('currencies.php'));
         $currenciesObj = $currenciesHandler->get($curId);
         $curCode = $currenciesObj->getVar('cur_code');
         if (1 == Request::getInt('ok')) {
@@ -140,4 +140,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

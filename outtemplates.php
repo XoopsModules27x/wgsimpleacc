@@ -23,7 +23,7 @@ use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\Constants;
 use XoopsModules\Wgsimpleacc\Common;
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 require_once \XOOPS_ROOT_PATH . '/header.php';
 $GLOBALS['xoopsTpl']->assign('template_sub', 'db:wgsimpleacc_outtemplates.tpl');
 
@@ -311,7 +311,7 @@ switch ($op) {
                     $filesObj->setVar('fil_submitter', $GLOBALS['xoopsUser']->id());
                     // Insert Data
                     $filesHandler->insert($filesObj);
-                    \redirect_header('transactions.php?op=list&amp;filePdf=' . $filePdf, 3, \_MD_WGSIMPLEACC_OUTTEMPLATE_PDF_SUCCESS);
+                    \redirect_header('transactions.php?op=list&filePdf=' . $filePdf, 3, \_MD_WGSIMPLEACC_OUTTEMPLATE_PDF_SUCCESS);
                 }
                 break;
         }
@@ -326,5 +326,5 @@ $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL . '/outtemplates
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
 
 if ($useFooter) {
-    require __DIR__ . '/footer.php';
+    require_once __DIR__ . '/footer.php';
 }

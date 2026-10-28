@@ -25,7 +25,7 @@ use XoopsModules\Wgsimpleacc\{
     Utility
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 require_once \XOOPS_ROOT_PATH . '/header.php';
 $GLOBALS['xoopsTpl']->assign('template_sub', 'db:wgsimpleacc_index.tpl');
 
@@ -44,7 +44,7 @@ $filterType      = Request::getInt('filterType', Constants::FILTER_TYPEALL);
 if (!$permissionsHandler->getPermGlobalView()) {
     $GLOBALS['xoopsTpl']->assign('errorPerm', _NOPERM);
     showLogin();
-    require __DIR__ . '/footer.php';
+    require_once __DIR__ . '/footer.php';
     exit;
 }
 
@@ -302,7 +302,7 @@ unset($keywords);
 wgsimpleaccMetaDescription(\_MD_WGSIMPLEACC_INDEX_DESC);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', \WGSIMPLEACC_URL . '/index.php');
 $GLOBALS['xoopsTpl']->assign('wgsimpleacc_upload_url', \WGSIMPLEACC_UPLOAD_URL);
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';
 
 function showLogin() {
     global $xoopsConfig;

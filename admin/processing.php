@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\Constants;
 use XoopsModules\Wgsimpleacc\Common;
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request pro_id
@@ -39,9 +39,9 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_processing.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('processing.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('processing.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_PROCESSING, 'processing.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $processingCount = $processingHandler->getCountProcessing();
         $processingAll = $processingHandler->getAllProcessing($start, $limit);
         $GLOBALS['xoopsTpl']->assign('processing_count', $processingCount);
@@ -67,9 +67,9 @@ switch ($op) {
         break;
     case 'new':
         $templateMain = 'wgsimpleacc_admin_processing.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('processing.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('processing.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_PROCESSING, 'processing.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $processingObj = $processingHandler->create();
         $form = $processingObj->getFormprocessing();
@@ -106,10 +106,10 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_processing.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('processing.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('processing.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_PROCESSING, 'processing.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_PROCESSING, 'processing.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $processingObj = $processingHandler->get($proId);
         $form = $processingObj->getFormProcessing();
@@ -117,7 +117,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_processing.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('processing.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('processing.php'));
         $processingObj = $processingHandler->get($proId);
         $cliName = $processingObj->getVar('cli_name');
         if (1 == Request::getInt('ok')) {
@@ -155,4 +155,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

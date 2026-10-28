@@ -25,7 +25,7 @@ use XoopsModules\Wgsimpleacc\{
     Common
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op       = Request::getCmd('op', 'list');
 $filId    = Request::getInt('fil_id');
@@ -39,9 +39,9 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_files.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('files.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('files.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_FILE, 'files.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $filesCount = $filesHandler->getCountFiles();
         $filesAll = $filesHandler->getAllFiles($start, $limit, 'fil_id', 'DESC');
         $GLOBALS['xoopsTpl']->assign('files_count', $filesCount);
@@ -66,9 +66,9 @@ switch ($op) {
         break;
     case 'new':
         $templateMain = 'wgsimpleacc_admin_files.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('files.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('files.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_FILES, 'files.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $filesObj = $filesHandler->create();
         $form = $filesObj->getFormFilesAdmin($filTraid);
@@ -132,10 +132,10 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_files.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('files.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('files.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_FILE, 'files.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_FILES, 'files.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $filesObj = $filesHandler->get($filId);
         $form = $filesObj->getFormFilesAdmin($filTraid);
@@ -143,7 +143,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_files.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('files.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('files.php'));
         $filesObj = $filesHandler->get($filId);
         $filName = $filesObj->getVar('fil_name');
         if (1 == Request::getInt('ok')) {
@@ -165,4 +165,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';
