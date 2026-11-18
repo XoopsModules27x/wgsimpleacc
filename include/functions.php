@@ -23,27 +23,6 @@ defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 use XoopsModules\Wgsimpleacc\Helper;
 
 /**
- * Get the permissions ids
- *
- * @param  $permtype
- * @param  $dirname
- * @return mixed $itemIds
- */
-function wgsimpleaccGetMyItemIds($permtype, $dirname)
-{
-    global $xoopsUser;
-    static $permissions = [];
-    if (\is_array($permissions) && \array_key_exists($permtype, $permissions)) {
-        return $permissions[$permtype];
-    }
-    $moduleHandler = \xoops_getHandler('module');
-    $wgsimpleaccModule = $moduleHandler->getByDirname($dirname);
-    $groups = \is_object($xoopsUser) ? $xoopsUser->getGroups() : \XOOPS_GROUP_ANONYMOUS;
-    $grouppermHandler = \xoops_getHandler('groupperm');
-    return $grouppermHandler->getItemIds($permtype, $groups, $wgsimpleaccModule->getVar('mid'));
-}
-
-/**
  * Add content as meta tag to template
  * @param $content
  * @return void

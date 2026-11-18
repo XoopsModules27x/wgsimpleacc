@@ -249,6 +249,7 @@ require_once __DIR__ . '/include/xoops_version.inc.php';
 $iniPostMaxSize       = wgsimpleaccReturnBytes(\ini_get('post_max_size'));
 $iniUploadMaxFileSize = wgsimpleaccReturnBytes(\ini_get('upload_max_filesize'));
 $maxSize              = min($iniPostMaxSize, $iniUploadMaxFileSize);
+$increment = 1;
 if ($maxSize > 10000 * 1048576) {
     $increment = 500;
 }
@@ -269,12 +270,6 @@ if ($maxSize <= 500 * 1048576) {
 }
 if ($maxSize <= 100 * 1048576) {
     $increment = 2;
-}
-if ($maxSize <= 50 * 1048576) {
-    $increment = 1;
-}
-if ($maxSize <= 25 * 1048576) {
-    $increment = 0.5;
 }
 $optionMaxsize = [];
 $i = $increment;
@@ -394,8 +389,8 @@ $modversion['config'][] = [
 // show startmin navigation
 $modversion['config'][] = [
     'name'        => 'displayStartminNav',
-    'title'       => '\_MI_WGFILEMANAGER_SHOW_STARTMIN_NAV',
-    'description' => '\_MI_WGFILEMANAGER_SHOW_STARTMIN_NAV_DESC',
+    'title'       => '_MI_WGFILEMANAGER_SHOW_STARTMIN_NAV',
+    'description' => '_MI_WGFILEMANAGER_SHOW_STARTMIN_NAV_DESC',
     'formtype'    => 'select',
     'valuetype'   => 'text',
     'default'     => 'none',
