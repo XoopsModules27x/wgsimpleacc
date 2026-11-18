@@ -36,7 +36,7 @@
                         <{if $color.code == $account.color}>
                             <span style="background-color:<{$account.color}>;border:3px double #000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <{else}>
-                            <a href="accounts.php?op=savecolor&amp;acc_id=<{$account.id}>&amp;acc_color=<{$color.code|substr:1}>" title="<{$color.name}>">
+                            <a href="accounts.php?op=savecolor&amp;acc_id=<{$account.id}>&amp;acc_color=<{$color.code_nohash}>" title="<{$color.name}>">
                                 <span style="background-color:<{$color.code}>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             </a>
                         <{/if}>

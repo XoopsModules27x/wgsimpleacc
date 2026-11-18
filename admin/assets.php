@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Utility
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request as_id
@@ -39,9 +39,9 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_assets.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('assets.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('assets.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_ASSET, 'assets.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $assetsCount = $assetsHandler->getCountAssets();
         $assetsAll = $assetsHandler->getAllAssets($start, $limit);
         $GLOBALS['xoopsTpl']->assign('assets_count', $assetsCount);
@@ -68,9 +68,9 @@ switch ($op) {
         break;
     case 'new':
         $templateMain = 'wgsimpleacc_admin_assets.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('assets.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('assets.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_ASSETS, 'assets.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $assetsObj = $assetsHandler->create();
         $form = $assetsObj->getFormAssets(false, true);
@@ -126,10 +126,10 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_assets.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('assets.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('assets.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_ASSET, 'assets.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_ASSETS, 'assets.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $assetsObj = $assetsHandler->get($asId);
         $form = $assetsObj->getFormAssets(false, true);
@@ -137,7 +137,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_assets.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('assets.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('assets.php'));
         $assetsObj = $assetsHandler->get($asId);
         $asName = $assetsObj->getVar('as_name');
         if (1 == Request::getInt('ok')) {
@@ -159,4 +159,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

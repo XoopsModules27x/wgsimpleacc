@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Common
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request bal_id
@@ -39,7 +39,7 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_balances.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('balances.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('balances.php'));
         $balancesCount = $balancesHandler->getCountBalances();
         $balancesAll = $balancesHandler->getAllBalances($start, $limit);
         $GLOBALS['xoopsTpl']->assign('balances_count', $balancesCount);
@@ -103,10 +103,10 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_balances.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('balances.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('balances.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_BALANCE, 'balances.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_BALANCES, 'balances.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $balancesObj = $balancesHandler->get($balId);
         $form = $balancesObj->getFormBalances(false, true);
@@ -114,7 +114,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_balances.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('balances.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('balances.php'));
         $balancesObj = $balancesHandler->get($balId);
         $balFrom = $balancesObj->getVar('bal_from');
         if (1 == Request::getInt('ok')) {
@@ -144,4 +144,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

@@ -12,6 +12,8 @@ namespace XoopsModules\Wgsimpleacc\Common;
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
+
 use XoopsModules\Wgsimpleacc\Common;
 
 /**

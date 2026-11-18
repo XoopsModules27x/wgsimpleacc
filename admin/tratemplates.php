@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Common
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request ttpl_id
@@ -39,9 +39,9 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_tratemplates.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('tratemplates.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('tratemplates.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_TRATEMPLATE, 'tratemplates.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $tratemplatesCount = $tratemplatesHandler->getCountTratemplates();
         $tratemplatesAll = $tratemplatesHandler->getAllTratemplates($start, $limit);
         $GLOBALS['xoopsTpl']->assign('tratemplates_count', $tratemplatesCount);
@@ -66,9 +66,9 @@ switch ($op) {
         break;
     case 'new':
         $templateMain = 'wgsimpleacc_admin_tratemplates.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('tratemplates.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('tratemplates.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_TRATEMPLATES, 'tratemplates.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $tratemplatesObj = $tratemplatesHandler->create();
         $form = $tratemplatesObj->getFormTratemplates();
@@ -111,11 +111,11 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_tratemplates.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('tratemplates.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('tratemplates.php'));
         $GLOBALS['xoTheme']->addScript(\WGSIMPLEACC_URL . '/assets/js/functions.js');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_TRATEMPLATE, 'tratemplates.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_TRATEMPLATES, 'tratemplates.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $tratemplatesObj = $tratemplatesHandler->get($tplId);
         $form = $tratemplatesObj->getFormTratemplates();
@@ -123,7 +123,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_tratemplates.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('tratemplates.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('tratemplates.php'));
         $tratemplatesObj = $tratemplatesHandler->get($tplId);
         $tplName = $tratemplatesObj->getVar('ttpl_name');
         if (1 == Request::getInt('ok')) {
@@ -145,4 +145,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

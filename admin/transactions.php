@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Utility
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request tra_id
@@ -40,9 +40,9 @@ switch ($op) {
         // Define Stylesheet
         $GLOBALS['xoTheme']->addStylesheet($style, null);
         $templateMain = 'wgsimpleacc_admin_transactions.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('transactions.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('transactions.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_TRANSACTION, 'transactions.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $transactionsCount = $transactionsHandler->getCountTransactions();
         $transactionsAll = $transactionsHandler->getAllTransactions($start, $limit, 'tra_id', 'DESC');
         $GLOBALS['xoopsTpl']->assign('transactions_count', $transactionsCount);
@@ -70,9 +70,9 @@ switch ($op) {
     case 'new':
         $templateMain = 'wgsimpleacc_admin_transactions.tpl';
         $GLOBALS['xoTheme']->addScript(\WGSIMPLEACC_URL . '/assets/js/forms.js');
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('transactions.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('transactions.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_TRANSACTIONS, 'transactions.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $transactionsObj = $transactionsHandler->create();
         $form = $transactionsObj->getFormTransactions(false, true, Constants::CLASS_BOTH, $start, $limit);
@@ -126,7 +126,7 @@ switch ($op) {
         $transactionsObj->setVar('tra_submitter', Request::getInt('tra_submitter'));
         // Insert Data
         if ($transactionsHandler->insert($transactionsObj)) {
-            \redirect_header('transactions.php?op=list&amp;start=' . $start . '&amp;limit=' . $limit, 2, \_MD_WGSIMPLEACC_FORM_OK);
+            \redirect_header('transactions.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form
         $GLOBALS['xoopsTpl']->assign('error', $transactionsObj->getHtmlErrors());
@@ -136,10 +136,10 @@ switch ($op) {
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_transactions.tpl';
         $GLOBALS['xoTheme']->addScript(\WGSIMPLEACC_URL . '/assets/js/forms.js');
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('transactions.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('transactions.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_TRANSACTION, 'transactions.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_TRANSACTIONS, 'transactions.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $transactionsObj = $transactionsHandler->get($traId);
         $form = $transactionsObj->getFormTransactions(false, true, 0, $start, $limit);
@@ -147,7 +147,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_transactions.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('transactions.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('transactions.php'));
         $transactionsObj = $transactionsHandler->get($traId);
         $transactionsHandler->saveHistoryTransactions($traId, 'delete Admin');
         $traDesc = $transactionsObj->getVar('tra_desc');
@@ -170,4 +170,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

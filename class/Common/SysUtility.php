@@ -23,6 +23,8 @@ namespace XoopsModules\Wgsimpleacc\Common;
  * @author       Mamba <mambax7@gmail.com>
  */
 
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
+
 use MyTextSanitizer;
 use XoopsFormDhtmlTextArea;
 use XoopsFormTextArea;

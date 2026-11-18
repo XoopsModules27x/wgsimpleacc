@@ -19,9 +19,9 @@ defined('XOOPS_ROOT_PATH') || exit('Restricted access');
  * @author         Goffy - XOOPS Development Team - Email:<webmaster@wedega.com> - Website:<https://xoops.wedega.com>
  */
  
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 $templateMain = 'wgsimpleacc_admin_about.tpl';
-$GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('about.php'));
+$GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('about.php'));
 $adminObject::setPaypal('6KJ7RW5DR3VTJ');
 $GLOBALS['xoopsTpl']->assign('about', $adminObject->renderAbout(false));
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

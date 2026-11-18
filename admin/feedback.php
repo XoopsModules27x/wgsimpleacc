@@ -23,7 +23,7 @@ use Xmf\Module\Admin;
 use Xmf\Request;
 use XoopsModules\Wgsimpleacc\Common\ModuleFeedback;
 
-include __DIR__ . '/header.php';
+include_once __DIR__ . '/header.php';
 
 $adminObject = Admin::getInstance();
 
@@ -40,7 +40,7 @@ $moduleDirNameUpper = \mb_strtoupper($moduleDirName);
 switch ($op) {
     case 'list':
     default:
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('feedback.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('feedback.php'));
         $feedback->name  = $GLOBALS['xoopsUser']->getVar('name');
         $feedback->email = $GLOBALS['xoopsUser']->getVar('email');
         $feedback->site  = \XOOPS_URL;
@@ -53,7 +53,7 @@ switch ($op) {
             \redirect_header('index.php', 3, \implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
         }
 
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('feedback.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('feedback.php'));
 
         $your_name  = Request::getString('your_name');
         $your_site  = Request::getString('your_site');
@@ -96,4 +96,4 @@ switch ($op) {
 
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

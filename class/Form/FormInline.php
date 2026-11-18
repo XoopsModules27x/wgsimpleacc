@@ -29,6 +29,8 @@ use XoopsSimpleForm;
  */
 \xoops_load('XoopsForm');
 
+\xoops_load('XoopsFormLoader');
+
 /**
  * Form that will output as a simple HTML form with minimum formatting
  */

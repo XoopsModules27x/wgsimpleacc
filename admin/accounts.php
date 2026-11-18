@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Common
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request acc_id
@@ -39,9 +39,9 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_accounts.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('accounts.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('accounts.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_ACCOUNT, 'accounts.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $accountsCount = $accountsHandler->getCountAccounts();
         $accountsAll = $accountsHandler->getAllAccounts($start, $limit);
         $GLOBALS['xoopsTpl']->assign('accounts_count', $accountsCount);
@@ -68,9 +68,9 @@ switch ($op) {
         break;
     case 'new':
         $templateMain = 'wgsimpleacc_admin_accounts.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('accounts.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('accounts.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_ACCOUNTS, 'accounts.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $accountsObj = $accountsHandler->create();
         $form = $accountsObj->getFormAccounts(false, true);
@@ -131,10 +131,10 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_accounts.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('accounts.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('accounts.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_ACCOUNT, 'accounts.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_ACCOUNTS, 'accounts.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $accountsObj = $accountsHandler->get($accId);
         $form = $accountsObj->getFormAccounts(false, true);
@@ -142,7 +142,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_accounts.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('accounts.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('accounts.php'));
         $accountsObj = $accountsHandler->get($accId);
         $accKey = $accountsObj->getVar('acc_key');
         if (1 == Request::getInt('ok')) {
@@ -164,4 +164,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

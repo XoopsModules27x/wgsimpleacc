@@ -23,7 +23,7 @@ use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\Constants;
 use XoopsModules\Wgsimpleacc\Common;
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op    = Request::getCmd('op', 'list');
 $start = Request::getInt('start');
@@ -36,9 +36,9 @@ switch ($op) {
         // Define Stylesheet
         $GLOBALS['xoTheme']->addStylesheet($style, null);
         $templateMain = 'wgsimpleacc_admin_allocations.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('allocations.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('allocations.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_ALLOCATION, 'allocations.php?op=new');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         $allocationsCount = $allocationsHandler->getCountAllocations();
         $allocationsAll = $allocationsHandler->getAllAllocations($start, $limit);
         $GLOBALS['xoopsTpl']->assign('allocations_count', $allocationsCount);
@@ -75,9 +75,9 @@ switch ($op) {
         break;
     case 'new':
         $templateMain = 'wgsimpleacc_admin_allocations.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('allocations.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('allocations.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_ALLOCATIONS, 'allocations.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Form Create
         $allocationsObj = $allocationsHandler->create();
         $form = $allocationsObj->getFormAllocations($start, $limit, 'list', false, true);
@@ -122,10 +122,10 @@ switch ($op) {
         break;
     case 'edit':
         $templateMain = 'wgsimpleacc_admin_allocations.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('allocations.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('allocations.php'));
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_ADD_ALLOCATION, 'allocations.php?op=new');
         $adminObject->addItemButton(\_AM_WGSIMPLEACC_LIST_ALLOCATIONS, 'allocations.php', 'list');
-        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->displayButton('left'));
+        $GLOBALS['xoopsTpl']->assign('buttons', $adminObject->renderButton('left'));
         // Get Form
         $allocationsObj = $allocationsHandler->get($allId);
         $form = $allocationsObj->getFormAllocations($start, $limit, 'list',false, true);
@@ -133,7 +133,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_allocations.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('allocations.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('allocations.php'));
         $allocationsObj = $allocationsHandler->get($allId);
         $allName = $allocationsObj->getVar('all_name');
         if (1 == Request::getInt('ok')) {
@@ -155,4 +155,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';
